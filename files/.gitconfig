@@ -1,5 +1,7 @@
 [user]
 	email = gabrielqduarte@gmail.com
 	name = Gabriel Duarte
+[hub]
+	protocol = https
 [core]
 	editor = code --wait
