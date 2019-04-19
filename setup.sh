@@ -25,7 +25,7 @@ if [ ! -d "$DOTFILES_FOLDER" ]; then
   echo "
   Clone my dotfiles config
 "
-  git clone https://github.com/GabrielDuarteM/dotfiles $PROJECTS_FOLDER
+  git clone https://github.com/GabrielDuarteM/dotfiles $DOTFILES_FOLDER
 fi
 
 echo "
