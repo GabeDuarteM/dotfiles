@@ -8,15 +8,6 @@ source ~/.profile >/dev/null 2>&1
 PROJECTS_FOLDER=~/Projects
 DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
 
-echo "
-  Link configs
-"
-ln --force $DOTFILES_FOLDER/files/.aliases ~
-ln --force $DOTFILES_FOLDER/files/.gitconfig ~
-ln --force $DOTFILES_FOLDER/files/.profile ~
-ln --force $DOTFILES_FOLDER/files/.zpreztorc ~
-ln --force $DOTFILES_FOLDER/files/.zshrc ~
-
 # Install apt packages
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   echo "
@@ -36,6 +27,15 @@ if [ ! -d "$DOTFILES_FOLDER" ]; then
 "
   git clone https://github.com/GabrielDuarteM/dotfiles $PROJECTS_FOLDER
 fi
+
+echo "
+  Link configs
+"
+ln --force $DOTFILES_FOLDER/files/.aliases ~
+ln --force $DOTFILES_FOLDER/files/.gitconfig ~
+ln --force $DOTFILES_FOLDER/files/.profile ~
+ln --force $DOTFILES_FOLDER/files/.zpreztorc ~
+ln --force $DOTFILES_FOLDER/files/.zshrc ~
 
 # Install brew if necessary. May fail when macos dont have the requirements, 
 # I still need to check how to install them.
