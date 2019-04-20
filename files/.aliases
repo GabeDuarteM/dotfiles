@@ -9,7 +9,7 @@ alias gsa="git stash apply"
 alias gst="git status"
 alias gl="git log"
 alias glo="git log --oneline"
-alias gp="git pull"
+alias gp="git push"
 
 # yarn
 alias y=yarn
