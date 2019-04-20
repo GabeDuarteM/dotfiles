@@ -24,8 +24,12 @@ alias ns="npm run start"
 alias nt="npm run test"
 alias nl="npm run lint"
 alias nb="npm run build"
+alias nu="npx npm-check -u"
 
 # misc
 alias proj="cd ~/Projects"
 alias cls="clear"
 alias l='ls -1A'
+alias gd-oss="npx -p yo -p generator-gd-scripts -c 'yo gd-scripts'"
+
+killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
