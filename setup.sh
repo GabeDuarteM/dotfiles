@@ -56,7 +56,7 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 echo "
   Installing brew packages
 "
-brew install n gcc zsh hub yarn bat
+brew install n gcc zsh hub yarn bat neovim
 
 # Add gui programs
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
