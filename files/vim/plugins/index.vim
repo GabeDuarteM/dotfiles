@@ -46,19 +46,13 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-" configs
+" source all configs inside the plugins folder, 
+" except this current file
 let files = split(glob($DOTFILES_FOLDER.'/files/vim/plugins/*', '\n'))
 let thisFileIndex = index(files, $DOTFILES_FOLDER.'/files/vim/plugins/index.vim')
-
 call remove(files, thisFileIndex)
 
 for f in files
     exe 'source' f
 endfor
 
-"source $DOTFILES_FOLDER/files/vim/plugins/*
-"source $DOTFILES_FOLDER/files/vim/plugins/nerdtree.vim
-"source $DOTFILES_FOLDER/files/vim/plugins/denite.vim
-"source $DOTFILES_FOLDER/files/vim/plugins/coc.vim
-"source $DOTFILES_FOLDER/files/vim/plugins/goyo.vim
-"source $DOTFILES_FOLDER/files/vim/plugins/vim-airline.vim
