@@ -15,3 +15,4 @@ CDPATH=.:$HOME:$HOME/Projects
 
 source ~/.profile
 source ~/.aliases
+

@@ -28,3 +28,8 @@ fi
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 PATH="$PATH:/snap/bin"
+PROJECTS_FOLDER=~/Projects
+DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
+
+export PROJECTS_FOLDER
+export DOTFILES_FOLDER

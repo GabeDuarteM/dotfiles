@@ -19,6 +19,8 @@ fi
 
 # Make directories
 mkdir -p $PROJECTS_FOLDER
+mkdir -p ~/.config/nvim
+mkdir -p ~/.local/share/nvim/backup
 
 # Clone my dotfiles config if necessary
 if [ ! -d "$DOTFILES_FOLDER" ]; then
@@ -36,6 +38,8 @@ ln --force $DOTFILES_FOLDER/files/.gitconfig ~
 ln --force $DOTFILES_FOLDER/files/.profile ~
 ln --force $DOTFILES_FOLDER/files/.zpreztorc ~
 ln --force $DOTFILES_FOLDER/files/.zshrc ~
+ln --force $DOTFILES_FOLDER/files/vim/.vimrc ~/.config/nvim/init.vim
+ln --force $DOTFILES_FOLDER/files/vim/coc-settings.json ~/.config/nvim
 
 # Install brew if necessary. May fail when macos dont have the requirements, 
 # I still need to check how to install them.
@@ -56,7 +60,10 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 echo "
   Installing brew packages
 "
-brew install n gcc zsh hub yarn bat neovim
+brew install n gcc zsh hub yarn bat neovim python3 python ripgrep
+
+# Install pip packages
+pip install --user powerline-status
 
 # Add gui programs
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -103,3 +110,11 @@ if ! grep "zsh" /etc/shells; then
 fi
 # Set zsh as default
 sudo chsh -s "$(command -v zsh)" "${USER}"
+
+# install nvim plugins
+echo "
+  Installing nvim plugins
+"
+nvim +PlugInstall +qall
+nvim +UpdateRemotePlugins +qall
+
