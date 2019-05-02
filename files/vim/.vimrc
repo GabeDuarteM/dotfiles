@@ -36,7 +36,7 @@ set smartcase
 set autoread
 
 " Enable line numbers
-set number
+set relativenumber number
 
 " Set backups
 if has('persistent_undo')
@@ -88,8 +88,21 @@ nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
 
+" Goes to the start of the line
+noremap H ^
+" Goes to the end of the line
+noremap L g_ 
+" Goes file lines above
+noremap J 5j
+" Goes file lines below
+noremap K 5k
+
+" Change the identation, but keep the selection
+vmap < <gv
+vmap > >gv
+
 " Find and replace
-map <leader>h :%s///<left><left>
+map <leader>h :%s///gc<left><left><left><left>
 
 " Clear highlighted search terms while preserving history
 nmap <silent> <leader>/ :nohlsearch<CR>
@@ -101,7 +114,11 @@ cmap w!! w !sudo tee %
 source $DOTFILES_FOLDER/files/vim/plugins/index.vim
 
 " UI
-colorscheme onedark
+try
+  colorscheme onedark
+catch
+  colorscheme slate
+endtry
 set termguicolors
 set background=dark
 
