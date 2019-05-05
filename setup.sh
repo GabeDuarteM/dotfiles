@@ -43,6 +43,7 @@ fi
 mkdir -p $PROJECTS_FOLDER
 mkdir -p ~/.config/nvim
 mkdir -p ~/.local/share/nvim/backup
+mkdir -p ~/.local/share/nvim/swap
 
 # Clone my dotfiles config if necessary
 if [ ! -d "$DOTFILES_FOLDER" ]; then

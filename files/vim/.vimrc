@@ -44,9 +44,63 @@ if has('persistent_undo')
   set undolevels=3000
   set undoreload=10000
 endif
+" set where swap file and undo/backup files are saved
 set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
+set directory=~/.local/share/nvim/swap " Don't put swaps in current dir
 set backup
-set noswapfile
+
+" Don't show modes, as the airline already does
+set noshowmode
+
+" Always display the status line
+set laststatus=2
+
+" Make vim stop automatically adding comments on enter press
+set formatoptions-=r " For insert mode
+set formatoptions-=o " For when hitting "o" in normal mode
+
+" Both options below should make scrolling faster
+set ttyfast
+set lazyredraw
+
+" Enable wildmenu
+set wildmenu
+
+" Show invisible characters
+set list
+set listchars=tab:»·,trail:·,nbsp:·
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+" interactive find replace preview
+set inccommand=nosplit
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  autocmd BufRead,BufNewFile .babelrc,.eslintrc,.prettierrc set filetype=json
+
+  " Enable spellchecking some filetypes
+  autocmd FileType markdown,gitcommit setlocal spell
+
+  " notify if file changed outside of vim to avoid multiple versions
+  autocmd FocusGained * checktime
+augroup END
+
+" ### Remaps ###
 
 " duplicate the current line
 nmap <A-S-Up> yyP
@@ -97,6 +151,10 @@ noremap J 5j
 " Goes file lines below
 noremap K 5k
 
+" Tab/shift-tab to indent/outdent in visual mode.
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
 " Change the identation, but keep the selection
 vmap < <gv
 vmap > >gv
@@ -107,8 +165,24 @@ map <leader>h :%s///gc<left><left><left><left>
 " Clear highlighted search terms while preserving history
 nmap <silent> <leader>/ :nohlsearch<CR>
 
+" prevent entering ex mode accidentally
+nnoremap Q <Nop>
+
+" Source (reload) vimrc.
+nnoremap <leader>so :source $MYVIMRC<cr>
+
+" command typo mapping
+cnoremap WQ wq
+cnoremap Wq wq
+cnoremap Q! q!
+
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
+
+" Source local config if available
+if filereadable($HOME . '/.vimrc.local')
+  source ~/.vimrc.local
+endif
 
 " Source the other vim parts
 source $DOTFILES_FOLDER/files/vim/plugins/index.vim

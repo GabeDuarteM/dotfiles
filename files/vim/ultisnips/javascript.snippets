@@ -1,0 +1,164 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet imp "Import statement" b
+import $2 from '$1'
+endsnippet
+
+snippet clg "console.log()"
+console.log($1)
+endsnippet
+
+snippet iife "Immediately-Invoked Function Expression (iife)" b
+;(() => {
+  $1
+})()
+endsnippet
+
+snippet setTimeout "setTimeout function"
+setTimeout(() => ${1:function}, ${2:ms})
+endsnippet
+
+snippet setInterval "setInterval function"
+setInterval(() => ${1:function}, ${2:ms})
+endsnippet
+
+snippet if "if"
+if(${1:condition}) {
+  $2
+}$0
+endsnippet
+
+snippet else "else" b
+else {
+  $1
+}
+endsnippet
+
+snippet switch "switch" b
+switch (${1:condition}) {
+  case ${2:option}:
+    $3
+    break
+  $0
+  default:
+    ${4:throw new Error("Not implemented")}
+}
+endsnippet
+
+snippet case "case" b
+case ${1:option}:
+  $2
+  break
+endsnippet
+
+# Node
+
+snippet #! "shebang"
+#!/usr/bin/env node
+endsnippet
+
+snippet require "assign a CommonJS-style module to a var"
+const ${0:${1/(.+\/)*(\w+)(-|\b|$)(\..+$)?/\u$2/g}} = require('$1')
+endsnippet
+
+# React
+
+snippet impr "Import React" b
+import React from 'react'
+endsnippet
+
+snippet imprd "Import React-DOM" b
+import ReactDOM from 'react-dom'
+endsnippet
+
+snippet rc "React component" b
+import React from 'react'
+
+const ${1:`!p snip.rv = snip.basename.capitalize()`} = () => {
+  return ${2:<div>Hello</div>}
+}
+
+export default $1
+endsnippet
+
+snippet useState "React.useState" b
+const [${1:state}, set${1/\w+\s*/\u$0/}] = React.useState($2)
+endsnippet
+
+snippet useEffect "React.useEffect" b
+React.useEffect(() => {
+  $1
+}, [$2])
+endsnippet
+
+snippet useContext "React.useContext" b
+const ${1:context} = React.useContext(${2:contextValue})
+endsnippet
+
+snippet useReducer "React.useReducer" b
+const [${1:state}, dispatch] = React.useReducer(${2:reducer}, ${3:initialState}, ${4:init})
+endsnippet
+
+snippet useCallback "React.useCallback" b
+React.useCallback(
+  () => {
+    ${1:callback}
+  },
+  [${2:input}],
+)
+endsnippet
+
+snippet useMemo "React.useMemo" b
+React.useMemo(() => ${1:function}, ${2:input})
+endsnippet
+
+snippet useRef "React.useRef" b
+const ${1:ref} = React.useRef(${2:initialValue})
+endsnippet
+
+snippet useImperativeHandle "React.useImperativeHandle" b
+React.useImperativeHandle(
+  ${1:ref},
+  () => {
+    ${2:handler}
+  },
+  [${3:input}],
+)
+endsnippet
+
+snippet useDebugValue "React.useDebugValue" b
+React.useDebugValue(${1:value})
+endsnippet
+
+snippet useLayoutEffect "React.useLayoutEffect" b
+useLayoutEffect(() => {
+  return () => {
+    ${1:effect}
+  },
+  [${2:input}]
+})
+endsnippet

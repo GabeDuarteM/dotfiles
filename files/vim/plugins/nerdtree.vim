@@ -2,10 +2,6 @@
 let g:NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.swp$', '\.DS_Store', '\.git\/']
 
-" Custom icons for expandable/expanded directories
-let g:NERDTreeDirArrowExpandable = '⬏'
-let g:NERDTreeDirArrowCollapsible = '⬎'
-
 " Hide certain files and directories from NERDTree
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 
