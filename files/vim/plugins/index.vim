@@ -25,6 +25,8 @@ Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-endwise' " https://github.com/tpope/vim-endwise/issues/22#issuecomment-446042476
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-projectionist'
 Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'Shougo/denite.nvim'
