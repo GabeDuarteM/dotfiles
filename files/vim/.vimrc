@@ -45,8 +45,8 @@ if has('persistent_undo')
   set undoreload=10000
 endif
 " set where swap file and undo/backup files are saved
-set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
-set directory=~/.local/share/nvim/swap " Don't put swaps in current dir
+set backupdir=~/.local/share/nvim/backup// " Don't put backups in current dir
+set directory=~/.local/share/nvim/swap// " Don't put swaps in current dir
 set backup
 
 " Don't show modes, as the airline already does
@@ -195,4 +195,54 @@ catch
 endtry
 set termguicolors
 set background=dark
+
+" Terminal config
+let g:term_buf = [0, 0, 0]
+let g:term_win = [0, 0, 0]
+
+function! g:TermToggle(height)
+    let i = 0
+
+    while i < 3
+        if win_gotoid(g:term_win[i])
+            hide
+        else
+            if i == 0
+              botright new
+            else
+              vnew
+            endif
+
+            exec "resize " . a:height
+
+            try
+                exec "buffer " . g:term_buf[i]
+            catch
+                call termopen($SHELL, {"detach": 0})
+                let g:term_buf[i] = bufnr("")
+                set nonumber
+                set norelativenumber
+                set signcolumn=no
+            endtry
+
+            startinsert!
+
+            let g:term_win[i] = win_getid()
+        endif
+
+        let i += 1
+    endwhile
+
+    call win_gotoid(g:term_win[0])
+endfunction
+
+let term_height = 15
+
+" Toggle terminal on/off (neovim)
+nnoremap <A-t> :call g:TermToggle(term_height)<CR>
+inoremap <A-t> <Esc>:call g:TermToggle(term_height)<CR>
+tnoremap <A-t> <C-\><C-n>:call g:TermToggle(term_height)<CR>
+
+" Terminal go back to normal mode
+tnoremap <Esc> <C-\><C-n>
 
