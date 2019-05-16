@@ -7,8 +7,8 @@ let mapleader=" "
 filetype plugin on
 
 " Set the python binaries to use homebrew
-let g:python_host_prog  = '/home/linuxbrew/.linuxbrew/bin/python'
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python_host_prog  = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Hides buffers instead of closing them
 set hidden
@@ -239,10 +239,10 @@ endfunction
 let term_height = 15
 
 " Toggle terminal on/off (neovim)
-nnoremap <A-t> :call g:TermToggle(term_height)<CR>
-inoremap <A-t> <Esc>:call g:TermToggle(term_height)<CR>
-tnoremap <A-t> <C-\><C-n>:call g:TermToggle(term_height)<CR>
+nnoremap <C-t> :call g:TermToggle(term_height)<CR>
+inoremap <C-t> <Esc>:call g:TermToggle(term_height)<CR>
+tnoremap <C-t> <C-\><C-n>:call g:TermToggle(term_height)<CR>
 
 " Terminal go back to normal mode
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>0
 

@@ -31,8 +31,6 @@ try
   \ 'prompt': 'λ:',
   \ 'direction': 'rightbelow',
   \ 'winminheight': '10',
-  \ 'highlight_mode_insert': 'Visual',
-  \ 'highlight_mode_normal': 'Visual',
   \ 'prompt_highlight': 'Function',
   \ 'highlight_matched_char': 'Function',
   \ 'highlight_matched_range': 'Normal'
