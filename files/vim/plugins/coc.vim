@@ -1,5 +1,4 @@
 " Install Coc servers
-" coc-tsserver coc-eslint coc-json coc-prettier coc-css
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
