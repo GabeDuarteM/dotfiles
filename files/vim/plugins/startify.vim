@@ -14,3 +14,8 @@ let g:startify_lists = [
 
 let g:startify_files_number = 5
 
+augroup startifyGroup
+  autocmd!
+
+  autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+augroup END
