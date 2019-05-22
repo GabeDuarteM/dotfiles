@@ -31,6 +31,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
