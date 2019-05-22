@@ -28,8 +28,8 @@ fi
 export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 
 PATH="$PATH:/snap/bin"
-PROJECTS_FOLDER=~/Projects
-DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
+export PROJECTS_FOLDER=~/Projects
+export DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
 
-export PROJECTS_FOLDER
-export DOTFILES_FOLDER
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
