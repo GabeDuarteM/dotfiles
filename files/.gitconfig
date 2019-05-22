@@ -1,3 +1,5 @@
 [user]
 	email = gabrielqduarte@gmail.com
 	name = Gabriel Duarte
+[includeIf "gitdir:~/Projects/quantilope/"]
+	path = ~/Projects/quantilope/.gitconfig
