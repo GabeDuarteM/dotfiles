@@ -78,7 +78,7 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 log "Install brew packages"
 
-brew install n gcc zsh hub yarn bat neovim python3 python ripgrep tldr htop z
+brew install n gcc zsh hub yarn bat neovim python3 python ripgrep tldr htop z fzf
 
 log "Install pip and pip3 packages"
 pip install --user pynvim

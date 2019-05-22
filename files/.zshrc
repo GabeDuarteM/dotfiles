@@ -19,6 +19,9 @@ source ~/.aliases
 # enable z
 . `which brew | sed 's/bin\/brew/etc\/profile.d\/z.sh/'`
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500"'
+
 # ******************************************************************
 # reboot directly to windows 
 #   Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
@@ -29,3 +32,5 @@ function reboot_to_windows {
   sudo reboot
 }
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
