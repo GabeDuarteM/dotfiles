@@ -131,6 +131,9 @@ if ! grep "zsh" /etc/shells; then
   command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
 fi
 
+log "Executing fzf install script"
+brew info fzf | grep fzf/install | xargs bash
+
 log "Set zsh as the default shell"
 sudo chsh -s "$(command -v zsh)" "${USER}"
 
