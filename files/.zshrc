@@ -30,3 +30,12 @@ function reboot_to_windows {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Make z work with fzf
+# https://github.com/junegunn/fzf/wiki/examples#z
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
+
