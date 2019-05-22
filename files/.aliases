@@ -48,5 +48,6 @@ alias gd-oss="npx -p yo -p generator-gd-scripts -c 'yo gd-scripts'"
 alias vim="nvim"
 alias vi="nvim"
 alias :q="exit"
+alias e.="$EDITOR ."
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
