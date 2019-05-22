@@ -54,13 +54,13 @@ fi
 
 log "Link configs"
 
-ln --force $DOTFILES_FOLDER/files/.aliases ~
-ln --force $DOTFILES_FOLDER/files/.gitconfig ~
-ln --force $DOTFILES_FOLDER/files/.profile ~
-ln --force $DOTFILES_FOLDER/files/.zpreztorc ~
-ln --force $DOTFILES_FOLDER/files/.zshrc ~
-ln --force $DOTFILES_FOLDER/files/vim/.vimrc ~/.config/nvim/init.vim
-ln --force $DOTFILES_FOLDER/files/vim/coc-settings.json ~/.config/nvim
+ln -f $DOTFILES_FOLDER/files/.aliases ~
+ln -f $DOTFILES_FOLDER/files/.gitconfig ~
+ln -f $DOTFILES_FOLDER/files/.profile ~
+ln -f $DOTFILES_FOLDER/files/.zpreztorc ~
+ln -f $DOTFILES_FOLDER/files/.zshrc ~
+ln -f $DOTFILES_FOLDER/files/vim/.vimrc ~/.config/nvim/init.vim
+ln -f $DOTFILES_FOLDER/files/vim/coc-settings.json ~/.config/nvim
 
 # Install brew if necessary. May fail when macos dont have the requirements, 
 # I still need to check how to install them.
