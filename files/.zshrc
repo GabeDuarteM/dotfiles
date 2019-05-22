@@ -16,13 +16,8 @@ CDPATH=.:$HOME:$HOME/Projects
 source ~/.profile
 source ~/.aliases
 
-export EDITOR='nvim'
-
 # enable z
 . `which brew | sed 's/bin\/brew/etc\/profile.d\/z.sh/'`
-
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
-export FZF_DEFAULT_OPTS='--preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500"'
 
 # ******************************************************************
 # reboot directly to windows 
@@ -33,6 +28,5 @@ function reboot_to_windows {
   sudo grub-reboot "$WINDOWS_TITLE"
   sudo reboot
 }
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
