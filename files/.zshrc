@@ -16,6 +16,8 @@ CDPATH=.:$HOME:$HOME/Projects
 source ~/.profile
 source ~/.aliases
 
+export EDITOR='nvim'
+
 # enable z
 . `which brew | sed 's/bin\/brew/etc\/profile.d\/z.sh/'`
 
