@@ -34,6 +34,8 @@ imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>di <Plug>(coc-implementation)
+nmap <silent><leader>. <Plug>(coc-codeaction-selected)
+xmap <silent><leader>. <Plug>(coc-codeaction-selected)
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
