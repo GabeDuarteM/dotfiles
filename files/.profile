@@ -31,6 +31,7 @@ export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 
 PATH="$PATH:/snap/bin"
 export PROJECTS_FOLDER=~/Projects
+export WORK_FOLDER=$PROJECTS_FOLDER/quantilope
 export DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

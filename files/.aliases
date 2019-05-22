@@ -26,6 +26,16 @@ alias nl="npm run lint"
 alias nb="npm run build"
 alias nu="npx npm-check -u"
 
+# fzf
+# cd into some folder inside the projects folder
+alias p='cd "$PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)"'
+# cd into some folder inside the work projects folder
+alias pw='cd "$WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)"'
+# vim into a project folder
+alias ep='$EDITOR "$PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)"'
+# vim into a work project folder
+alias epw='$EDITOR "$WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)"'
+
 # misc
 alias proj="cd ~/Projects"
 alias cls="clear"
