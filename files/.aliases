@@ -10,6 +10,10 @@ alias gst="git status"
 alias gl="git log"
 alias glo="git log --oneline"
 alias gp="git push"
+gcb() {
+  git checkout -b $1
+  git push -u origin $1
+}
 
 # yarn
 alias y=yarn
