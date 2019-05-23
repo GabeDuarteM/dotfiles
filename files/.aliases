@@ -46,14 +46,18 @@ alias pw='cd $(_getWorkProject)'
 # vim into a project folder
 ep() {
   local dir=$(_getProject)
-  cd $dir
-  $EDITOR $dir
+  if [ "$dir" != "$PROJECTS_FOLDER/" ]; then;
+    cd $dir
+    $EDITOR $dir
+  fi
 }
 # vim into a work project folder
 epw() {
   local dir=$(_getWorkProject)
-  cd $dir
-  $EDITOR $dir
+  if [ "$dir" != "$WORK_FOLDER/" ]; then;
+    cd $dir
+    $EDITOR $dir
+  fi
 }
 
 # misc
