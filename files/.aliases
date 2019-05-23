@@ -31,14 +31,30 @@ alias nb="npm run build"
 alias nu="npx npm-check -u"
 
 # fzf
+_getProject() {
+  echo $PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)
+}
+
+_getWorkProject() {
+  echo $WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)
+}
+
 # cd into some folder inside the projects folder
-alias p='cd "$PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)"'
+alias p='cd $(_getProject)'
 # cd into some folder inside the work projects folder
-alias pw='cd "$WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)"'
+alias pw='cd $(_getWorkProject)'
 # vim into a project folder
-alias ep='$EDITOR "$PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)"'
+ep() {
+  local dir=$(_getProject)
+  cd $dir
+  $EDITOR $dir
+}
 # vim into a work project folder
-alias epw='$EDITOR "$WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)"'
+epw() {
+  local dir=$(_getWorkProject)
+  cd $dir
+  $EDITOR $dir
+}
 
 # misc
 alias proj="cd ~/Projects"
