@@ -29,31 +29,50 @@ alias nt="npm run test"
 alias nl="npm run lint"
 alias nb="npm run build"
 alias nu="npx npm-check -u"
+alias j="z"
 
 # fzf
+_getProjectBase() {
+  echo $1/$(find $1 -type d -maxdepth 1 ! -path $1 -exec basename {} \; | fzf --no-preview --height=40% --header="Select the project:" --reverse --query "$2" --select-1)
+}
+
 _getProject() {
-  echo $PROJECTS_FOLDER/$(find $PROJECTS_FOLDER -type d -maxdepth 1 ! -path $PROJECTS_FOLDER -exec basename {} \; | fzf)
+  _getProjectBase "$PROJECTS_FOLDER" "$1"
 }
 
 _getWorkProject() {
-  echo $WORK_FOLDER/$(find $WORK_FOLDER -type d -maxdepth 1 ! -path $WORK_FOLDER -exec basename {} \; | fzf)
+  _getProjectBase "$WORK_FOLDER" "$1"
 }
 
 # cd into some folder inside the projects folder
-alias p='cd $(_getProject)'
+unalias p # p is aliased to something related to z
+p() {
+  local dir=$(_getProject $1)
+  if [ "$dir" != "$PROJECTS_FOLDER/" ]; then;
+    cd $dir
+  fi
+}
+
 # cd into some folder inside the work projects folder
-alias pw='cd $(_getWorkProject)'
+wp() {
+  local dir=$(_getWorkProject $1)
+  if [ "$dir" != "$WORK_FOLDER/" ]; then;
+    cd $dir
+  fi
+}
+
 # vim into a project folder
 ep() {
-  local dir=$(_getProject)
+  local dir=$(_getProject $1)
   if [ "$dir" != "$PROJECTS_FOLDER/" ]; then;
     cd $dir
     $EDITOR $dir
   fi
 }
+
 # vim into a work project folder
-epw() {
-  local dir=$(_getWorkProject)
+ewp() {
+  local dir=$(_getWorkProject $1)
   if [ "$dir" != "$WORK_FOLDER/" ]; then;
     cd $dir
     $EDITOR $dir
