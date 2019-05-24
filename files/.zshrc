@@ -16,6 +16,10 @@ CDPATH=.:$HOME:$HOME/Projects
 source ~/.profile
 source ~/.aliases
 
+if [[ -s ~/.local/.zshrc.local.zsh ]]; then
+  source ~/.local/.zshrc.local.zsh
+fi
+
 # enable z
 . `which brew | sed 's/bin\/brew/etc\/profile.d\/z.sh/'`
 
