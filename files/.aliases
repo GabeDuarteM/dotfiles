@@ -71,7 +71,7 @@ ep() {
 }
 
 # vim into a work project folder
-ewp() {
+wep() {
   local dir=$(_getWorkProject $1)
   if [ "$dir" != "$WORK_FOLDER/" ]; then;
     cd $dir
