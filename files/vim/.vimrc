@@ -179,10 +179,6 @@ nnoremap <silent> <C-t> :call g:TermToggle(term_height)<CR>
 inoremap <silent> <C-t> <Esc>:call g:TermToggle(term_height)<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:call g:TermToggle(term_height)<CR>
 
-" Terminal go back to normal mode and go to the start of the line
-" to avoid horizontal scroll
-tnoremap <Esc> <C-\><C-n>0
-
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
 
