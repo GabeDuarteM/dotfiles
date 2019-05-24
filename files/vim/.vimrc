@@ -6,10 +6,6 @@ let mapleader=" "
 
 filetype plugin on
 
-" Set the python binaries to use homebrew
-let g:python_host_prog  = system('which python')
-let g:python3_host_prog = system('which python3')
-
 " Hides buffers instead of closing them
 set hidden
 
