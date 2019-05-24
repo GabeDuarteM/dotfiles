@@ -27,7 +27,13 @@ export EDITOR='nvim'
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+else
+    export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+fi
+
 
 PATH="$PATH:/snap/bin"
 export PROJECTS_FOLDER=~/Projects
