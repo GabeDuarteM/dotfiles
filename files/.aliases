@@ -33,7 +33,7 @@ alias j="z"
 
 # fzf
 _getProjectBase() {
-  echo $1/$(find $1 -type d -maxdepth 1 ! -path $1 -exec basename {} \; | fzf --no-preview --height=40% --header="Select the project:" --reverse --query "$2" --select-1)
+  echo $1/$(find $1 -maxdepth 1 -type d ! -path $1 -exec basename {} \; | fzf --no-preview --height=40% --header="Select the project:" --reverse --query "$2" --select-1)
 }
 
 _getProject() {
