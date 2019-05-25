@@ -162,3 +162,8 @@ useLayoutEffect(() => {
   [${2:input}]
 })
 endsnippet
+
+snippet ind "Template for the index.js" b
+export { default } from './${1:`!p snip.rv = os.path.basename(os.path.dirname(path))`}'
+
+endsnippet
