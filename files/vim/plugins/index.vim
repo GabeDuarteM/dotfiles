@@ -52,6 +52,7 @@ Plug 'SirVer/ultisnips'
 " syntax
 Plug 'mxw/vim-jsx'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'sheerun/vim-polyglot'
 
 " theme
