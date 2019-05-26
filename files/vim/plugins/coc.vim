@@ -33,8 +33,13 @@ imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>di <Plug>(coc-implementation)
-nmap <silent><leader>. <Plug>(coc-codeaction-selected)
-xmap <silent><leader>. <Plug>(coc-codeaction-selected)
+
+nnoremap <buffer><silent> <leader>i :call CocAction("doHover")<cr>
+nnoremap <buffer><silent> <leader>I :call CocAction("showSignatureHelp")<cr>
+nnoremap <buffer><silent> <leader>F :call CocAction("format")<cr>
+vnoremap <buffer><silent> <leader>F :call CocAction("formatSelected")<cr>
+nnoremap <buffer><silent> <leader>. :call CocAction("codeAction")<cr>
+vnoremap <buffer><silent> <leader>. :call CocAction("codeAction")<cr>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
