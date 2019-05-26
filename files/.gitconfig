@@ -1,5 +1,7 @@
 [user]
 	email = gabrielqduarte@gmail.com
 	name = Gabriel Duarte
+[core]
+	editor = nvim
 [includeIf "gitdir:~/Projects/quantilope/"]
 	path = ~/Projects/quantilope/.gitconfig
