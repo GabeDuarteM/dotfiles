@@ -44,8 +44,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " use tab and shift-tab to go back and forward on the snippets cursor
 " locations
-let g:coc_snippet_next = '<tab>'
-let g:coc_snippet_prev = '<S-tab>'
+let g:coc_snippet_next = '<C-n>'
+let g:coc_snippet_prev = '<C-P>'
 
 augroup CocConfig
   autocmd!
