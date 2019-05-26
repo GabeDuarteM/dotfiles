@@ -167,3 +167,9 @@ snippet ind "Template for the index.js" b
 export { default } from './${1:`!p snip.rv = os.path.basename(os.path.dirname(path))`}'
 
 endsnippet
+
+snippet styled "Create a styled-component" b
+const ${1:Styled} = styled.${2:div}\`
+  $3
+\`
+endsnippet
