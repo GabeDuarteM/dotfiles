@@ -167,6 +167,9 @@ nnoremap Q <Nop>
 " Source (reload) vimrc.
 nnoremap <leader>so :source $MYVIMRC<cr>
 
+" print the syntax highlighting under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " command typo mapping
 cnoremap WQ wq
 cnoremap Wq wq
