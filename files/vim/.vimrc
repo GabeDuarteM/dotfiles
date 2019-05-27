@@ -95,14 +95,16 @@ nmap <A-S-Up> yyP
 nmap <A-S-Down> yyp
 
 " Make copy and paste use the clipboard, instead of the register
-nnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>y "+y
-vnoremap <leader>Y "+Y
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+vnoremap <leader>y  "+y
+vnoremap <leader>Y  "+yg$
+nnoremap <leader>y  "+y
+nnoremap <leader>yy  "+yy
+nnoremap <leader>p :set paste<CR> "+p :set nopaste<CR>
+nnoremap <leader>P :set paste<CR> "+P :set nopaste<CR>
+vnoremap <leader>p :set paste<CR> "+p :set nopaste<CR>
+vnoremap <leader>P :set paste<CR> "+P :set nopaste<CR>
+nnoremap <leader>dd "+dd
+vnoremap <leader>d "+d
 
 " Move splitted windows
 nnoremap <C-S-J> <C-W><C-S-J>
