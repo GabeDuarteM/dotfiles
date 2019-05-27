@@ -3,5 +3,10 @@
 	name = Gabriel Duarte
 [core]
 	editor = nvim
+[alias]
+	edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; nvim `f`"
+	add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+[merge]
+	conflictStyle = diff3
 [includeIf "gitdir:~/Projects/quantilope/"]
 	path = ~/Projects/quantilope/.gitconfig
