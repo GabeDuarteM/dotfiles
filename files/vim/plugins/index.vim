@@ -49,6 +49,7 @@ Plug 'mhinz/vim-startify'
 Plug 'semanser/vim-outdated-plugins'
 Plug 'SirVer/ultisnips'
 Plug 'farmergreg/vim-lastplace'
+Plug 'godlygeek/tabular'
 
 " syntax
 Plug 'mxw/vim-jsx'
