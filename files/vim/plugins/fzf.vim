@@ -1,6 +1,6 @@
 nmap ; :Buffer<CR>
 nmap <leader>t :Files<CR>
-nnoremap <leader>g :Rg<CR>
+nnoremap <leader>g :Rg<space>
 nnoremap <leader>j :Rg <C-R><C-W><CR>
 nnoremap <leader><leader>j :Lines <C-R><C-W><CR>
 
