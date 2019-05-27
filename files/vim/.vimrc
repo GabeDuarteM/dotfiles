@@ -135,7 +135,7 @@ nnoremap <Right> :vertical resize -2<CR>
 " Goes to the start of the line
 noremap H ^
 " Goes to the end of the line
-noremap L g_ 
+noremap L g_
 " Goes file lines above
 noremap J 5j
 " Goes file lines below
