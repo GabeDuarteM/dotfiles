@@ -88,5 +88,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias :q="exit"
 alias e.="$EDITOR ."
+alias clr="clear && printf '\e[3J'"
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
