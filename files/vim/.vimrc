@@ -99,10 +99,10 @@ vnoremap <leader>y  "+y
 vnoremap <leader>Y  "+yg$
 nnoremap <leader>y  "+y
 nnoremap <leader>yy  "+yy
-nnoremap <leader>p :set paste<CR> "+p :set nopaste<CR>
-nnoremap <leader>P :set paste<CR> "+P :set nopaste<CR>
-vnoremap <leader>p :set paste<CR> "+p :set nopaste<CR>
-vnoremap <leader>P :set paste<CR> "+P :set nopaste<CR>
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 nnoremap <leader>dd "+dd
 vnoremap <leader>d "+d
 
