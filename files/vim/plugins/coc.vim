@@ -34,12 +34,12 @@ nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>di <Plug>(coc-implementation)
 
-nnoremap <buffer><silent> <leader>i :call CocAction("doHover")<cr>
-nnoremap <buffer><silent> <leader>I :call CocAction("showSignatureHelp")<cr>
-nnoremap <buffer><silent> <leader>F :call CocAction("format")<cr>
-vnoremap <buffer><silent> <leader>F :call CocAction("formatSelected")<cr>
-nnoremap <buffer><silent> <leader>. :call CocAction("codeAction")<cr>
-vnoremap <buffer><silent> <leader>. :call CocAction("codeAction")<cr>
+nnoremap <silent> <leader>i :call CocAction("doHover")<cr>
+nnoremap <silent> <leader>I :call CocAction("showSignatureHelp")<cr>
+nnoremap <silent> <leader>F :call CocAction("format")<cr>
+vnoremap <silent> <leader>F :call CocAction("formatSelected")<cr>
+nnoremap <silent> <leader>. :call CocAction("codeAction")<cr>
+vnoremap <silent> <leader>. :call CocAction("codeAction")<cr>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
