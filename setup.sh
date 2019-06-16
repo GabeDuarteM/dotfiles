@@ -42,6 +42,7 @@ fi
 # Make directories
 mkdir -p $PROJECTS_FOLDER
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/spell
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
