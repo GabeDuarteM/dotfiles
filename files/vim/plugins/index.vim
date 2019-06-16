@@ -50,6 +50,7 @@ Plug 'semanser/vim-outdated-plugins'
 Plug 'SirVer/ultisnips'
 Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
+Plug 'wincent/vcs-jump'
 Plug 'kamykn/spelunker.vim'
 
 " syntax
