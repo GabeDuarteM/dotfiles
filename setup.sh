@@ -64,7 +64,7 @@ ln -f $DOTFILES_FOLDER/files/vim/.vimrc ~/.config/nvim/init.vim
 ln -f $DOTFILES_FOLDER/files/vim/coc-settings.json ~/.config/nvim
 ln -f $DOTFILES_FOLDER/files/vim/spell/en.utf-8.add ~/.config/nvim/spell/en.utf-8.add
 
-# Install brew if necessary. May fail when macos dont have the requirements, 
+# Install brew if necessary. May fail when macOS don't have the requirements, 
 # I still need to check how to install them.
 # https://docs.brew.sh/Installation#macos-requirements
 if ! command -v brew >/dev/null 2>&1; then
