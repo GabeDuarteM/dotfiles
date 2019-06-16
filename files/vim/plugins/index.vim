@@ -54,8 +54,10 @@ Plug 'wincent/vcs-jump'
 Plug 'kamykn/spelunker.vim'
 
 " syntax
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'sheerun/vim-polyglot'
 
