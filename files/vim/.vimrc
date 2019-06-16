@@ -81,9 +81,6 @@ augroup vimrcEx
 
   autocmd BufRead,BufNewFile .babelrc,.eslintrc,.prettierrc set filetype=json
 
-  " Enable spellchecking some filetypes
-  autocmd FileType markdown,gitcommit setlocal spell
-
   " notify if file changed outside of vim to avoid multiple versions
   autocmd FocusGained * checktime
 augroup END
