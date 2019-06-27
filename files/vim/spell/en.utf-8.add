@@ -5,12 +5,14 @@ autoprefixer
 browserslist
 browserslistrc
 cancelable
+classnames
 configs
 debounce
 deps
 dest
 devtools
 diff
+diffs
 dirname
 dotfile
 dotfiles
@@ -23,7 +25,7 @@ gabrielduarte
 gabrielqduarte
 gitconfig
 gmail
-inline-block
+inline
 keydown
 lodash
 memberof
@@ -39,6 +41,7 @@ quantilope
 readme
 redux
 regex
+serializers
 spotify
 stringify
 styleguide
