@@ -2,6 +2,7 @@ addon
 attrs
 autocomplete
 autoprefixer
+babelrc
 browserslist
 browserslistrc
 cancelable
