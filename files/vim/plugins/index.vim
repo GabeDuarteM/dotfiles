@@ -54,6 +54,7 @@ Plug 'wincent/vcs-jump'
 Plug 'kamykn/spelunker.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'metakirby5/codi.vim'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
