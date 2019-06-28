@@ -53,6 +53,7 @@ Plug 'godlygeek/tabular'
 Plug 'wincent/vcs-jump'
 Plug 'kamykn/spelunker.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'justinmk/vim-sneak'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
