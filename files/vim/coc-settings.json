@@ -1,4 +1,5 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "python"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"]
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "prettier.onlyUseLocalVersion": true
 }
