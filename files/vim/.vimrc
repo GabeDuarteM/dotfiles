@@ -233,6 +233,24 @@ function! g:TermToggle(height)
     call win_gotoid(g:term_win[0])
 endfunction
 
+function! CodeReview(...)
+    " Get the result of git show in a list
+    let flist = system('git diff master --name-only -- . ":(exclude)package-lock.json" ":(exclude)yarn.lock"')
+    let flist = split(flist, '\n')
+
+    " Create the dictionaries used to populate the quickfix list
+    let list = []
+    for f in flist
+        let dic = {'filename': f, "lnum": 1}
+        call add(list, dic)
+    endfor
+
+    " Populate the qf list
+    call setqflist(list)
+endfunction
+
+command! CR call CodeReview()
+
 " Compile the spell file, so that when one is externally added (e.g. manually
 " editing the file), the spells gets refreshed on vim
 command! CompileSpell mkspell! ~/.config/nvim/spell/en.utf-8.add
