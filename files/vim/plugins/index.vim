@@ -27,6 +27,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'

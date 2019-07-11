@@ -61,21 +61,21 @@ wp() {
   fi
 }
 
-# vim into a project folder
+# open editor into a project folder
 ep() {
   local dir=$(_getProject $1)
   if [ "$dir" != "$PROJECTS_FOLDER/" ]; then;
     cd $dir
-    $EDITOR $dir
+    $EDITOR
   fi
 }
 
-# vim into a work project folder
+# open editor into a work project folder
 wep() {
   local dir=$(_getWorkProject $1)
   if [ "$dir" != "$WORK_FOLDER/" ]; then;
     cd $dir
-    $EDITOR $dir
+    $EDITOR
   fi
 }
 
@@ -84,10 +84,11 @@ alias proj="cd ~/Projects"
 alias cls="clear"
 alias l='ls -1A'
 alias gd-oss="npx -p yo -p generator-gd-scripts -c 'yo gd-scripts'"
-alias vim="nvim"
-alias vi="nvim"
 alias :q="exit"
+alias vim="$EDITOR"
+alias vi="$EDITOR"
 alias e.="$EDITOR ."
+alias e="$EDITOR"
 alias clr="clear && printf '\e[3J'"
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
