@@ -1,4 +1,4 @@
-" disable the space functionality, so it doesn't interfer when it is the leader
+" disable the space functionality, so it doesn't interfere when it is the leader
 nnoremap <SPACE> <Nop>
 
 " Make space the leader
