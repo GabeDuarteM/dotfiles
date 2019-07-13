@@ -1,4 +1,4 @@
-" disable the space functionality, so it doesn't interfer when it is the leader
+" disable the space functionality, so it doesn't interfere when it is the leader
 nnoremap <SPACE> <Nop>
 
 " Make space the leader
@@ -115,19 +115,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" move lines up and down
-nnoremap <A-Down> :m .+1<CR>==
-nnoremap <A-Up> :m .-2<CR>==
-inoremap <A-Down> <Esc>:m .+1<CR>==gi
-inoremap <A-Up> <Esc>:m .-2<CR>==gi
-vnoremap <A-Down> :m '>+1<CR>gv=gv
-vnoremap <A-Up> :m '<-2<CR>gv=gv
-
 " Disable arrow movement, resize splits instead.
 nnoremap <Up>    :resize +2<CR>
 nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
+nnoremap <Left>  :vertical resize -10<CR>
+nnoremap <Right> :vertical resize +10<CR>
 
 " Goes to the start of the line
 noremap H ^
@@ -142,9 +134,11 @@ noremap K 5k
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Change the identation, but keep the selection
-vmap < <gv
-vmap > >gv
+" Makes jk act like esc on insert mode
+inoremap jk <Esc>
+
+" Ignores esc, so that I grow accustomed to use jk instead
+inoremap <Esc> <Nop>
 
 " Find and replace
 map <leader>h :%s///gc<left><left><left><left>
@@ -161,20 +155,6 @@ nnoremap <leader>so :source $MYVIMRC<cr>
 " print the syntax highlighting under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" command typo mapping
-cnoremap WQ wq
-cnoremap Wq wq
-cnoremap Q! q!
-
-let term_height = 15
-
-" Toggle terminal on/off (neovim)
-nnoremap <silent> <C-t> :call g:TermToggle(term_height)<CR>
-inoremap <silent> <C-t> <Esc>:call g:TermToggle(term_height)<CR>
-tnoremap <silent> <C-t> <C-\><C-n>:call g:TermToggle(term_height)<CR>
-
-" Allows you to save files you opened without write permissions via sudo
-cmap w!! w !sudo tee %
 
 " Source local config if available
 if filereadable($HOME . '/.vimrc.local')
@@ -192,46 +172,6 @@ catch
 endtry
 set termguicolors
 set background=dark
-
-" Terminal config
-let g:term_buf = [0, 0, 0]
-let g:term_win = [0, 0, 0]
-
-function! g:TermToggle(height)
-    let i = 0
-
-    while i < 3
-        if win_gotoid(g:term_win[i])
-            hide
-        else
-            if i == 0
-              botright new
-            else
-              vnew
-            endif
-
-            exec "resize " . a:height
-
-            try
-                exec "buffer " . g:term_buf[i]
-            catch
-                call termopen($SHELL, {"detach": 0})
-                let g:term_buf[i] = bufnr("")
-                set nonumber
-                set norelativenumber
-                set signcolumn=no
-            endtry
-
-            startinsert!
-
-            let g:term_win[i] = win_getid()
-        endif
-
-        let i += 1
-    endwhile
-
-    call win_gotoid(g:term_win[0])
-endfunction
 
 function! CodeReview(...)
     " Get the result of git show in a list
