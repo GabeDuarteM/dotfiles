@@ -17,6 +17,7 @@ diffs
 dirname
 dotfile
 dotfiles
+dropdown
 duarte
 ecmascript
 eslint
@@ -62,6 +63,7 @@ uninstall
 uninstall
 uninstallation
 uninstalled
+unselect
 vimrc
 webpack
 zpreztorc
