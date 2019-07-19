@@ -134,12 +134,6 @@ noremap K 5k
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" Makes jk act like esc on insert mode
-inoremap jk <Esc>
-
-" Ignores esc, so that I grow accustomed to use jk instead
-inoremap <Esc> <Nop>
-
 " Find and replace
 map <leader>h :%s///gc<left><left><left><left>
 
