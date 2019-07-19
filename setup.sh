@@ -36,7 +36,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   log "Install apt packages"
 
   sudo apt update
-  sudo apt-get install build-essential curl file git snapd -y
+  sudo apt-get install build-essential curl file git snapd xcape -y
 fi
 
 # Make directories
