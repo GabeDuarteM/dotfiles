@@ -31,6 +31,7 @@ Plug 'dhruvasagar/vim-prosession'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'scrooloose/nerdtree'
@@ -55,6 +56,8 @@ Plug 'kamykn/spelunker.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'metakirby5/codi.vim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'janko/vim-test'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
