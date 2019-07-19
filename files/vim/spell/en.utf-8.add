@@ -1,4 +1,5 @@
 addon
+args
 attrs
 autocomplete
 autoprefixer
@@ -6,6 +7,7 @@ babelrc
 browserslist
 browserslistrc
 cancelable
+classname
 classnames
 configs
 debounce
@@ -27,6 +29,7 @@ gabrielduarte
 gabrielqduarte
 gitconfig
 gmail
+groupable
 hotfix
 inline
 keydown
@@ -43,11 +46,13 @@ overscan
 plugin
 plugins
 postinstall
+prefixer
 prev
 quantilope
 readme
 redux
 regex
+rgba
 serializers
 splitted
 spotify
@@ -57,6 +62,7 @@ tarball
 templating
 toolbar
 tooltip
+tooltips
 ubuntu
 unarchiving
 uninstall
@@ -64,6 +70,7 @@ uninstall
 uninstallation
 uninstalled
 unselect
+unstaged
 vimrc
 webpack
 zpreztorc
