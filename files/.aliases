@@ -90,5 +90,6 @@ alias vi="$EDITOR"
 alias e.="$EDITOR ."
 alias e="$EDITOR"
 alias clr="clear && printf '\e[3J'"
+alias tx="tmuxinator"
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}

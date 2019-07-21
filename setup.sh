@@ -40,7 +40,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   log "Install apt packages"
 
   sudo apt update
-  sudo apt-get install build-essential curl file git snapd xcape alacritty -y
+  sudo apt-get install build-essential curl file git snapd xcape alacritty tmuxinator -y
 fi
 
 # Make directories
@@ -103,7 +103,9 @@ if [[ "$SKIP_GUI" == "false" ]]; then
     log "Install cask packages"
 
     brew tap caskroom/cask
-    brew cask install visual-studio-code google-chrome slack postman spotify steam discord alacritty
+    brew tap nexeck/homebrew-tmuxinator
+
+    brew cask install visual-studio-code google-chrome slack postman spotify steam discord alacritty nexeck/homebrew-tmuxinator/tmuxinator
   fi
 fi
 
