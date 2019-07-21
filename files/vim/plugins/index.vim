@@ -39,7 +39,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-rooter'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/MatchTagAlways', { 'for': ['jsx', 'tsx'] }
 Plug 'wakatime/vim-wakatime'
 Plug 'raimondi/delimitmate'
 Plug 'ryanoasis/vim-devicons'
