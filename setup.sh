@@ -73,7 +73,12 @@ if ! command -v brew >/dev/null 2>&1; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
   fi
 fi
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+else
+    export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+fi
 
 log "Install brew packages"
 
