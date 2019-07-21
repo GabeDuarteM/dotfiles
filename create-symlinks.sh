@@ -2,6 +2,7 @@
 ln -f $DOTFILES_FOLDER/files/.aliases ~
 ln -f $DOTFILES_FOLDER/files/.gitconfig ~
 ln -f $DOTFILES_FOLDER/files/.profile ~
+ln -f $DOTFILES_FOLDER/files/.tmux.conf ~
 ln -f $DOTFILES_FOLDER/files/.zpreztorc ~
 ln -f $DOTFILES_FOLDER/files/.zshrc ~
 ln -f $DOTFILES_FOLDER/files/vim/.vimrc ~/.config/nvim/init.vim

@@ -54,6 +54,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'metakirby5/codi.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'janko/vim-test'
+Plug 'christoomey/vim-tmux-navigator'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
