@@ -20,7 +20,7 @@ set shiftwidth=2
 
 " Add highlight to the current line and customize it
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+hi CursorLine guibg=#100E23
 
 " ignore case when searching
 set ignorecase
@@ -160,12 +160,15 @@ source $DOTFILES_FOLDER/files/vim/plugins/index.vim
 
 " UI
 try
-  colorscheme onedark
+  colorscheme palenight
 catch
   colorscheme slate
 endtry
 set termguicolors
 set background=dark
+
+highlight Normal guibg=#1e1c31
+highlight CursorLine guibg=#100E23
 
 function! CodeReview(...)
     " Get the result of git show in a list

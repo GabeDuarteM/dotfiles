@@ -65,6 +65,8 @@ Plug 'sheerun/vim-polyglot'
 
 " theme
 Plug 'joshdick/onedark.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
 
 call plug#end()
 
