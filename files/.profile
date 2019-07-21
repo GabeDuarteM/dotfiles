@@ -42,9 +42,9 @@ export DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500"'
+export TERM=xterm-256color
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Remap Caps lock to esc on tap, and ctrl on hold
