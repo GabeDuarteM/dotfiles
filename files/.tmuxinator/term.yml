@@ -1,0 +1,11 @@
+name: term
+root: ~/
+
+windows:
+  - editor:
+      panes:
+        - generic: clear
+        - start:
+  - tunnel:
+      panes:
+        - tunnel: qlp-cli tunnel
