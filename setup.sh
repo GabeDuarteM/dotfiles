@@ -33,16 +33,21 @@ done
 source ~/.profile >/dev/null 2>&1
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  log "Adding additional repos for apt"
+
+  sudo add-apt-repository ppa:mmstick76/alacritty
+
   log "Install apt packages"
 
   sudo apt update
-  sudo apt-get install build-essential curl file git snapd xcape -y
+  sudo apt-get install build-essential curl file git snapd xcape alacritty -y
 fi
 
 # Make directories
 mkdir -p $PROJECTS_FOLDER
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/nvim/spell
+mkdir -p ~/.config/alacritty
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
@@ -93,7 +98,7 @@ if [[ "$SKIP_GUI" == "false" ]]; then
     log "Install cask packages"
 
     brew tap caskroom/cask
-    brew cask install visual-studio-code google-chrome slack postman spotify steam discord
+    brew cask install visual-studio-code google-chrome slack postman spotify steam discord alacritty
   fi
 fi
 
