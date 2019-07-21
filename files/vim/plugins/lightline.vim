@@ -1,7 +1,7 @@
 function! FileNameWithIcon() abort
   let fullpath = expand('%:p')
   let pathWithoutRoot = substitute(fullpath, getcwd() . "/", "", "")
-  let tcd_blacklist = '\v(help|nerdtree|peekaboo|quickmenu|fzf)'
+  let tcd_blacklist = '\v(help|nerdtree|peekaboo|quickmenu|fzf|magit)'
 
   return &filetype !~# tcd_blacklist && winwidth(0) > 70
         \ ? pathWithoutRoot . ' ' . WebDevIconsGetFileTypeSymbol() 
