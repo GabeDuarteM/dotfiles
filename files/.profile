@@ -23,17 +23,17 @@ fi
 
 export EDITOR='nvim'
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's local private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes brew
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 else
     export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 fi
-
 
 PATH="$PATH:/snap/bin"
 export PROJECTS_FOLDER=~/Projects
