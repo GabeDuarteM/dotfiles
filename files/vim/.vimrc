@@ -196,3 +196,9 @@ command! CR call CodeReview()
 " editing the file), the spells gets refreshed on vim
 command! CompileSpell mkspell! ~/.config/nvim/spell/en.utf-8.add
 
+" sensible.vim overrides below
+runtime! plugin/sensible.vim
+
+" make column number appear when you do Ctrl-G
+set noruler
+
