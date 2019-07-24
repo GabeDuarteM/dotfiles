@@ -25,6 +25,7 @@ ecmascript
 eslint
 extendable
 fallback
+fullscreen
 gabrielduarte
 gabrielqduarte
 gitconfig
@@ -54,6 +55,7 @@ redux
 regex
 rgba
 serializers
+siderbars
 splitted
 spotify
 stringify
