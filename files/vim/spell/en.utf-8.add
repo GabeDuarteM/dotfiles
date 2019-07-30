@@ -4,9 +4,11 @@ attrs
 autocomplete
 autoprefixer
 babelrc
+backend
 browserslist
 browserslistrc
 cancelable
+checkbox
 classname
 classnames
 configs
@@ -62,6 +64,7 @@ stringify
 styleguide
 tarball
 templating
+textfield
 toolbar
 tooltip
 tooltips
