@@ -20,7 +20,7 @@ set shiftwidth=2
 
 " Add highlight to the current line and customize it
 set cursorline
-hi CursorLine guibg=#100E23
+highlight CursorLine guibg=#100E23
 
 " ignore case when searching
 set ignorecase

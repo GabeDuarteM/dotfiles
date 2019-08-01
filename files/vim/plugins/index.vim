@@ -55,6 +55,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'roman/golden-ratio'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
