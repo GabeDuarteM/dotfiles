@@ -36,6 +36,8 @@ else
 fi
 
 PATH="$PATH:/snap/bin"
+PATH="$(brew --prefix ruby)/bin:$PATH"
+PATH="$(gem env gemdir)/bin:$PATH"
 export PROJECTS_FOLDER=~/Projects
 export WORK_FOLDER=$PROJECTS_FOLDER/quantilope
 export DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
