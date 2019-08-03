@@ -95,6 +95,10 @@ snippet imprd "Import React-DOM" b
 import ReactDOM from 'react-dom'
 endsnippet
 
+snippet imppt "Import PropTypes" b
+import PropTypes from 'prop-types'
+endsnippet
+
 snippet rc "React component" b
 import React from 'react'
 
@@ -172,4 +176,114 @@ snippet styled "Create a styled-component" b
 const ${1:Styled} = styled.${2:div}\`
   $3
 \`
+endsnippet
+
+snippet pt "PropTypes shell"
+${1:`!p snip.rv = snip.basename`}.propTypes = {
+  $2
+}
+endsnippet
+
+snippet dp "defaultProps shell" b
+${1:`!p snip.rv = snip.basename`}.defaultProps = {
+  $2
+}
+endsnippet
+
+snippet pts "PropType string property"
+PropTypes.string,
+endsnippet
+snippet ptsr "PropType string required property"
+PropTypes.string.isRequired,
+endsnippet
+
+snippet pta "PropType array property"
+PropTypes.array,
+endsnippet
+snippet ptar "PropType array required property"
+PropTypes.array.isRequired,
+endsnippet
+
+snippet pto "PropType object property"
+PropTypes.object,
+endsnippet
+snippet ptor "PropType object required property"
+PropTypes.object.isRequired,
+endsnippet
+
+snippet ptb "PropType bool property"
+PropTypes.bool,
+endsnippet
+snippet ptbr "PropType bool required property"
+PropTypes.bool.isRequired,
+endsnippet
+
+snippet ptf "PropType func property"
+PropTypes.func,
+endsnippet
+snippet ptfr "PropType func required property"
+PropTypes.func.isRequired,
+endsnippet
+
+snippet ptn "PropType number property"
+PropTypes.number,
+endsnippet
+snippet ptnr "PropType number required property"
+PropTypes.number.isRequired,
+endsnippet
+
+snippet ptsy "PropType symbol property"
+PropTypes.symbol,
+endsnippet
+snippet ptsyr "PropType symbol required property"
+PropTypes.symbol.isRequired,
+endsnippet
+
+snippet ptno "PropType node property"
+PropTypes.node,
+endsnippet
+snippet ptnor "PropType node required property"
+PropTypes.node.isRequired,
+endsnippet
+
+snippet ptet "PropType elementType property"
+PropTypes.elementType,
+endsnippet
+snippet ptetr "PropType elementType required property"
+PropTypes.elementType.isRequired,
+endsnippet
+
+snippet ptoo "PropType oneOf property"
+PropTypes.oneOf([$1]),
+endsnippet
+snippet ptoor "PropType oneOf required property"
+PropTypes.oneOf([$1]).isRequired,
+endsnippet
+
+snippet ptoot "PropType oneOfType property"
+PropTypes.oneOfType([$1]),
+endsnippet
+snippet ptootr "PropType oneOfType required property"
+PropTypes.oneOfType([$1]).isRequired,
+endsnippet
+
+snippet ptao "PropType arrayOf property"
+PropTypes.arrayOf,
+endsnippet
+snippet ptaor "PropType arrayOf required property"
+PropTypes.arrayOf.isRequired,
+endsnippet
+
+snippet ptsh "PropType shape property"
+PropTypes.shape,
+endsnippet
+snippet ptshr "PropType shape required property"
+PropTypes.shape.isRequired,
+endsnippet
+
+snippet ptan "PropType any property"
+PropTypes.any,
+endsnippet
+snippet ptanr "PropType any required property"
+PropTypes.any.isRequired,
 endsnippet

@@ -82,7 +82,7 @@ fi
 
 log "Install brew packages"
 
-brew install n gcc zsh hub yarn bat neovim python3 python ripgrep tldr htop z fzf tmux
+brew install n gcc zsh hub yarn bat neovim python3 python ripgrep tldr htop z fzf tmux ruby
 
 log "Install pip and pip3 packages"
 pip install --user pynvim
@@ -90,6 +90,9 @@ pip3 install --user powerline-status pynvim
 
 log "Install yarn packages"
 yarn global add neovim
+
+log "Install gems"
+gem install tmuxinator
 
 # Add gui programs
 if [[ "$SKIP_GUI" == "false" ]]; then
@@ -103,9 +106,8 @@ if [[ "$SKIP_GUI" == "false" ]]; then
     log "Install cask packages"
 
     brew tap caskroom/cask
-    brew tap nexeck/homebrew-tmuxinator
 
-    brew cask install visual-studio-code google-chrome slack postman spotify steam discord alacritty nexeck/homebrew-tmuxinator/tmuxinator
+    brew cask install visual-studio-code google-chrome slack postman spotify steam discord alacritty
   fi
 fi
 
