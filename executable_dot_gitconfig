@@ -1,0 +1,13 @@
+[user]
+	email = gabrielqduarte@gmail.com
+	name = Gabriel Duarte
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[alias]
+	edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; nvim `f`"
+	add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+[merge]
+	conflictStyle = diff3
+[includeIf "gitdir:~/quantilope/"]
+	path = ~/quantilope/.gitconfig

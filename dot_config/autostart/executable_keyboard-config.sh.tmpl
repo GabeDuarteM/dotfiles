@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# Remap Caps lock to esc on tap, and ctrl on hold
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+xmodmap -e "keycode 94 = grave asciitilde"
+xmodmap -e "keycode 49 = backslash"
+
+{{ end -}}

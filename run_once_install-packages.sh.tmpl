@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# Asking for sudo now, so it isn't asked later
+sudo echo
+
+function log() {
+  GREEN_COLOR='\033[0;32m'
+  echo
+  echo -e "${GREEN_COLOR}###########################################################################"
+  echo -e "${GREEN_COLOR}## $1"
+  echo -e "${GREEN_COLOR}###########################################################################"
+  echo
+}
+
+log "Starting install"
+
+# Make the script exit if there's an error
+set -e
+
+# Declare variables
+PROJECTS_FOLDER=~/Projects
+DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
+
+# Source .profile, so the checks for installed executables works when in bash
+source ~/.profile >/dev/null 2>&1
+
+{{ if eq .chezmoi.os "linux" -}}
+
+log "Adding additional repos for apt"
+
+sudo add-apt-repository ppa:mmstick76/alacritty --yes
+
+log "Install apt packages"
+
+sudo apt update
+sudo apt-get install build-essential curl file git snapd xcape alacritty tmuxinator -y
+
+{{ end -}}
+
+# Make directories
+mkdir -p $PROJECTS_FOLDER
+mkdir -p ~/.config/nvim
+mkdir -p ~/.config/nvim/spell
+mkdir -p ~/.config/alacritty
+mkdir -p ~/.local/share/nvim/backup
+mkdir -p ~/.local/share/nvim/swap
+
+# Install brew if necessary. May fail when macOS don't have the requirements, 
+# I still need to check how to install them.
+# https://docs.brew.sh/Installation#macos-requirements
+if ! command -v brew >/dev/null 2>&1; then
+  log "Install brew"
+  {{ if eq .chezmoi.os "linux" -}}
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" < /dev/null
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+  {{ else if eq .chezmoi.os "darwin" -}}
+
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+    export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+
+  {{ end -}}
+fi
+
+log "Install brew bundle"
+
+cat > $HOME/.Brewfile <<EOF
+brew "cmake"
+brew "docker"
+brew "tree"
+brew "gcc"
+brew "zsh"
+brew "hub"
+brew "yarn"
+brew "bat"
+brew "neovim", args: ["HEAD"]
+brew "python3"
+brew "python"
+brew "ripgrep"
+brew "tldr"
+brew "htop"
+brew "z"
+brew "fzf"
+brew "tmux"
+brew "ruby"
+
+tap "caskroom/cask"
+cask "visual-studio-code"
+cask "google-chrome"
+cask "slack"
+cask "postman"
+cask "spotify"
+cask "steam"
+cask "discord"
+cask "alacritty"
+
+EOF
+
+brew bundle --global
+
+log "Install pip and pip3 packages"
+pip install --user pynvim
+pip3 install --user powerline-status pynvim
+
+log "Install yarn packages"
+yarn global add neovim clipboard
+
+log "Install gems"
+gem install tmuxinator
+
+if ! command -v n >/dev/null 2>&1; then
+  curl -L https://git.io/n-install | bash
+fi
+
+# Add the latest version of node
+log "Install latest node"
+
+n latest
+
+log "Install Prezto"
+
+if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
+
+ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+ln -f -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+
+if ! grep "zsh" /etc/shells; then
+  log "Add zsh to the shell list"
+
+  command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
+fi
+
+log "Executing fzf install script"
+brew info fzf | grep fzf/install | xargs bash
+
+log "Set zsh as the default shell"
+sudo chsh -s "$(command -v zsh)" "${USER}"
+
+log "Setup complete\n## Don't forget to run :PlugInstall, :UpdateRemotePlugins,\n## and :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
