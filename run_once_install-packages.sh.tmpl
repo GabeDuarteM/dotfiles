@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Asking for sudo now, so it isn't asked later
-sudo echo
-
 function log() {
   GREEN_COLOR='\033[0;32m'
   echo
@@ -12,14 +9,15 @@ function log() {
   echo
 }
 
-log "Starting install"
+log "Starting install, asking for sudo password"
+# Asking for sudo now, so it isn't asked later
+sudo echo
 
 # Make the script exit if there's an error
 set -e
 
 # Declare variables
 PROJECTS_FOLDER=~/Projects
-DOTFILES_FOLDER=$PROJECTS_FOLDER/dotfiles
 
 # Source .profile, so the checks for installed executables works when in bash
 source ~/.profile >/dev/null 2>&1
