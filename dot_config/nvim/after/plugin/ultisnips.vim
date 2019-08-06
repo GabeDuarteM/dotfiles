@@ -1,4 +1,4 @@
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/snippets']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
 " let coc handle the triggering
 let g:UltiSnipsExpandTrigger="<Nop>"
