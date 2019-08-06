@@ -29,12 +29,12 @@ import ${2:module} from '$1'
 endsnippet
 
 snippet clg "console.log()"
-console.log($1)
+console.log(${1:${VISUAL}})
 endsnippet
 
 snippet iife "Immediately-Invoked Function Expression (iife)" b
 ;(() => {
-  $1
+  ${1:${VISUAL}}
 })()
 endsnippet
 
@@ -46,15 +46,15 @@ snippet setInterval "setInterval function"
 setInterval(() => ${1:function}, ${2:ms})
 endsnippet
 
-snippet if "if"
+snippet ifcondition "if"
 if(${1:condition}) {
-  $2
+  ${2:${VISUAL}}
 }$0
 endsnippet
 
 snippet else "else" b
 else {
-  $1
+  ${1:${VISUAL}}
 }
 endsnippet
 
@@ -77,7 +77,7 @@ endsnippet
 
 # Node
 
-snippet #! "shebang"
+snippet shebang "shebang"
 #!/usr/bin/env node
 endsnippet
 
