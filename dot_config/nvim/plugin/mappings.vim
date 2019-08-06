@@ -1,5 +1,6 @@
 " disable the space functionality, so it doesn't interfere when it is the leader
 nnoremap <SPACE> <Nop>
+vnoremap <SPACE> <Nop>
 
 " Make copy and paste use the clipboard, instead of the register
 vnoremap <leader>y  "+y
