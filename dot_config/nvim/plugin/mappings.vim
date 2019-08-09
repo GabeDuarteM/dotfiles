@@ -32,14 +32,14 @@ nnoremap <Down>  :resize -2<CR>
 nnoremap <Left>  :vertical resize -10<CR>
 nnoremap <Right> :vertical resize +10<CR>
 
-" " Goes to the start of the line
-" noremap H ^
-" " Goes to the end of the line
-" noremap L g_
-" " Goes file lines above
-" noremap J 5j
-" " Goes file lines below
-" noremap K 5k
+" Goes to the start of the line
+noremap H ^
+" Goes to the end of the line
+noremap L g_
+" Goes file lines above
+noremap J 5j
+" Goes file lines below
+noremap K 5k
 
 " Tab/shift-tab to indent/outdent in visual mode.
 vnoremap <Tab> >gv

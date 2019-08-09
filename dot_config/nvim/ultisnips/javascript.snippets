@@ -39,11 +39,11 @@ snippet iife "Immediately-Invoked Function Expression (iife)" b
 endsnippet
 
 snippet setTimeout "setTimeout function"
-setTimeout(() => ${1:function}, ${2:ms})
+setTimeout(() => ${1:${VISUAL:function}}, ${2:ms})
 endsnippet
 
 snippet setInterval "setInterval function"
-setInterval(() => ${1:function}, ${2:ms})
+setInterval(() => ${1:${VISUAL:function}}, ${2:ms})
 endsnippet
 
 snippet ifcondition "if"
@@ -61,7 +61,7 @@ endsnippet
 snippet switch "switch" b
 switch (${1:condition}) {
   case ${2:option}:
-    $3
+    ${3:${VISUAL}}
     break
   $0
   default:
@@ -71,7 +71,7 @@ endsnippet
 
 snippet case "case" b
 case ${1:option}:
-  $2
+  ${2:${VISUAL}}
   break
 endsnippet
 
