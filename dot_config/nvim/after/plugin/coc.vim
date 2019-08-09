@@ -9,6 +9,8 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-ultisnips',
   \ 'coc-tabnine',
+  \ 'coc-yank',
+  \ 'coc-html',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
