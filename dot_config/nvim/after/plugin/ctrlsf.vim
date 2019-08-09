@@ -14,7 +14,6 @@ let g:ctrlsf_extra_backend_args = {
     \ 'rg': '--hidden --glob "!.git/*"'
     \ }
 
-nnoremap <leader>g :CtrlSF<space>
-nnoremap <leader>j :CtrlSF<space><C-R><C-W>
-
+nnoremap <leader>f :CtrlSF<space>
+nnoremap <leader><leader>f :CtrlSF<space><C-R><C-W>
 

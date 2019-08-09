@@ -21,8 +21,8 @@ let NERDTreeMapJumpFirstChild = ''
 let g:NERDTreeWinSize=60
 
 "  Toggle NERDTree on/off
-nmap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 "  Opens current file location in NERDTree
-nmap <leader>f :NERDTreeFind<CR>
+nnoremap <leader><leader>n :NERDTreeFind<CR>
 
