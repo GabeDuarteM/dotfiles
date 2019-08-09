@@ -42,4 +42,5 @@
   "git.changeRemovedSign.text": "",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
   "git.addGlameToVirtualText": true,
+  "diagnostic.virtualText": true
 }
