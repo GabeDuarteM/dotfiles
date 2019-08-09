@@ -30,5 +30,16 @@
   },
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
-  "prettier.onlyUseLocalVersion": true
+  "prettier.onlyUseLocalVersion": true,
+  "git.changedSign.text": "",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.addedSign.text": "",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.removedSign.text": "",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.text": "",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.text": "",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addGlameToVirtualText": true,
 }

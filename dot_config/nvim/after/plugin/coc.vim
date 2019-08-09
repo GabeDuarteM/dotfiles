@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-yank',
   \ 'coc-html',
+  \ 'coc-git'
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -63,4 +64,9 @@ augroup CocConfig
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup END
 
+" coc-git
+" navigate chunks of current buffer
+nnoremap [g <Plug>(coc-git-prevchunk)
+nnoremap ]g <Plug>(coc-git-nextchunk)
+nnoremap <leader>gc <Plug>(coc-git-chunkinfo)
 
