@@ -41,10 +41,6 @@ noremap J 5j
 " Goes file lines below
 noremap K 5k
 
-" Tab/shift-tab to indent/outdent in visual mode.
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-
 " Find and replace
 nnoremap <leader>h :%s///gc<left><left><left><left>
 vnoremap <leader>h :s///gc<left><left><left><left>

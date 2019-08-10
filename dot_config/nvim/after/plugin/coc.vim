@@ -37,6 +37,9 @@ imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>di <Plug>(coc-implementation)
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 nnoremap <silent> <leader>i :call CocAction("doHover")<cr>
 nnoremap <silent> <leader>I :call CocAction("showSignatureHelp")<cr>
