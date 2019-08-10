@@ -97,6 +97,10 @@ set background=dark
 highlight Normal guibg=#1e1c31
 highlight CursorLine guibg=#100E23
 
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
 
 " Source local config if available
 if filereadable($HOME . '/.vimrc.local')

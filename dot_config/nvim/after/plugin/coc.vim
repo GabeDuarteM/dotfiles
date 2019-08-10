@@ -40,6 +40,17 @@ nmap <silent> <leader>di <Plug>(coc-implementation)
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 nnoremap <silent> <leader>i :call CocAction("doHover")<cr>
 nnoremap <silent> <leader>I :call CocAction("showSignatureHelp")<cr>
@@ -62,9 +73,11 @@ let g:coc_snippet_prev = '<C-P>'
 augroup CocConfig
   autocmd!
   " coc-highlight: enable highlighting for symbol under cursor
-  " autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd CursorHold * silent call CocActionAsync('highlight')
   " Close preview window when completion is done.
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
 " coc-git
