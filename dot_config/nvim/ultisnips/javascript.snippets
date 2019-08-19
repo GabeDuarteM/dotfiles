@@ -291,3 +291,28 @@ endsnippet
 snippet ptanr "PropType any required property"
 PropTypes.any.isRequired,
 endsnippet
+
+# Jest
+
+snippet describeblock "describe jest block" b
+describe('$1', () => {
+  ${2:${VISUAL}}
+})
+endsnippet
+
+snippet itblock "it jest block" b
+it('should $1', () => {
+  ${2:${VISUAL}}
+})
+endsnippet
+
+snippet testblock "test jest block" b
+test('$1', () => {
+  ${2:${VISUAL}}
+})
+endsnippet
+
+snippet expect "expect jest" b
+expect(${1:${VISUAL}}).${2:toBe}($3)$4
+endsnippet
+
