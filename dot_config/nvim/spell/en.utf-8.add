@@ -52,6 +52,8 @@ plugins
 postinstall
 prefixer
 prev
+proptype
+proptypes
 quantilope
 readme
 redux
