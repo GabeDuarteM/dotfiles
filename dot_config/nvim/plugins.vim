@@ -55,6 +55,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'roman/golden-ratio'
+Plug 'justinmk/vim-dirvish'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
