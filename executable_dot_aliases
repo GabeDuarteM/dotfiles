@@ -92,5 +92,6 @@ alias e="$EDITOR"
 alias clr="clear && printf '\e[3J'"
 alias tx="tmuxinator"
 alias opencov="open ./coverage/lcov-report/index.html"
+alias salias="alias | grep"
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
