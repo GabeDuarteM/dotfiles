@@ -56,6 +56,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'janko/vim-test'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'roman/golden-ratio'
+Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 
 " syntax
