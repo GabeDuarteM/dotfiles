@@ -102,6 +102,14 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
+" folding options
+" syntax highlighting items specify folds
+set foldmethod=syntax 
+" defines 1 col at window left, to indicate folding
+set foldcolumn=1 
+" set to show all folds opened by default
+set foldlevelstart=99
+
 " Source local config if available
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
