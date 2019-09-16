@@ -24,5 +24,6 @@ function! NERDTreeFindInsideFolderMenuItem()
     let fullPath = g:NERDTreeFileNode.GetSelected().path.str()
     let relativePath = substitute(fullPath, rootPath . "/", "", "")
 
+    call feedkeys(":NERDTreeClose\<CR>")
     call feedkeys(":CtrlSF -G " . relativePath . "/** ")
 endfunction
