@@ -20,6 +20,8 @@ let g:NERDTreeMapJumpFirstChild = ''
 
 let g:NERDTreeWinSize=60
 
+let g:NERDTreeMapQuit='gq'
+
 "  Toggle NERDTree on/off
 nnoremap <leader>n :NERDTreeToggle<CR>
 

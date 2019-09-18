@@ -8,6 +8,7 @@ let g:ctrlsf_auto_focus = {
 let g:ctrlsf_mapping = {
     \ "next": "n",
     \ "prev": "N",
+    \ "quit": "gq",
     \ }
 
 let g:ctrlsf_extra_backend_args = {
