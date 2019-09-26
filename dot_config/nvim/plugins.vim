@@ -56,6 +56,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'roman/golden-ratio'
 Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'segeljakt/vim-silicon'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
