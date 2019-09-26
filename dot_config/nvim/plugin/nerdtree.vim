@@ -23,8 +23,15 @@ let g:NERDTreeWinSize=60
 let g:NERDTreeMapQuit='gq'
 
 "  Toggle NERDTree on/off
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader><leader>n :NERDTreeToggle<CR>
+
+function! ToggleNERDTreeFind()
+    if g:NERDTree.IsOpen()
+        execute ':NERDTreeClose'
+    else
+        execute ':NERDTreeFind'
+    endif
+endfunction
 
 "  Opens current file location in NERDTree
-nnoremap <leader><leader>n :NERDTreeFind<CR>
-
+nnoremap <silent> <leader>n :call ToggleNERDTreeFind()<CR>
