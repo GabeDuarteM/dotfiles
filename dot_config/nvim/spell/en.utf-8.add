@@ -28,12 +28,14 @@ ecmascript
 eslint
 extendable
 fallback
+falsy
 fullscreen
 gabrielduarte
 gabrielqduarte
 gitconfig
 gmail
 groupable
+highcharts
 hotfix
 inline
 keydown
@@ -83,4 +85,3 @@ vimrc
 webpack
 zpreztorc
 zshrc
-highcharts
