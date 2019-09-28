@@ -3,7 +3,7 @@ function! CodeReview(...)
     let flist = system('git diff master --name-only -- . ":(exclude)package-lock.json" ":(exclude)yarn.lock"')
     let flist = split(flist, '\n')
 
-    " Create the dictionaries used to populate the quickfix list
+    " Create the dictionaries used to populate the quick-fix list
     let list = []
     for f in flist
         let dic = {'filename': f, "lnum": 1}
