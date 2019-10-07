@@ -7,6 +7,19 @@
 [alias]
   edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; nvim `f`"
   add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+  # list files which have changed since REVIEW_BASE
+  files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+
+  # Same as above, but with a diff stat instead of just names
+  # (better for interactive use)
+  stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+
+  # Open all files changed since REVIEW_BASE in Vim tabs
+  # Then, run fugitive's :Gdiff in each tab
+  review = !$EDITOR -p $(git files) +\"colorscheme gruvbox\" +\"tabdo Gdiff $REVIEW_BASE\"
+
+  pr-commits = !git log $REVIEW_BASE..
+
 [merge]
   conflictStyle = diff3
 [includeIf "gitdir:~/quantilope/"]
