@@ -57,6 +57,7 @@ Plug 'roman/golden-ratio'
 Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'segeljakt/vim-silicon'
+Plug 'morhetz/gruvbox'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
