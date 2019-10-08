@@ -14,7 +14,7 @@
 
   # Open all files changed since REVIEW_BASE in Vim tabs
   # Then, run fugitive's :Gdiff in each tab
-  review = !$EDITOR -p $(git files) +\"colorscheme gruvbox\" +\"tabdo Gdiff $REVIEW_BASE\"
+  review = !$EDITOR -p $(git files) +\"colorscheme gruvbox\" +\"tabdo Gdiff $REVIEW_BASE:%\"
 
   pr-commits = !git log $REVIEW_BASE..
 
