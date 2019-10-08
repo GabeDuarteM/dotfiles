@@ -5,8 +5,6 @@
   editor = nvim
   excludesfile = ~/.gitignore_global
 [alias]
-  edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; nvim `f`"
-  add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
   # list files which have changed since REVIEW_BASE
   files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
 
