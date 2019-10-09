@@ -60,3 +60,5 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " print the syntax highlighting under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" Select all lines of the file (ctrl-a equivalent)
+nnoremap vA ggVG
