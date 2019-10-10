@@ -87,8 +87,7 @@ augroup CocConfig
 augroup END
 
 " coc-git
-" navigate chunks of current buffer
-nnoremap [g <Plug>(coc-git-prevchunk)
-nnoremap ]g <Plug>(coc-git-nextchunk)
-nnoremap <leader>gc <Plug>(coc-git-chunkinfo)
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+nmap <leader>gc <Plug>(coc-git-chunkinfo)
 
