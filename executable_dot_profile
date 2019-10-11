@@ -38,6 +38,7 @@ fi
 PATH="$PATH:/snap/bin"
 PATH="$(brew --prefix ruby)/bin:$PATH"
 PATH="$(gem env gemdir)/bin:$PATH"
+PATH="$HOME/.yarn/bin:$PATH"
 export PROJECTS_FOLDER=~/Projects
 export WORK_FOLDER=~/quantilope
 
