@@ -62,3 +62,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 " Select all lines of the file (ctrl-a equivalent)
 nnoremap vA ggVG
+
+" Closes all buffers, but the current one
+command! BufOnly execute "%bd|e#|bd#"
