@@ -18,4 +18,5 @@ let g:ctrlsf_populate_qflist = 1
 
 nnoremap <leader>f :CtrlSF<space>
 nnoremap <leader><leader>f :CtrlSF<space><C-R><C-W>
+vmap <leader><leader>f <Plug>CtrlSFVwordPath
 
