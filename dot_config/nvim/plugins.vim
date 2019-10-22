@@ -19,7 +19,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -58,6 +57,7 @@ Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'segeljakt/vim-silicon'
 Plug 'morhetz/gruvbox'
+Plug 'machakann/vim-sandwich'
 
 " syntax
 Plug 'leafgarland/typescript-vim'
