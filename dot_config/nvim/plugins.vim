@@ -58,6 +58,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'segeljakt/vim-silicon'
 Plug 'morhetz/gruvbox'
 Plug 'machakann/vim-sandwich'
+Plug 'terryma/vim-smooth-scroll'
 Plug 'svermeulen/vim-cutlass'
 
 " syntax
