@@ -70,6 +70,9 @@ set listchars=tab:»·,trail:·,nbsp:·
 set splitbelow
 set splitright
 
+" Makes vim use the system clipboard to yank
+set clipboard=unnamedplus
+
 " Always use vertical diffs
 set diffopt+=vertical
 
