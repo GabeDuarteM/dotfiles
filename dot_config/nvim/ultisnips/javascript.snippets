@@ -38,6 +38,10 @@ snippet iife "Immediately-Invoked Function Expression (iife)" b
 })()
 endsnippet
 
+snippet noopfunction "noop function"
+() => {}
+endsnippet
+
 snippet setTimeout "setTimeout function"
 setTimeout(() => ${1:${VISUAL:function}}, ${2:ms})
 endsnippet
@@ -56,6 +60,14 @@ snippet else "else" b
 else {
   ${1:${VISUAL}}
 }
+endsnippet
+
+snippet trycondition "try"
+try {
+  ${VISUAL}
+} catch (err) {
+  throw ${1:err};
+}$0
 endsnippet
 
 snippet switch "switch" b
