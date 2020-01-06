@@ -56,10 +56,10 @@ Plug 'roman/golden-ratio'
 Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'segeljakt/vim-silicon'
-Plug 'morhetz/gruvbox'
 Plug 'machakann/vim-sandwich'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'svermeulen/vim-cutlass'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " syntax
 Plug 'leafgarland/typescript-vim'
@@ -70,6 +70,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'sheerun/vim-polyglot'
 
 " theme
+Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
