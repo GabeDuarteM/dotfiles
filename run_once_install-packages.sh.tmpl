@@ -24,14 +24,10 @@ source ~/.profile >/dev/null 2>&1
 
 {{ if eq .chezmoi.os "linux" -}}
 
-log "Adding additional repos for apt"
-
-sudo add-apt-repository ppa:mmstick76/alacritty --yes
-
 log "Install apt packages"
 
 sudo apt update
-sudo apt-get install build-essential curl file git snapd xcape alacritty tmuxinator -y
+sudo apt-get install build-essential curl file git snapd xcape alacritty -y
 
 {{ end -}}
 
@@ -102,7 +98,7 @@ pip install --user pynvim
 pip3 install --user powerline-status pynvim
 
 log "Install yarn packages"
-yarn global add neovim clipboard
+yarn global add neovim
 
 log "Install gems"
 gem install tmuxinator
