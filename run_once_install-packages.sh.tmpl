@@ -50,8 +50,7 @@ mkdir -p ~/.local/share/nvim/swap
 # Install brew if necessary. May fail when macOS don't have the requirements, 
 # I still need to check how to install them.
 # https://docs.brew.sh/Installation#macos-requirements
-local hasBrew = "$(hasCommand 'brew')"
-if [[ "$hasBrew" == "false" ]]; then
+if [[ "$(hasCommand 'brew')" == "false" ]]; then
   log "Install brew"
   {{ if eq .chezmoi.os "linux" -}}
 
