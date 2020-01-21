@@ -78,6 +78,7 @@ brew "z"
 brew "fzf"
 brew "tmux"
 brew "ruby"
+brew "n"
 
 tap "homebrew/cask-cask"
 cask "visual-studio-code"
@@ -103,10 +104,6 @@ yarn global add neovim
 
 log "Install gems"
 gem install tmuxinator
-
-if ! command -v n >/dev/null 2>&1; then
-  curl -L https://git.io/n-install | bash
-fi
 
 # Add the latest version of node
 log "Install latest node"
