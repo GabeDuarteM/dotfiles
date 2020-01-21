@@ -9,6 +9,14 @@ function log() {
   echo
 }
 
+function hasCommand() {
+  if command -v $1 >/dev/null 2>&1; then
+    echo true
+  else
+    echo false
+  fi
+}
+
 log "Starting install, asking for sudo password"
 # Asking for sudo now, so it isn't asked later
 sudo echo
@@ -42,7 +50,8 @@ mkdir -p ~/.local/share/nvim/swap
 # Install brew if necessary. May fail when macOS don't have the requirements, 
 # I still need to check how to install them.
 # https://docs.brew.sh/Installation#macos-requirements
-if ! command -v brew >/dev/null 2>&1; then
+local hasBrew = "$(hasCommand 'brew')"
+if [[ "$hasBrew" == "false" ]]; then
   log "Install brew"
   {{ if eq .chezmoi.os "linux" -}}
 
