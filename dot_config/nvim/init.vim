@@ -20,7 +20,6 @@ set shiftwidth=2
 
 " Add highlight to the current line and customize it
 set cursorline
-highlight CursorLine guibg=#100E23
 
 " ignore case when searching
 set ignorecase
@@ -96,9 +95,6 @@ catch
 endtry
 set termguicolors
 set background=dark
-
-highlight Normal guibg=#1e1c31
-highlight CursorLine guibg=#100E23
 
 set updatetime=300
 
