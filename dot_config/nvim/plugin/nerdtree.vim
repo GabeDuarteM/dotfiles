@@ -28,8 +28,10 @@ nnoremap <leader><leader>n :NERDTreeToggle<CR>
 function! ToggleNERDTreeFind()
     if g:NERDTree.IsOpen()
         execute ':NERDTreeClose'
-    else
+    elseif filereadable(expand('%'))
         execute ':NERDTreeFind'
+    else
+        execute ':NERDTreeToggle'
     endif
 endfunction
 
