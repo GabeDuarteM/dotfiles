@@ -43,6 +43,7 @@ export PATH="$HOME/n/bin:$PATH"
 export PATH="$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')" # Fix duplicate entries on path
 export PROJECTS_FOLDER=~/Projects
 export WORK_FOLDER=~/quantilope
+export CHEZMOI_FOLDER=~/.local/share/chezmoi
 
 export N_PREFIX="$HOME/n";
 
