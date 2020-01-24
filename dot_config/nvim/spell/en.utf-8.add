@@ -3,6 +3,7 @@ args
 attrs
 autocomplete
 autoprefixer
+autosize
 babelrc
 backend
 browserslist
