@@ -43,3 +43,26 @@ z() {
   cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
 }
 
+# VI mode configs
+
+bindkey -v # enable it
+
+export KEYTIMEOUT=1 # kills the lag when switching modes
+
+# ******************************************************************
+# Make up and down history search work on kitty+tmux
+#   Inspired by https://github.com/zimfw/zimfw/issues/293#issuecomment-422118904
+# ******************************************************************
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
+bindkey -M vicmd "^[OA" history-substring-search-up
+bindkey -M vicmd "^[OB" history-substring-search-down
+# Make it also work with j and k on normal mode
+bindkey -M vicmd "k" history-substring-search-up
+bindkey -M vicmd "j" history-substring-search-down
+
+# open command in vim
+bindkey -M vicmd "^V" edit-command-line
+
+# enables vi-mode indication using spaceship
+spaceship_vi_mode_enable
