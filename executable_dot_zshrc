@@ -43,6 +43,11 @@ z() {
   cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
 }
 
+# has to be also here (not only on profile),
+# so that kitty and zsh vi-mode can use it.
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # VI mode configs
 
 bindkey -v # enable it
