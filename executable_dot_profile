@@ -21,7 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export EDITOR='nvim'
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # set PATH so it includes user's local private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
