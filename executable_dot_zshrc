@@ -50,8 +50,6 @@ export EDITOR="$VISUAL"
 
 # VI mode configs
 
-bindkey -v # enable it
-
 export KEYTIMEOUT=1 # kills the lag when switching modes
 
 # ******************************************************************
