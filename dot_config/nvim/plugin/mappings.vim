@@ -2,18 +2,6 @@
 nnoremap <SPACE> <Nop>
 vnoremap <SPACE> <Nop>
 
-" Make copy and paste use the clipboard, instead of the register
-vnoremap <leader>y  "+y
-vnoremap <leader>Y  "+yg$
-nnoremap <leader>y  "+y
-nnoremap <leader>yy  "+yy
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-nnoremap <leader>dd "+dd
-vnoremap <leader>d "+d
-
 " Move splitted windows
 nnoremap <C-S-J> <C-W><C-S-J>
 nnoremap <C-S-K> <C-W><C-S-K>
@@ -25,12 +13,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Disable arrow movement, resize splits instead.
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize -10<CR>
-nnoremap <Right> :vertical resize +10<CR>
 
 " Goes to the start of the line
 noremap H ^
@@ -50,9 +32,6 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 
 " prevent entering ex mode accidentally
 nnoremap Q <Nop>
-
-" Source (reload) vimrc.
-nnoremap <leader>so :source $MYVIMRC<cr>
 
 " Reselect the last yanked text
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
