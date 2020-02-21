@@ -44,20 +44,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'semanser/vim-outdated-plugins'
 Plug 'SirVer/ultisnips'
 Plug 'farmergreg/vim-lastplace'
-Plug 'godlygeek/tabular'
-Plug 'wincent/vcs-jump'
 Plug 'kamykn/spelunker.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'metakirby5/codi.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'roman/golden-ratio'
 Plug 'wellle/targets.vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'segeljakt/vim-silicon'
 Plug 'machakann/vim-sandwich'
-Plug 'terryma/vim-smooth-scroll'
 Plug 'svermeulen/vim-cutlass'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
@@ -76,5 +71,4 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
 
 call plug#end()
-
 
