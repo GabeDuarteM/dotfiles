@@ -17,6 +17,7 @@
   review = !$EDITOR -p $(git files) +\"colorscheme gruvbox\" +\"tabdo Gdiff $REVIEW_BASE:%\"
 
   pr-commits = !git log $REVIEW_BASE..
+  ignore = "!gi() { touch .gitignore; echo \"$(curl -sL https://www.gitignore.io/api/$@)\" >> .gitignore; echo \"Added $1 to .gitignore\" ;}; gi"
 
 [merge]
   conflictStyle = diff3
