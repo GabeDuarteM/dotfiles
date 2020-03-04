@@ -2,7 +2,7 @@
 
 ## Setup
 
-Just run `curl https://l.gabrielduarte.tech/dotfiles | bash`
+Just run `curl https://l.gabrielduarte.dev/dotfiles | bash`
 
 ## See also
 
