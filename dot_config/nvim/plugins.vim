@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-eunuch'
 Plug 'dhruvasagar/vim-prosession'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -71,4 +72,3 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
 
 call plug#end()
-
