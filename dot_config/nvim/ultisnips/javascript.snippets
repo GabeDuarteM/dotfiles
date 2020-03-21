@@ -117,13 +117,23 @@ endsnippet
 
 snippet require "require" b
 const `!p
+def camelCase(st = ''):
+    output = ''.join(x for x in st.title() if x.isalnum())
+
+    if len(output) == 0:
+      return ''
+    elif len(output) == 1:
+      return output.lower()
+
+    return output[0].lower() + output[1:]
+
 def formatVariableName(path):
   if path == 'react':
     return 'React'
 
   lastPart = path.split('/')[-1]
 
-  return re.sub(r'[_\-]', '', lastPart)
+  return camelCase(lastPart)
 snip.rv = formatVariableName(t[1])
 ` = require('${1}')$0
 endsnippet
