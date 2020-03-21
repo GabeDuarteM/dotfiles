@@ -115,8 +115,17 @@ snippet shebang "shebang"
 #!/usr/bin/env node
 endsnippet
 
-snippet require "assign a CommonJS-style module to a var"
-const ${0:${1/(.+\/)*(\w+)(-|\b|$)(\..+$)?/\u$2/g}} = require('$1')
+snippet require "require" b
+const `!p
+def formatVariableName(path):
+  if path == 'react':
+    return 'React'
+
+  lastPart = path.split('/')[-1]
+
+  return re.sub(r'[_\-]', '', lastPart)
+snip.rv = formatVariableName(t[1])
+` = require('${1}')$0
 endsnippet
 
 # React
