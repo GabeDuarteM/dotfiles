@@ -40,7 +40,7 @@ Plug 'airblade/vim-rooter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Valloric/MatchTagAlways', { 'for': ['jsx', 'tsx'] }
 Plug 'wakatime/vim-wakatime'
-Plug 'raimondi/delimitmate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'semanser/vim-outdated-plugins'
 Plug 'SirVer/ultisnips'

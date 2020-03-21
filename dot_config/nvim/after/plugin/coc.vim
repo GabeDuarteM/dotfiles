@@ -11,7 +11,7 @@ let g:coc_global_extensions = [
   \ 'coc-tabnine',
   \ 'coc-yank',
   \ 'coc-html',
-  \ 'coc-git'
+  \ 'coc-git',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -30,9 +30,8 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
+" Use <cr> to confirm completion, coc only does snippet and additional edit on confirm.
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "<CR>"
 
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
