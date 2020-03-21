@@ -50,10 +50,6 @@ set noshowmode
 " Always display the status line
 set laststatus=2
 
-" Make vim stop automatically adding comments on enter press
-set formatoptions-=r " For insert mode
-set formatoptions-=o " For when hitting "o" in normal mode
-
 " Both options below should make scrolling faster
 set ttyfast
 set lazyredraw
@@ -82,6 +78,8 @@ augroup vimrcEx
   autocmd!
 
   autocmd BufRead,BufNewFile .babelrc,.eslintrc,.prettierrc set filetype=json
+  " stops vim from automatically adding comments on new lines
+  au FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
 
   " notify if file changed outside of vim to avoid multiple versions
   autocmd FocusGained * checktime
