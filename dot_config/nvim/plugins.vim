@@ -58,11 +58,11 @@ Plug 'svermeulen/vim-cutlass'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " syntax
-Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 Plug 'sheerun/vim-polyglot'
 
 " theme
