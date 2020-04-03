@@ -1,6 +1,7 @@
-if exists("g:loaded_nerdtree_find_inside_folder")
+if !exists('g:NERDTree') || exists("g:loaded_nerdtree_find_inside_folder")
     finish
 endif
+
 let g:loaded_nerdtree_find_inside_folder = 1
 
 call NERDTreeAddMenuSeparator({

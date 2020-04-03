@@ -1,3 +1,7 @@
+if !exists("g:NERDTree")
+    finish
+endif
+
 " Show hidden files/directories
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeIgnore = ['\.swp$', '\.DS_Store', '\.git\/']
@@ -22,9 +26,6 @@ let g:NERDTreeWinSize=60
 
 let g:NERDTreeMapQuit='gq'
 
-"  Toggle NERDTree on/off
-nnoremap <leader><leader>n :NERDTreeToggle<CR>
-
 function! ToggleNERDTreeFind()
     if g:NERDTree.IsOpen()
         execute ':NERDTreeClose'
@@ -36,4 +37,4 @@ function! ToggleNERDTreeFind()
 endfunction
 
 "  Opens current file location in NERDTree
-nnoremap <silent> <leader>n :call ToggleNERDTreeFind()<CR>
+nnoremap <silent> <leader><leader>n :call ToggleNERDTreeFind()<CR>

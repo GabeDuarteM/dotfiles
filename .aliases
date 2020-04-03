@@ -97,5 +97,6 @@ alias salias="alias | grep"
 alias cm="chezmoi"
 alias cma="chezmoi apply"
 alias c="tx code"
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}

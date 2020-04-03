@@ -30,15 +30,6 @@ PROJECTS_FOLDER=~/Projects
 # Source .profile, so the checks for installed executables works when in bash
 source ~/.profile >/dev/null 2>&1
 
-{{ if eq .chezmoi.os "linux" -}}
-
-log "Install apt packages"
-
-sudo apt update
-sudo apt-get install build-essential curl file git snapd xcape alacritty -y
-
-{{ end -}}
-
 # Make directories
 mkdir -p $PROJECTS_FOLDER
 mkdir -p ~/.config/nvim
@@ -52,60 +43,12 @@ mkdir -p ~/.local/share/nvim/swap
 # https://docs.brew.sh/Installation#macos-requirements
 if [[ "$(hasCommand 'brew')" == "false" ]]; then
   log "Install brew"
-  {{ if eq .chezmoi.os "linux" -}}
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)" < /dev/null
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-  {{ else if eq .chezmoi.os "darwin" -}}
-
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
-    export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
-
-  {{ end -}}
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+  export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 fi
 
 log "Install brew bundle"
-
-cat > $HOME/.Brewfile <<EOF
-brew "cmake"
-brew "docker"
-brew "tree"
-brew "gcc"
-brew "zsh"
-brew "hub"
-brew "yarn"
-brew "bat"
-brew "neovim"
-brew "python3"
-brew "python"
-brew "ripgrep"
-brew "tldr"
-brew "htop"
-brew "z"
-brew "fzf"
-brew "tmux"
-brew "ruby"
-brew "n"
-
-cask "visual-studio-code"
-cask "google-chrome"
-cask "slack"
-cask "postman"
-cask "spotify"
-cask "steam"
-cask "discord"
-cask "alacritty"
-cask "middleclick"
-cask "kitty"
-cask "alfred"
-cask "karabiner-elements"
-
-tap "homebrew/cask-fonts"
-
-cask "font-hack-nerd-font"
-
-EOF
 
 brew bundle --global
 

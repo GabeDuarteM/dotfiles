@@ -1,3 +1,7 @@
+if !exists("g:coc_enabled")
+    finish
+endif
+
 " Install Coc servers
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -7,7 +11,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-highlight',
   \ 'coc-python',
-  \ 'coc-ultisnips',
+  \ 'coc-snippets',
   \ 'coc-tabnine',
   \ 'coc-yank',
   \ 'coc-html',
@@ -70,19 +74,14 @@ nmap <leader>rn <Plug>(coc-rename)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" use tab and shift-tab to go back and forward on the snippets cursor
-" locations
-let g:coc_snippet_next = '<C-n>'
-let g:coc_snippet_prev = '<C-P>'
-
 augroup CocConfig
   autocmd!
   " coc-highlight: enable highlighting for symbol under cursor
-  autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd! CursorHold * silent call CocActionAsync('highlight')
   " Close preview window when completion is done.
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
   " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd! User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
 " coc-git

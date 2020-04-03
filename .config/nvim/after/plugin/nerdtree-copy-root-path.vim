@@ -1,4 +1,4 @@
-if exists("g:loaded_nerdtree_copy_root_path")
+if !exists('g:NERDTree') || exists("g:loaded_nerdtree_copy_root_path")
     finish
 endif
 let g:loaded_nerdtree_copy_root_path = 1
