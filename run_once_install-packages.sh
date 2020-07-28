@@ -34,7 +34,6 @@ source ~/.profile >/dev/null 2>&1
 mkdir -p $PROJECTS_FOLDER
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/nvim/spell
-mkdir -p ~/.config/alacritty
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
@@ -44,8 +43,8 @@ mkdir -p ~/.local/share/nvim/swap
 if [[ "$(hasCommand 'brew')" == "false" ]]; then
   log "Install brew"
 
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
-  export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  # export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 fi
 
 log "Install brew bundle"
@@ -62,10 +61,16 @@ yarn global add neovim spaceship-prompt
 log "Install gems"
 gem install tmuxinator
 
-# Add the latest version of node
-log "Install latest node"
+if [[ "$(hasCommand 'nvm')" == "false" ]]; then
+  log "Install nvm"
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+fi
 
-n latest
+# Add the latest version of node
+log "Install latest node and LTS"
+
+nvm install node
+nvm install --lts
 
 log "Install Prezto"
 

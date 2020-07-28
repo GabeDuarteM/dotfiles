@@ -15,7 +15,6 @@ brew "htop"
 brew "fzf"
 brew "tmux"
 brew "ruby"
-brew "n"
 brew "vifm"
 
 cask "visual-studio-code"
