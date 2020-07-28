@@ -68,6 +68,8 @@ vnoremap <silent> <leader>F :call CocAction("formatSelected")<cr>
 nnoremap <silent> <leader>. :call CocAction("codeAction")<cr>
 vnoremap <silent> <leader>. :call CocAction("codeAction")<cr>
 
+nnoremap <silent> <leader>cr :CocRestart<CR>
+
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -89,3 +91,5 @@ nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 nmap <leader>gc <Plug>(coc-git-chunkinfo)
 
+" coc-explorer
+nmap <space>n :CocCommand explorer<CR>

@@ -1,6 +1,8 @@
 " Make space the leader
 let mapleader=" "
 
+let $BASH_ENV = "~/.aliases.sh"
+
 filetype plugin on
 
 " load plugins
@@ -74,6 +76,15 @@ set diffopt+=vertical
 " interactive find replace preview
 set inccommand=nosplit
 
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+
 augroup vimrcEx
   autocmd!
 
@@ -83,6 +94,7 @@ augroup vimrcEx
 
   " notify if file changed outside of vim to avoid multiple versions
   autocmd FocusGained * checktime
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
 " UI
@@ -111,4 +123,3 @@ set foldlevelstart=99
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
-

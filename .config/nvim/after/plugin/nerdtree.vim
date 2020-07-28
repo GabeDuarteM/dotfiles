@@ -37,4 +37,4 @@ function! ToggleNERDTreeFind()
 endfunction
 
 "  Opens current file location in NERDTree
-nnoremap <silent> <leader><leader>n :call ToggleNERDTreeFind()<CR>
+" nnoremap <silent> <leader><leader>n :call ToggleNERDTreeFind()<CR>

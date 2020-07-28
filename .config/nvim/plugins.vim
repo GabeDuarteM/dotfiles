@@ -16,6 +16,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug '~/.config/nvim/vscode-snippets'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
@@ -31,7 +32,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 " Plug 'junegunn/goyo.vim'
 " Plug 'junegunn/vim-peekaboo'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'PhilRunninger/nerdtree-visual-selection'
@@ -56,7 +57,9 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'svermeulen/vim-cutlass'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'vifm/vifm.vim'
+" Plug 'tpope/vim-vinegar'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-renderer-devicons.vim'
 
 " syntax
 " Plug 'leafgarland/typescript-vim'
