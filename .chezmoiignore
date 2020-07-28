@@ -1,6 +1,0 @@
-./*.md
-./initial-setup.sh
-
-{{ if ne .chezmoi.os "darwin" -}}
-./dot_config/private_karabiner
-{{ end -}}

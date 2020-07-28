@@ -1,0 +1,75 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "python"
+  ],
+  "suggest.detailField": "preview",
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "Ψ",
+    "function": "⨕",
+    "reference": "渚",
+    "constant": "",
+    "method": "",
+    "struct": "פּ",
+    "class": "",
+    "interface": "",
+    "text": "♣",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "鬒",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  },
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
+  "prettier.onlyUseLocalVersion": true,
+  "git.changedSign.text": "",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.addedSign.text": "",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.removedSign.text": "",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.text": "",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.text": "",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "diagnostic.virtualText": true,
+  "snippets.textmateSnippetsRoots": [
+    "~/.config/nvim/vscode-global-snippets"
+  ],
+  "snippets.ultisnips.enable": false,
+  "snippets.extends": {
+    "javascript": [
+      "javascriptreact"
+    ],
+    "typescript": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "typescript"
+    ]
+  },
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.quitOnOpen": true
+}
