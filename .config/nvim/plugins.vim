@@ -26,6 +26,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-abolish'
 Plug 'dhruvasagar/vim-prosession'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -58,8 +59,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'svermeulen/vim-cutlass'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Plug 'tpope/vim-vinegar'
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-renderer-devicons.vim'
+Plug 'AndrewRadev/linediff.vim'
 
 " syntax
 " Plug 'leafgarland/typescript-vim'
