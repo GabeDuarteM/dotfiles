@@ -1,3 +1,4 @@
+finish
 function! FileNameWithIcon() abort
   let fullpath = expand('%:p')
   let pathWithoutRoot = substitute(fullpath, getcwd() . "/", "", "")

@@ -1,12 +1,13 @@
+lua require('impatient')
+let g:did_load_filetypes = 1
+
+
 " Make space the leader
 let mapleader=" "
 
 let $BASH_ENV = "~/.aliases.sh"
 
-filetype plugin on
-
-" load plugins
-source $HOME/.config/nvim/plugins.vim
+" filetype plugin on
 
 " Hides buffers instead of closing them
 set hidden
@@ -68,7 +69,7 @@ set splitbelow
 set splitright
 
 " Makes vim use the system clipboard to yank
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " Always use vertical diffs
 set diffopt+=vertical
@@ -97,12 +98,6 @@ augroup vimrcEx
   autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
-" UI
-try
-  colorscheme palenight
-catch
-  colorscheme slate
-endtry
 set termguicolors
 set background=dark
 
@@ -123,3 +118,9 @@ set foldlevelstart=99
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
+
+lua require('init')
+
+" Things for the undercurl to work on vim
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"

@@ -1,3 +1,4 @@
+finish
 if exists("g:loaded_edit_spellfile")
     finish
 endif

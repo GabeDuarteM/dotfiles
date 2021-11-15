@@ -19,9 +19,9 @@ noremap H ^
 " Goes to the end of the line
 noremap L $
 " Goes file lines above
-noremap J 5j
+" noremap J 5j
 " Goes file lines below
-noremap K 5k
+" noremap K 5k
 
 " Find and replace
 nnoremap <leader>h :%s///gc<left><left><left><left>

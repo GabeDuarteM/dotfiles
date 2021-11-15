@@ -1,0 +1,19 @@
+## lua
+Add new keybinding (map/remap) to vim via lua | vim.api.nvim_set_keymap("n", "<C-n>", "NvimTreeToggle", { noremap = true })
+
+## abolish @abbreviate @substitution @tpope @coercion
+Abbreviate stuff easier | :Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}
+Substitution stuff easier | :%Subvert/facilit{y,ies}/building{,s}/g
+Coerce to snake_case (cr for coerce) | crs
+Coerce to MixedCase (cr for coerce) | crm
+Coerce to camelCase (cr for coerce) | crc
+Coerce to UPPER_CASE (cr for coerce) | cru
+Coerce to dash-case (cr for coerce) | crs
+Coerce to dot.case (cr for coerce) | cr.
+Coerce to space case (cr for coerce) | cr<space>
+Coerce to Title Case (cr for coerce) | crt
+
+## cheatsheet
+
+Yank the cheatcode | <C-Y>
+Fill in the command line | <CR>

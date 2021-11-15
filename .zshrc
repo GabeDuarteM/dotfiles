@@ -44,3 +44,7 @@ unsetopt CORRECT
   prompt spaceship
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export TERM="xterm-kitty"
+
+# configure fuck
+eval $(thefuck --alias)

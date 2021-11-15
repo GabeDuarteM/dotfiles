@@ -1,3 +1,4 @@
+finish
 nnoremap m d
 xnoremap m d
 

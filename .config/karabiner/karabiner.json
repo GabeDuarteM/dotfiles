@@ -191,14 +191,6 @@
                     "to": {
                         "key_code": "caps_lock"
                     }
-                },
-                {
-                    "from": {
-                        "key_code": "non_us_backslash"
-                    },
-                    "to": {
-                        "key_code": "quote"
-                    }
                 }
             ],
             "virtual_hid_keyboard": {

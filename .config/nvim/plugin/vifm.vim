@@ -1,2 +1,2 @@
-nnoremap <silent> <leader>n :Vifm<CR>
+" nnoremap <silent> <leader>n :Vifm<CR>
 
