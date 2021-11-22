@@ -117,7 +117,7 @@ require('packer').startup(function(use)
     use {'dyng/ctrlsf.vim', opt = true, cmd = {'CtrlSF'} }
     use {'nelstrom/vim-visual-star-search', opt = true, keys = {'*'}}
     use 'wellle/targets.vim'
-    use {'machakann/vim-sandwich', opt = true, keys = {{"n", "ys"},{"v", "S"}}}
+    use {'machakann/vim-sandwich'}
     use {'iamcco/markdown-preview.nvim', run = 'cd app & yarn install', opt = true, ft = {'markdown'} }
     -- use {
     --   'easymotion/vim-easymotion',
