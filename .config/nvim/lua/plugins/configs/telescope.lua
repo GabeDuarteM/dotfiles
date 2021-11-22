@@ -1,4 +1,5 @@
 local actions = require "telescope.actions"
+local utils = require "utils"
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
@@ -36,3 +37,4 @@ vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope grep_string", { noremap =
 vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fv", "<cmd>lua require('telescope.builtin').file_browser()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { noremap = true })
+utils.nnoremap("<leader>fw", "<cmd>lua require('telescope.builtin').find_files({hidden=true, cwd='~/vimwiki', title='VimWiki Articles'})<CR>")
