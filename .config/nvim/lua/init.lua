@@ -5,21 +5,18 @@ vim.g.did_load_filetypes = 1
 
 
 -- mappings to copy to clipboard
-vim.api.nvim_set_keymap("n", "cy", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("n", "cY", '"+Y', {})
-vim.api.nvim_set_keymap("n", "cyy", '"+yy', { noremap = true })
-vim.api.nvim_set_keymap("n", "cp", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("n", "cP", '"+P', { noremap = true })
-vim.api.nvim_set_keymap("n", "cd", '"+d', { noremap = true })
-vim.api.nvim_set_keymap("n", "cdd", '"+dd', { noremap = true })
+vim.api.nvim_set_keymap("n", "y", '"+y', { noremap = true })
+vim.api.nvim_set_keymap("n", "P", '"+P', { noremap = true })
+vim.api.nvim_set_keymap("n", "m", '"+d', { noremap = true })
+vim.api.nvim_set_keymap("n", "M", '"+D', { noremap = true })
+vim.api.nvim_set_keymap("n", "mm", '"+dd', { noremap = true })
 
-vim.api.nvim_set_keymap("v", "cy", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("v", "cp", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("v", "cP", '"+P', { noremap = true })
-vim.api.nvim_set_keymap("v", "cd", '"+d', { noremap = true })
+vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true })
+vim.api.nvim_set_keymap("v", "p", '"_dP', { noremap = true })
+vim.api.nvim_set_keymap("v", "m", '"+d', { noremap = true })
 
--- Y yank until the end of line  (note: this is now a default on master)
-vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
+-- Y yank until the end of line
+vim.api.nvim_set_keymap('n', 'Y', 'y$', {})
 
 -- Highlight on yank
 vim.api.nvim_exec(
