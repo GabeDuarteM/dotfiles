@@ -361,11 +361,8 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-sandwich"] = {
-    keys = { { "n", "ys" }, { "v", "S" } },
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/Users/gabrielduarte/.local/share/nvim/site/pack/packer/opt/vim-sandwich",
+    loaded = true,
+    path = "/Users/gabrielduarte/.local/share/nvim/site/pack/packer/start/vim-sandwich",
     url = "https://github.com/machakann/vim-sandwich"
   },
   ["vim-sensible"] = {
@@ -410,32 +407,30 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'startuptime.vim'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Trouble lua require("packer.load")({'trouble.nvim'}, { cmd = "Trouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GBrowse lua require("packer.load")({'vim-rhubarb'}, { cmd = "GBrowse", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Cheatsheet lua require("packer.load")({'cheatsheet.nvim'}, { cmd = "Cheatsheet", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CheatsheetEdit lua require("packer.load")({'cheatsheet.nvim'}, { cmd = "CheatsheetEdit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Cheatsheet lua require("packer.load")({'cheatsheet.nvim'}, { cmd = "Cheatsheet", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'startuptime.vim'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CtrlSF lua require("packer.load")({'ctrlsf.vim'}, { cmd = "CtrlSF", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file GBrowse lua require("packer.load")({'vim-rhubarb'}, { cmd = "GBrowse", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Trouble lua require("packer.load")({'trouble.nvim'}, { cmd = "Trouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CheatsheetEdit lua require("packer.load")({'cheatsheet.nvim'}, { cmd = "CheatsheetEdit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[nnoremap <silent> gc <cmd>lua require("packer.load")({'vim-commentary'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> crt <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crt", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> cr<space> <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cr<lt>space>", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> cr. <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cr.", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> crs <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crs", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> cru <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cru", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> crc <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> crm <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crm", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <leader>? <cmd>lua require("packer.load")({'cheatsheet.nvim'}, { keys = "<lt>leader>?", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> crs <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crs", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[nnoremap <silent> ] <cmd>lua require("packer.load")({'vim-unimpaired'}, { keys = "]", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> [ <cmd>lua require("packer.load")({'vim-unimpaired'}, { keys = "[", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <leader>? <cmd>lua require("packer.load")({'cheatsheet.nvim'}, { keys = "<lt>leader>?", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> cr<space> <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cr<lt>space>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> cr. <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cr.", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> gc <cmd>lua require("packer.load")({'vim-commentary'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> * <cmd>lua require("packer.load")({'vim-visual-star-search'}, { keys = "*", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[nnoremap <silent> ys <cmd>lua require("packer.load")({'vim-sandwich'}, { keys = "ys", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[vnoremap <silent> S <cmd>lua require("packer.load")({'vim-sandwich'}, { keys = "S", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> crc <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crc", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> crm <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crm", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> [ <cmd>lua require("packer.load")({'vim-unimpaired'}, { keys = "[", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> cru <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "cru", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> crt <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crt", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> crs <cmd>lua require("packer.load")({'vim-abolish'}, { keys = "crs", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[vnoremap <silent> gc <cmd>lua require("packer.load")({'vim-commentary'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
