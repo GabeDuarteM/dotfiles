@@ -100,8 +100,21 @@ nvim_lsp.tsserver.setup({
         on_attach(client, bufnr)
     end,
 })
-require("null-ls").config({})
-nvim_lsp["null-ls"].setup({ on_attach = on_attach })
+local null_ls = require("null-ls")
+null_ls.setup({ 
+  on_attach = on_attach,
+  sources = {
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.formatting.prettierd.with({
+        -- only_local = "node_modules/.bin",
+        env = {
+            PRETTIERD_LOCAL_PRETTIER_ONLY = "true",
+        },
+    }),
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.diagnostics.eslint_d,
+  }
+})
 
 -- Automatically update diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -118,4 +131,3 @@ for type, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. type -- For 0.5.1
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-

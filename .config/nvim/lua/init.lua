@@ -1,23 +1,21 @@
+local utils = require('utils')
+
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- Do not source the default filetype.vim (use the plugin)
 vim.g.did_load_filetypes = 1
 
-
 -- mappings to copy to clipboard
-vim.api.nvim_set_keymap("n", "y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("n", "p", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("n", "P", '"+P', { noremap = true })
-vim.api.nvim_set_keymap("n", "m", '"+d', { noremap = true })
-vim.api.nvim_set_keymap("n", "M", '"+D', { noremap = true })
-vim.api.nvim_set_keymap("n", "mm", '"+dd', { noremap = true })
+utils.nnoremap("y", '"+y')
+utils.nnoremap("p", '"+p')
+utils.nnoremap("P", '"+P')
+utils.nnoremap("m", '"+d')
+utils.nnoremap("M", '"+D')
+utils.nnoremap("mm", '"+dd')
 
-vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("v", "m", '"+d', { noremap = true })
-
--- Y yank until the end of line
-vim.api.nvim_set_keymap('n', 'Y', 'y$', {})
+utils.vnoremap("y", '"+y')
+utils.vnoremap("p", '"+p')
+utils.vnoremap("m", '"+d')
 
 -- Highlight on yank
 vim.api.nvim_exec(

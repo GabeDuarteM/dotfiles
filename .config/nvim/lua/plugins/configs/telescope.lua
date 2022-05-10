@@ -29,12 +29,11 @@ require('telescope').setup {
 }
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
 require'telescope'.load_extension('project')
 
-vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope grep_string", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>fv", "<cmd>lua require('telescope.builtin').file_browser()<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { noremap = true })
-utils.nnoremap("<leader>fw", "<cmd>lua require('telescope.builtin').find_files({hidden=true, cwd='~/vimwiki', title='VimWiki Articles'})<CR>")
+utils.nnoremap("<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap = true })
+utils.nnoremap("<leader>fg", ":Telescope grep_string", { noremap = true })
+utils.nnoremap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { noremap = true })
+utils.nnoremap("<leader>fv", "<cmd>lua require('telescope.builtin').file_browser()<cr>", { noremap = true })
+utils.nnoremap("<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { noremap = true })

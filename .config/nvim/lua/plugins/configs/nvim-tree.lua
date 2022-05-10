@@ -1,9 +1,10 @@
-vim.api.nvim_set_keymap("n", "<C-n>", "NvimTreeToggle", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>r",':NvimTreeRefresh<CR>', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>n",':NvimTreeFindFileToggle<CR>', { noremap = true })
+local utils = require('utils')
+
+utils.nnoremap("<C-n>", "NvimTreeToggle")
+utils.nnoremap("<leader>r",':NvimTreeRefresh<CR>')
+utils.nnoremap("<leader>n",':NvimTreeFindFileToggle<CR>')
 
 vim.g.nvim_tree_respect_buf_cwd = 1
-vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_icons = {
   default = '',
   symlink = '',
@@ -33,7 +34,11 @@ require'nvim-tree'.setup {
     disable_netrw = false,
     view = {
       width = 70,
-      auto_resize = true,
+    },
+    actions = {
+      open_file = {
+        quit_on_open = true,
+        resize_window = true
+      }
     }
 }
-
