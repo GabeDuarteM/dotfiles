@@ -62,7 +62,7 @@ if [[ "$(hasCommand 'yarn')" == "false" ]]; then
 fi
 
 log "Install yarn packages"
-yarn global add neovim @fsouza/prettierd eslint_d typescript tldr
+yarn global add neovim @fsouza/prettierd eslint_d typescript tldr typescript-language-server
 
 if ! grep "zsh" /etc/shells; then
   log "Add zsh to the shell list"
