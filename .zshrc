@@ -9,10 +9,13 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export EDITOR="nvim"
 
-source /home/linuxbrew/.linuxbrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Configure brew
+eval "$(brew shellenv)"
+
+source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
 
 # Configure ASDF
-. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+. "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -33,9 +36,6 @@ if [[ -s ~/.zshrc.local.zsh ]]; then
 fi
 
 source .aliases.sh
-
-# Configure brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Configure fuck
 eval $(thefuck --alias)
