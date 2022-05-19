@@ -2,10 +2,11 @@
 
 function log() {
   GREEN_COLOR='\033[0;32m'
+  END_COLOR='\033[m'
   echo
   echo -e "${GREEN_COLOR}###########################################################################"
   echo -e "${GREEN_COLOR}## $1"
-  echo -e "${GREEN_COLOR}###########################################################################"
+  echo -e "${GREEN_COLOR}###########################################################################${END_COLOR}"
   echo
 }
 
@@ -19,10 +20,7 @@ function hasCommand() {
 
 log "Starting install, asking for sudo password"
 # Asking for sudo now, so it isn't asked later
-sudo echo
-
-# Make the script exit if there's an error
-set -e
+sudo -v
 
 # Source .profile, so the checks for installed executables works when in bash
 source ~/.profile >/dev/null 2>&1
