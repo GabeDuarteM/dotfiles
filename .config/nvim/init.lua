@@ -2,7 +2,6 @@ vim.cmd([[
   " lua pcall('impatient')
   let g:did_load_filetypes = 1
 
-
   " Make space the leader
   let mapleader=" "
 

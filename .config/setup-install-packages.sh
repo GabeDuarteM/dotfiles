@@ -24,16 +24,12 @@ sudo echo
 # Make the script exit if there's an error
 set -e
 
-# Declare variables
-PROJECTS_FOLDER=~/Projects
-
 # Source .profile, so the checks for installed executables works when in bash
 source ~/.profile >/dev/null 2>&1
 
 # Make directories
-mkdir -p $PROJECTS_FOLDER
+mkdir -p ~/projects
 mkdir -p ~/.config/nvim
-mkdir -p ~/.config/nvim/spell
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
@@ -43,7 +39,7 @@ mkdir -p ~/.local/share/nvim/swap
 if [[ "$(hasCommand 'brew')" == "false" ]]; then
   log "Install brew"
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   # export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
 fi
 
@@ -51,37 +47,24 @@ log "Install brew bundle"
 
 brew bundle --global
 
-log "Install pip and pip3 packages"
-pip install --user pynvim
-pip3 install --user powerline-status pynvim
+# Add the latest version of node if its not there
+
+if [[ "$(hasCommand 'node')" == "false" ]]; then
+    log "Install latest node"
+
+    asdf plugin add nodejs
+    asdf install nodejs latest
+    asdf global nodejs latest
+fi
+
+if [[ "$(hasCommand 'yarn')" == "false" ]]; then
+    log "Install yarn"
+
+    curl -o- -L https://yarnpkg.com/install.sh | bash
+fi
 
 log "Install yarn packages"
-yarn global add neovim spaceship-prompt
-
-log "Install gems"
-gem install tmuxinator
-
-if [[ "$(hasCommand 'nvm')" == "false" ]]; then
-  log "Install nvm"
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-fi
-
-# Add the latest version of node
-log "Install latest node and LTS"
-
-nvm install node
-nvm install --lts
-
-log "Install Prezto"
-
-if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-fi
-
-ln -f -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-ln -f -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-ln -f -s ~/.zprezto/runcoms/zprofile ~/.zprofile
-ln -f -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+yarn global add neovim @fsouza/prettierd eslint_d typescript tldr
 
 if ! grep "zsh" /etc/shells; then
   log "Add zsh to the shell list"
@@ -95,4 +78,4 @@ brew info fzf | grep fzf/install | xargs bash
 log "Set zsh as the default shell"
 sudo chsh -s "$(command -v zsh)" "${USER}"
 
-log "Setup complete\n## Don't forget to run :PlugInstall, :UpdateRemotePlugins,\n## and :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
+log "Setup complete\n## Don't forget to run :PackerSync\n## and :checkhealth on vim to install plugins and check if \n## everything is correctly installed"

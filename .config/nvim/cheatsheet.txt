@@ -17,3 +17,4 @@ Coerce to Title Case (cr for coerce) | crt
 
 Yank the cheatcode | <C-Y>
 Fill in the command line | <CR>
+ 

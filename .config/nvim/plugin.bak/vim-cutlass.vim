@@ -4,4 +4,3 @@ xnoremap m d
 
 nnoremap mm dd
 nnoremap M D
-

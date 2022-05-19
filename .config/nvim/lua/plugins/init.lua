@@ -205,8 +205,8 @@ require('packer').startup(function(use)
     use {'TimUntersberger/neogit', config = getConfig('neogit'), opt = true, cmd = "Neogit"}
     use {'akinsho/bufferline.nvim', config = getConfig('bufferline')}
     -- use {'kdheepak/lazygit.nvim', config = getConfig('lazygit')}
-    -- use {'phaazon/hop.nvim', config = getConfig('hop')}
     use {'ggandor/lightspeed.nvim', config = getConfig('lightspeed')}
+    use {'ojroques/vim-oscyank', config = getConfig('oscyank')}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

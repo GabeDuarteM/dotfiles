@@ -1,50 +1,36 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# override aliases defined automatically by prezto
-source ~/.aliases.override.sh
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-# Source all functions
-for f in ~/.functions/*; do
-   source $f
-done
+# Configure ASDF
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# Source local config, if it exists.
-if [[ -s ~/.local/.zshrc.local.zsh ]]; then
-  source ~/.local/.zshrc.local.zsh
-fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ******************************************************************
-#  Make up and down history search work on kitty+tmux
-#  Inspired by https://github.com/zimfw/zimfw/issues/293#issuecomment-422118904
-# ******************************************************************
-bindkey "^[OA" history-substring-search-up
-bindkey "^[OB" history-substring-search-down
-bindkey -M vicmd "^[OA" history-substring-search-up
-bindkey -M vicmd "^[OB" history-substring-search-down
-# Make it also work with j and k on normal mode
-bindkey -M vicmd "k" history-substring-search-up
-bindkey -M vicmd "j" history-substring-search-down
-# open command in vim
-bindkey -M vicmd "^V" edit-command-line
+# Configure fuck
+eval $(thefuck --alias)
 
-# enables vi-mode indication using spaceship
-spaceship_vi_mode_enable
+# Source all functions
+if [[ -s ~/.config/.functions ]]; then
+  for f in ~/.config/.functions/*; do
+     source $f
+  done
+fi
 
-# disable autocompletion set by prezto's utility module
-unsetopt CORRECT
+# Source local config, if it exists.
+if [[ -s ~/.zshrc.local.zsh ]]; then
+  source ~/.zshrc.local.zsh
+fi
 
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+source .aliases.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export TERM="xterm-kitty"
-
-# configure fuck
-eval $(thefuck --alias)

@@ -1,7 +1,3 @@
-" disable the space functionality, so it doesn't interfere when it is the leader
-nnoremap <SPACE> <Nop>
-vnoremap <SPACE> <Nop>
-
 " Move splitted windows
 nnoremap <C-S-J> <C-W><C-S-J>
 nnoremap <C-S-K> <C-W><C-S-K>
@@ -31,6 +27,7 @@ vnoremap <leader>h :s///gc<left><left><left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " prevent entering ex mode accidentally
+nnoremap q: <Nop>
 nnoremap Q <Nop>
 
 " Reselect the last yanked text
