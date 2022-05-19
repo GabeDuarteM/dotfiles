@@ -5,19 +5,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+export EDITOR="nvim"
+
+source /home/linuxbrew/.linuxbrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure ASDF
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Configure fuck
-eval $(thefuck --alias)
 
 # Source all functions
 if [[ -s ~/.config/.functions ]]; then
@@ -33,4 +34,8 @@ fi
 
 source .aliases.sh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Configure brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Configure fuck
+eval $(thefuck --alias)
