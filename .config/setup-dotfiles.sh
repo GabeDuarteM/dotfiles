@@ -11,3 +11,5 @@ cd ~
 
 config checkout
 config config --local status.showUntrackedFiles no
+
+bash ./setup-install-packages.sh
