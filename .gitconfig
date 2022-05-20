@@ -9,5 +9,5 @@
 
 [merge]
   conflictStyle = diff3
-[includeIf "gitdir:~/projects/work"]
-  path = ~/projects/work/.gitconfig
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig
