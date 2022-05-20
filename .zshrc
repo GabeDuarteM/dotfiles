@@ -7,6 +7,8 @@ fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR="nvim"
 
 # Configure brew
