@@ -7,6 +7,7 @@ vim.g.did_load_filetypes = 1
 
 -- mappings to copy to clipboard
 utils.nnoremap("y", '"+y')
+utils.nnoremap("Y", '"+y$')
 utils.nnoremap("p", '"+p')
 utils.nnoremap("P", '"+P')
 utils.nnoremap("m", '"+d')
