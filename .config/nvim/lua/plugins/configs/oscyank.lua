@@ -22,16 +22,20 @@ local function paste()
   return clipboard -- doesn't necessarily paste the current clipboard content, but it refreshes, so next paste it will be fine
 end
 
-vim.api.nvim_create_user_command('RefreshClipboard', refreshClipboard, {})
+local isInSsh = not (vim.env.SSH_CLIENT == nil)
 
-vim.g.clipboard = {
-  name = "osc52",
-  copy = {
-    ["+"] = copy,
-    ["*"] = copy
-  },
-  paste = {
-    ["+"] = paste,
-    ["*"] = paste
+if isInSsh then
+  vim.api.nvim_create_user_command('RefreshClipboard', refreshClipboard, {})
+
+  vim.g.clipboard = {
+    name = "osc52",
+    copy = {
+      ["+"] = copy,
+      ["*"] = copy
+    },
+    paste = {
+      ["+"] = paste,
+      ["*"] = paste
+    }
   }
-}
+end
