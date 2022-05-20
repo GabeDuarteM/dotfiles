@@ -10,8 +10,6 @@ _getWorkProject() {
   _getProjectBase "$WORK_FOLDER" "$1"
 }
 
-unalias p
-
 function p() {
   local dir=$(_getProject $1)
   if [ "$dir" != "$PROJECTS_FOLDER/" ]; then;

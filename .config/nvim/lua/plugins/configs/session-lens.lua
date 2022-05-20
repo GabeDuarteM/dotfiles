@@ -1,6 +1,8 @@
+local utils = require('utils')
+
 require('session-lens').setup {
   path_display = {'shorten'},
   previewer = false,
 }
 
-vim.api.nvim_set_keymap("n", "<leader>fs", ":SearchSession<CR>", { noremap = true, silent = true })
+utils.nnoremap("<leader>fs", ":SearchSession<CR>", { silent = true })

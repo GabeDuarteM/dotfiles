@@ -1,1 +1,0 @@
-/Users/gabrielduarte/.zprezto/runcoms/zprofile

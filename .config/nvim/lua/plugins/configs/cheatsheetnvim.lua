@@ -24,4 +24,3 @@ require("cheatsheet").setup({
 })
 
 utils.nnoremap("<leader>?", ":Cheatsheet<CR>", { silent = true })
-
