@@ -153,7 +153,7 @@ require('packer').startup(function(use)
       cmd = "Trouble"
     }
     use {'folke/lsp-colors.nvim', config = getConfig('lsp-colors')}
-    -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', config = getConfig('cmp-tabnine')}
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp', config = getConfig('cmp-tabnine')}
     -- " syntax
     -- " use 'leafgarland/typescript-vim'
     -- " use 'othree/yajs.vim'

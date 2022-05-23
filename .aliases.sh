@@ -7,6 +7,7 @@ alias gst="git status"
 alias gl="git log"
 alias glo="git log --oneline"
 alias gp="git push"
+alias gco="git checkout"
 
 # yarn
 alias y=yarn

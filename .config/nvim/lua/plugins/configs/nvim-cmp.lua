@@ -70,12 +70,17 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' }, -- For vsnip users.
-  }, {
     { name = 'buffer' },
-  },
-    { name = 'cmp_tabnine' }
-  )
+    { name = 'cmp_tabnine' },
+  })
+  -- sources = {
+  --   { name = 'nvim_lsp' },
+  --   { name = 'vsnip' }, -- For vsnip users.
+  --   { name = 'buffer' },
+  --   { name = 'cmp_tabnine' },
+  -- }
 })
+print('loaded')
 
 vim.o.completeopt="menuone,noinsert,noselect"
 
