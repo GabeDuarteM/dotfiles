@@ -51,3 +51,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 require "nvim-treesitter.highlight"
+
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
