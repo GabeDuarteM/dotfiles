@@ -17,4 +17,32 @@ Coerce to Title Case (cr for coerce) | crt
 
 Yank the cheatcode | <C-Y>
 Fill in the command line | <CR>
- 
+
+## unimpaired.vim
+
+:previous | [a
+:next | ]a
+:first | [A
+:last | ]A
+:bprevious | [b
+:bnext | ]b
+:bfirst | [B
+:blast | ]B
+:lprevious | [l
+:lnext | ]l
+:lfirst | [L
+:llast | ]L
+:lpfile | [<C-L>
+:lnfile | ]<C-L>
+:cprevious | [q
+:cnext | ]q
+:cfirst | [Q
+:clast | ]Q
+:cpfile | [<C-Q>
+:cnfile | ]<C-Q>
+:tprevious | [t
+:tnext | ]t
+:tfirst | [T
+:tlast | ]T
+:ptprevious | [<C-T>
+:ptnext | ]<C-T>
