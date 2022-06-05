@@ -1,6 +1,25 @@
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
+
 require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    "css",
+    "dockerfile",
+    "go",
+    "graphql",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "prisma",
+    "python",
+    "scss",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+  },
   highlight = {
     enable = true, -- false will disable the whole extension
   },
