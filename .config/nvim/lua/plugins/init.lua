@@ -201,12 +201,13 @@ require('packer').startup(function(use)
     }
     -- use { "camspiers/snap", rocks = { "fzy" }} 
     use 'lewis6991/impatient.nvim'
-    use {'github/copilot.vim', config = getConfig('copilot'), disable = true}
+    use {'github/copilot.vim', config = getConfig('copilot') }
     use {'TimUntersberger/neogit', config = getConfig('neogit'), opt = true, cmd = "Neogit"}
     use {'akinsho/bufferline.nvim', config = getConfig('bufferline')}
     -- use {'kdheepak/lazygit.nvim', config = getConfig('lazygit')}
     use {'ggandor/lightspeed.nvim', config = getConfig('lightspeed')}
     use {'ojroques/vim-oscyank', config = getConfig('oscyank')}
+    use { "ThePrimeagen/refactoring.nvim", config = getConfig('refactoring'), requires = { {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"} } }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
