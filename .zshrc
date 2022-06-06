@@ -8,6 +8,7 @@ fi
 export PATH="$HOME/.bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 
