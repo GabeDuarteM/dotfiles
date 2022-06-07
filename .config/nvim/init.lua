@@ -1,5 +1,5 @@
 vim.cmd([[
-  " lua pcall('impatient')
+  lua pcall(require, 'impatient')
   let g:did_load_filetypes = 1
 
   " Make space the leader
