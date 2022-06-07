@@ -139,7 +139,6 @@ require('packer').startup(function(use)
     -- use 'farmergreg/vim-lastplace'
     -- " use 'kamykn/spelunker.vim'
     -- use 'justinmk/vim-sneak'
-    use 'christoomey/vim-tmux-navigator'
     -- " use 'roman/golden-ratio'
     use 'shumphrey/fugitive-gitlab.vim'
     -- use 'svermeulen/vim-cutlass'
