@@ -5,10 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 
@@ -19,6 +19,9 @@ source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
 
 # Configure ASDF
 . "$(brew --prefix asdf)/libexec/asdf.sh"
+
+# Add yarn after ASDF, so that it takes priority on the path (for global node binaries)
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -38,7 +41,7 @@ if [[ -s ~/.zshrc.local.zsh ]]; then
   source ~/.zshrc.local.zsh
 fi
 
-source .aliases.sh
+source ~/.aliases.sh
 
 # Configure fuck
 eval $(thefuck --alias)

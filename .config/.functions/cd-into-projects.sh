@@ -24,7 +24,3 @@ function wp() {
     cd $dir
   fi
 }
-
-unset _getProjectBase
-unset _getProject
-unset _getWorkProject
