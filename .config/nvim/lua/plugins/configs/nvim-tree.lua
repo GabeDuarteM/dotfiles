@@ -18,15 +18,12 @@ local function search_inside_node(node)
 end
 
 local options = {
-  -- disable_netrw = false,
   respect_buf_cwd = true,
 
   filters = {
     dotfiles = false,
     exclude = { "custom" },
   },
-  disable_netrw = true,
-  hijack_netrw = true,
   open_on_tab = false,
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
