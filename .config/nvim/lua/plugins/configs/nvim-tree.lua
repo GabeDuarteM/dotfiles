@@ -1,3 +1,9 @@
+local present, nvimtree = pcall(require, "nvim-tree")
+
+if not present then
+  return
+end
+
 local utils = require('utils')
 
 utils.nnoremap("<C-n>", "NvimTreeToggle")
@@ -11,29 +17,72 @@ local function search_inside_node(node)
   vim.api.nvim_input(':CtrlSF  ' .. node.absolute_path .. leftAmount)
 end
 
-require 'nvim-tree'.setup {
-  update_cwd = true,
-  disable_netrw = false,
+local options = {
+  -- disable_netrw = false,
   respect_buf_cwd = true,
+
+  filters = {
+    dotfiles = false,
+    exclude = { "custom" },
+  },
+  disable_netrw = true,
+  hijack_netrw = true,
+  open_on_tab = false,
+  hijack_cursor = true,
+  hijack_unnamed_buffer_when_opening = false,
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = false,
+  },
   view = {
     width = 70,
     mappings = {
       list = {
         { key = "<space>f", action = "search_inside_node", action_cb = search_inside_node },
       }
-    }
+    },
+    side = "left",
+  },
+  git = {
+    enable = false,
+    ignore = true,
   },
   actions = {
     open_file = {
+      resize_window = true,
       quit_on_open = true,
-      resize_window = true
-    }
+    },
   },
   renderer = {
+    highlight_git = false,
+    highlight_opened_files = "none",
+
+    indent_markers = {
+      enable = false,
+    },
     icons = {
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = false,
+      },
       glyphs = {
-        default = '',
-        symlink = '',
+        default = "",
+        symlink = "",
+        folder = {
+          open = "",
+          empty = "",
+          empty_open = "",
+          default = "",
+          symlink = "",
+          symlink_open = "",
+          arrow_open = "",
+          arrow_closed = "",
+        },
         git = {
           unstaged = "✗",
           staged = "✓",
@@ -41,19 +90,11 @@ require 'nvim-tree'.setup {
           renamed = "➜",
           untracked = "★",
           deleted = "",
-          ignored = "◌"
+          ignored = "◌",
         },
-        folder = {
-          arrow_open = "",
-          arrow_closed = "",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-        }
-      }
-    }
-  }
+      },
+    },
+  },
 }
+
+nvimtree.setup(options)
