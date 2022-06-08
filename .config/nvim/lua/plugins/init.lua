@@ -34,7 +34,7 @@ packer.startup(function(use)
 
   use 'tpope/vim-sensible'
   use { 'tpope/vim-unimpaired', opt = true, keys = { { "n", "[" }, { "n", "]" } } }
-  use { 'tpope/vim-fugitive', opt = true, cmd = { 'G', 'Git' } }
+  use { 'tpope/vim-fugitive', config = getConfig('fugitive'), opt = true, cmd = { 'G', 'Git' } }
   use { 'tpope/vim-rhubarb', opt = true, cmd = { 'GBrowse' } } -- companion to fugitive, allows to open github specific urls and stuff
   -- use { 'tpope/vim-commentary', opt = true, keys = { { "n", 'gc' }, { "v", 'gc' } } }
   use 'tpope/vim-repeat'
