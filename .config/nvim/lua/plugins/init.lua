@@ -185,7 +185,7 @@ require('packer').startup(function(use)
       requires = { "nvim-lua/plenary.nvim" },
       config = getConfig('gitsigns')
     } 
-    use 'folke/lua-dev.nvim'
+    use { 'folke/lua-dev.nvim', config = getConfig('lua-dev') }
     use 'nathom/filetype.nvim'
     use {
       "karb94/neoscroll.nvim",
