@@ -2,10 +2,10 @@ local clipboard = {}
 
 local function refreshClipboard()
   vim.fn.jobstart(
-    "ssh local pbpaste", 
-    { 
-      stdout_buffered = true, 
-      on_stdout = function(_, data) clipboard = data end 
+    "ssh local pbpaste",
+    {
+      stdout_buffered = true,
+      on_stdout = function(_, data) clipboard = data end
     }
   )
 end
@@ -14,7 +14,7 @@ refreshClipboard()
 
 local function copy(lines, regtype)
   vim.fn.OSCYankString(table.concat(lines, "\n"))
-  clipboard = {lines, regtype}
+  clipboard = { lines, regtype }
 end
 
 local function paste()

@@ -8,7 +8,7 @@ local feedkey = function(key, mode)
 end
 
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
@@ -21,7 +21,7 @@ cmp.setup({
     end,
   },
   formatting = {
-    format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+    format = lspkind.cmp_format({ with_text = true, maxwidth = 50 })
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -35,16 +35,16 @@ cmp.setup({
       select = true,
     },
     ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif vim.fn["vsnip#available"](1) == 1 then
-          feedkey("<Plug>(vsnip-expand-or-jump)", "")
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-        end
-      end, { "i", "s" }),
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn["vsnip#available"](1) == 1 then
+        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+      end
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item()
@@ -82,7 +82,7 @@ cmp.setup({
 })
 print('loaded')
 
-vim.o.completeopt="menuone,noinsert,noselect"
+vim.o.completeopt = "menuone,noinsert,noselect"
 
 vim.cmd([[
   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6

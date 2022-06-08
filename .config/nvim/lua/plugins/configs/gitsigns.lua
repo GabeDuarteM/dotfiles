@@ -42,4 +42,4 @@ require("gitsigns").setup({
     ["o ih"] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',
     ["x ih"] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',
   },
-}) 
+})
