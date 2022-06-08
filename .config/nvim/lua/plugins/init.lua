@@ -106,7 +106,7 @@ packer.startup(function(use)
   use { 'AndrewRadev/linediff.vim', opt = true, cmd = { 'Linediff' } }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = getConfig('trouble') }
   use { 'folke/lsp-colors.nvim', config = getConfig('lsp-colors') }
-  use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = getConfig('cmp-tabnine') }
+  use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', config = getConfig('tabnine') }
 
   -- " theme
   use 'morhetz/gruvbox'
