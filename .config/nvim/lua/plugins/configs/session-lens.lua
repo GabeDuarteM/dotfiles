@@ -1,7 +1,7 @@
 local utils = require('utils')
 
 require('session-lens').setup {
-  path_display = {'shorten'},
+  path_display = { 'shorten' },
   previewer = false,
 }
 

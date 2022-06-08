@@ -1,6 +1,6 @@
 local utils = require('utils')
 
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- Do not source the default filetype.vim (use the plugin)
 vim.g.did_load_filetypes = 1
@@ -25,12 +25,12 @@ vim.api.nvim_exec(
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]],
+]] ,
   false
 )
 
 require('plugins')
-vim.cmd[[
+vim.cmd [[
   try
     colorscheme tokyonight
   catch
