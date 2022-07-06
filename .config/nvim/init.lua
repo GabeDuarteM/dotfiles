@@ -122,3 +122,12 @@ vim.cmd([[
   let &t_Cs = "\e[4:3m"
   let &t_Ce = "\e[4:0m"
 ]])
+
+local filetypeAuGroup = vim.api.nvim_create_augroup("DefineCustomFileTypes", { clear = true })
+vim.api.nvim_create_autocmd({ "BufNew", "BufNewFile", "BufRead" }, {
+  pattern = { "*.env*" },
+  callback = function()
+    vim.bo.filetype = "sh"
+  end,
+  group = filetypeAuGroup,
+})
