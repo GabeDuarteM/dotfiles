@@ -11,3 +11,6 @@
   conflictStyle = diff3
 [includeIf "gitdir:~/work/"]
   path = ~/work/.gitconfig
+
+[push]
+  autoSetupRemote = true
