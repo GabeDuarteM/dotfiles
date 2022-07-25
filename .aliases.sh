@@ -38,7 +38,7 @@ alias vi="$EDITOR"
 alias e="$EDITOR"
 alias opencov="open ./coverage/lcov-report/index.html"
 alias salias="alias | grep"
-alias config='/usr/bin/git --git-dir=$HOME/.config/.dotfiles --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.config/.dotfiles --work-tree=$HOME'
 alias ce='config ls-files ~ | sed "s/ /\\\\ /" | xargs nvim -c "for i in argv() | bnext | endfor"' # sed to escape espaces in filenames, for loop to avoid the vim error E173: more files to edit
 alias lg='lazygit'
 alias lgc='lazygit --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
