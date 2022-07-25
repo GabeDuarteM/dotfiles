@@ -3,7 +3,8 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_compiled_path = fn.stdpath('config') .. '/lua/packer_compiled.lua'
 local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
 local function getConfig(name)
@@ -41,7 +42,9 @@ packer.startup(function(use)
   use 'tpope/vim-sleuth' -- adjusts identation
   -- use 'tpope/vim-obsession'
   -- use 'tpope/vim-eunuch'
-  use { 'tpope/vim-abolish', opt = true, keys = { { 'n', 'crs' }, { 'n', 'crm' }, { 'n', 'crc' }, { 'n', 'cru' }, { 'n', 'crs' }, { 'n', 'cr.' }, { 'n', 'cr<space>' }, { 'n', 'crt' } } }
+  use { 'tpope/vim-abolish', opt = true,
+    keys = { { 'n', 'crs' }, { 'n', 'crm' }, { 'n', 'crc' }, { 'n', 'cru' }, { 'n', 'crs' }, { 'n', 'cr.' },
+      { 'n', 'cr<space>' }, { 'n', 'crt' } } }
 
   use 'shumphrey/fugitive-gitlab.vim'
 
@@ -82,7 +85,8 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use { 'kyazdani42/nvim-tree.lua', config = getConfig('nvim-tree'), requires = { 'kyazdani42/nvim-web-devicons' } }
 
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }, config = getConfig('lualine') }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = getConfig('lualine') }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use { 'hrsh7th/nvim-cmp', config = getConfig('nvim-cmp') }
@@ -143,7 +147,8 @@ packer.startup(function(use)
   -- use { 'kdheepak/lazygit.nvim', config = getConfig('lazygit') }
   use { 'ggandor/lightspeed.nvim', config = getConfig('lightspeed') }
   use { 'ojroques/vim-oscyank', config = getConfig('oscyank') }
-  use { "ThePrimeagen/refactoring.nvim", config = getConfig('refactoring'), requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
+  use { "ThePrimeagen/refactoring.nvim", config = getConfig('refactoring'),
+    requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   use { "numToStr/Comment.nvim", config = getConfig('comment') }
 
