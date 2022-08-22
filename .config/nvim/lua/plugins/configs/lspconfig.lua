@@ -108,6 +108,10 @@ null_ls.setup({
     null_ls.builtins.code_actions.eslint_d,
     null_ls.builtins.formatting.prettierd.with({
       -- only_local = "node_modules/.bin",
+      condition = function(utils)
+        return utils.root_has_file({ ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
+          ".prettierrc.js", ".prettierrc.cjs", "prettier.config.js", "prettier.config.cjs", ".prettierrc.toml" })
+      end,
       env = {
         PRETTIERD_LOCAL_PRETTIER_ONLY = "true",
       },

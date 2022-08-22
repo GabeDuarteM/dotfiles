@@ -7,4 +7,9 @@ vim.api.nvim_set_keymap("o", "z", "<Plug>Lightspeed_omni_s<CR>", { silent = true
 
 require 'lightspeed'.setup {
   ignore_case = true,
+  labels = { "s", "f", "n",
+    "j", "k", "l", "o", "d", "w", "e", "h", "m", "v", "g",
+    "u", "t",
+    "c", "z" }
+  ,
 }
