@@ -19,6 +19,7 @@ require('nvim-treesitter.configs').setup {
     "typescript",
     "vim",
     "yaml",
+    "rust",
   },
   highlight = {
     enable = true, -- false will disable the whole extension
