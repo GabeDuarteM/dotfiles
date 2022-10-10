@@ -63,7 +63,7 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
   buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
   end
 end
@@ -84,8 +84,8 @@ end
 
 nvim_lsp.tsserver.setup({
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
     local ts_utils = require("nvim-lsp-ts-utils")
     ts_utils.setup({
       eslint_bin = "eslint_d",
