@@ -1,5 +1,4 @@
 -- autocmd BufReadPost */.git/index nmap <buffer> <TAB> =
-print("fugitive.lua loaded")
 vim.api.nvim_create_autocmd("BufReadPost", {
     pattern = "fugitive:///*/.git/*",
     callback = function()
