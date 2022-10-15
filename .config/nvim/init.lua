@@ -132,3 +132,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
   group = filetypeAuGroup,
 })
+
+-- Disable mouse
+vim.o.mouse = ""
+vim.o.ttymouse = ""
