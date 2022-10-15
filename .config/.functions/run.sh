@@ -4,6 +4,12 @@ run() {
   if [ -f "Cargo.toml" ]; then
     cargo run
     return
+  elif [ -f "pnpm-lock.yaml" ]; then
+    pnpm start
+    return
+  elif [ -f "yarn.lock" ]; then
+    yarn start
+    return
   elif [ -f "package.json" ]; then
     npm run start
     return
