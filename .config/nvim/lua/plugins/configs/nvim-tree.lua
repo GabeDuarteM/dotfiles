@@ -4,11 +4,9 @@ if not present then
   return
 end
 
-local utils = require('utils')
-
-utils.nnoremap("<C-n>", "NvimTreeToggle")
-utils.nnoremap("<leader>r", ':NvimTreeRefresh<CR>')
-utils.nnoremap("<leader>n", ':NvimTreeFindFileToggle<CR>')
+vim.keymap.set("n", "<C-n>", "NvimTreeToggle")
+vim.keymap.set("n", "<leader>r", ':NvimTreeRefresh<CR>')
+vim.keymap.set("n", "<leader>n", ':NvimTreeFindFileToggle<CR>')
 
 local function search_inside_node(node)
   -- amount of <left> needed to put the cursor before the path
@@ -50,6 +48,9 @@ local options = {
       resize_window = true,
       quit_on_open = true,
     },
+  },
+  system_open = {
+    cmd = "explorer.exe",
   },
   renderer = {
     highlight_git = false,

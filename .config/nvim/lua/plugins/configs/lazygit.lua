@@ -1,3 +1,1 @@
-local utils = require("utils")
-
-utils.nnoremap("<leader>gg", ":LazyGit<cr>")
+vim.keymap.set("n", "<leader>gg", ":LazyGit<cr>")

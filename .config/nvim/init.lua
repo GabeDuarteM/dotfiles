@@ -1,138 +1,176 @@
-vim.cmd([[
-  lua pcall(require, 'impatient')
-  let g:did_load_filetypes = 1
+pcall(require, 'impatient')
 
-  " Make space the leader
-  let mapleader=" "
+vim.g.did_load_filetypes = 1
 
-  let $BASH_ENV = "~/.aliases.sh"
+-- Make space the leader key
+vim.g.mapleader = ' '
 
-  " filetype plugin on
+-- -- Hides buffers instead of closing them
+-- vim.o.hidden = true
 
-  " Hides buffers instead of closing them
-  set hidden
+-- -- Insert spaces when TAB is pressed.
+-- vim.o.expandtab = true
 
-  " Insert spaces when TAB is pressed.
-  set expandtab
+-- -- Change number of spaces that a <Tab> counts for during editing ops
+-- vim.o.softtabstop = 2
 
-  " Change number of spaces that a <Tab> counts for during editing ops
-  set softtabstop=2
+-- -- Indentation amount for < and > commands.
+-- vim.o.shiftwidth = 2
 
-  " Indentation amount for < and > commands.
-  set shiftwidth=2
+-- Add highlight to the current line and customize it
+vim.o.cursorline = true
 
-  " Add highlight to the current line and customize it
-  set cursorline
+-- ignore case when searching
+vim.o.ignorecase = true
 
-  " ignore case when searching
-  set ignorecase
+-- if the search string has an upper case letter in it, the search will be case sensitive
+vim.o.smartcase = true
 
-  " if the search string has an upper case letter in it, the search will be case sensitive
-  set smartcase
+-- Enable line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true
 
-  " Automatically re-read file if a change was detected outside of vim
-  set autoread
+-- Set backups
+if vim.fn.has('persistent_undo') then
+  vim.o.undofile = true
+  vim.o.undolevels = 3000
+  vim.o.undoreload = 10000
+end
 
-  " Enable line numbers
-  set number
+-- set where swap file and undo/backup files are saved
+vim.o.backupdir = vim.fn.expand("~") .. "/.local/share/nvim/backup//" -- Don't put backups in current dir
+vim.o.directory = vim.fn.expand("~") .. "/.local/share/nvim/swap//" -- Don't put swaps in current dir
+vim.o.backup = true
 
-  " Set backups
-  if has('persistent_undo')
-    set undofile
-    set undolevels=3000
-    set undoreload=10000
-  endif
-  " set where swap file and undo/backup files are saved
-  set backupdir=~/.local/share/nvim/backup// " Don't put backups in current dir
-  set directory=~/.local/share/nvim/swap// " Don't put swaps in current dir
-  set backup
+-- Don't show modes, as the airline already does
+vim.o.noshowmode = true
 
-  " Don't show modes, as the airline already does
-  set noshowmode
+-- Always display the status line
+vim.o.laststatus = 2
 
-  " Always display the status line
-  set laststatus=2
+-- -- Both options below should make scrolling faster
+-- vim.o.ttyfast = true
+-- vim.o.lazyredraw = true
 
-  " Both options below should make scrolling faster
-  set ttyfast
-  set lazyredraw
+-- Show invisible characters
+vim.o.list = true
+vim.o.listchars = "tab:»·,trail:·,nbsp:·"
 
-  " Enable wildmenu
-  set wildmenu
+-- Open new split panes to right and bottom, which feels more natural
+vim.o.splitbelow = true
+vim.o.splitright = true
 
-  " Show invisible characters
-  set list
-  set listchars=tab:»·,trail:·,nbsp:·
+-- -- Always use vertical diffs
+vim.o.diffopt = vim.o.diffopt .. ",vertical"
 
-  " Open new split panes to right and bottom, which feels more natural
-  set splitbelow
-  set splitright
+-- interactive find replace preview
+vim.o.inccommand = "nosplit"
 
-  " Always use vertical diffs
-  set diffopt+=vertical
+vim.o.termguicolors = true
+vim.o.background = "dark"
 
-  " interactive find replace preview
-  set inccommand=nosplit
+vim.o.updatetime = 250
 
-  function s:MkNonExDir(file, buf)
-      if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-          let dir=fnamemodify(a:file, ':h')
-          if !isdirectory(dir)
-              call mkdir(dir, 'p')
-          endif
-      endif
-  endfunction
+-- -- don't give |ins-completion-menu| messages.
+-- vim.o.shortmess = vim.o.shortmess .. "c"
 
-  augroup vimrcEx
-    autocmd!
+-- folding options
+-- syntax highlighting items specify folds
+vim.o.foldmethod = "syntax"
+-- defines 1 col at window left, to indicate folding
+vim.o.foldcolumn = '1'
+-- set to show all folds opened by default
+vim.o.foldlevelstart = 99
 
-    autocmd BufRead,BufNewFile .babelrc,.eslintrc,.prettierrc set filetype=json
-    " stops vim from automatically adding comments on new lines
-    au FileType * set formatoptions-=c formatoptions-=r formatoptions-=o
+-- -- Source local config if available
+-- if vim.fn.filereadable(vim.env.HOME .. "/.vimrc.local") then
+--   vim.fn.source(vim.env.HOME .. "/.vimrc.local")
+-- end
 
-    " notify if file changed outside of vim to avoid multiple versions
-    autocmd FocusGained * checktime
-    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-  augroup END
+-- Things for the undercurl to work on vim
+vim.o.t_Cs = "\\e[4:3m"
+vim.o.t_Ce = "\\e[4:0m"
 
-  set termguicolors
-  set background=dark
+vim.o.mouse = "a"
 
-  set updatetime=300
+-- from kickstart
 
-  " don't give |ins-completion-menu| messages.
-  set shortmess+=c
+-- Enable break indent
+vim.o.breakindent = true
 
-  " folding options
-  " syntax highlighting items specify folds
-  set foldmethod=syntax 
-  " defines 1 col at window left, to indicate folding
-  set foldcolumn=1 
-  " set to show all folds opened by default
-  set foldlevelstart=99
+vim.wo.signcolumn = 'yes'
 
-  " Source local config if available
-  if filereadable($HOME . '/.vimrc.local')
-    source ~/.vimrc.local
-  endif
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 
-  lua require('init')
+-- Remap for dealing with word wrap
+-- If you have a long line that wraps, the below remaps will make it so that you can
+-- use the j and k keys to move the cursor to the next line in the visual wrapped line
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-  " Things for the undercurl to work on vim
-  let &t_Cs = "\e[4:3m"
-  let &t_Ce = "\e[4:0m"
-]])
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 local filetypeAuGroup = vim.api.nvim_create_augroup("DefineCustomFileTypes", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*\\.env*" },
   callback = function()
-    print("Detecting .env file, switching filetype to sh")
     vim.bo.filetype = "sh"
   end,
   group = filetypeAuGroup,
 })
 
--- Disable mouse
-vim.o.mouse = ""
-vim.o.ttymouse = ""
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { ".babelrc", ".eslintrc", ".prettierrc" },
+  callback = function()
+    vim.bo.filetype = "json"
+  end,
+  group = filetypeAuGroup,
+})
+
+local vimrcExAuGroup = vim.api.nvim_create_augroup("VimrcEx", { clear = true })
+
+-- stops vim from automatically adding comments on new lines
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function()
+    vim.bo.formatoptions = vim.bo.formatoptions:gsub("c", "")
+    vim.bo.formatoptions = vim.bo.formatoptions:gsub("r", "")
+    vim.bo.formatoptions = vim.bo.formatoptions:gsub("o", "")
+  end,
+  group = vimrcExAuGroup,
+})
+
+-- notify if file changed outside of vim to avoid multiple versions
+-- vim.api.nvim_create_autocmd({ "FocusGained" }, {
+--   callback = 'checktime',
+--   group = vimrcExAuGroup,
+-- })
+
+-- local function MkNonExDir(file, buf)
+--   if vim.api.nvim_buf_get_option(buf, "buftype") == "" and file:match("^%a+:/.*") then
+--     local dir = vim.fn.fnamemodify(file, ":h")
+--     if not vim.fn.isdirectory(dir) then
+--       vim.fn.mkdir(dir, "p")
+--     end
+--   end
+-- end
+
+-- -- Create directories for new files if they don't already exist
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   callback = function()
+--     MkNonExDir(vim.fn.expand("<afile>"), vim.fn.expand("<abuf>"))
+--   end,
+--   group = vimrcExAuGroup,
+-- })
+
+require('mappings')
+require('init')

@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 require("cheatsheet").setup({
     -- Whether to show bundled cheatsheets
 
@@ -23,4 +21,4 @@ require("cheatsheet").setup({
     include_only_installed_plugins = true,
 })
 
-utils.nnoremap("<leader>?", ":Cheatsheet<CR>", { silent = true })
+vim.keymap.set("n", "<leader>?", ":Cheatsheet<CR>", { silent = true })
