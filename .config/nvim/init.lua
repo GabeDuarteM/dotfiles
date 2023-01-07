@@ -172,5 +172,4 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --   group = vimrcExAuGroup,
 -- })
 
-require('mappings')
 require('init')
