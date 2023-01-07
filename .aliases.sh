@@ -43,3 +43,4 @@ alias ce='config ls-files ~ | sed "s/ /\\\\ /" | xargs nvim -c "for i in argv() 
 alias lg='lazygit'
 alias lgc='lazygit --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
 alias r='run $@'
+alias clip="xclip -sel clip"
