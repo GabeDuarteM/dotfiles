@@ -34,6 +34,15 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
 
+# Fix keybindings
+bindkey  "^[[H"     beginning-of-line  # Home
+bindkey  "^[[F"     end-of-line        # End
+bindkey  "^[[3~"    delete-char        # Delete
+bindkey  "^[[3;5~"  kill-word          # Ctrl + Delete
+bindkey  "^H"       backward-kill-word # Ctrl + Backspace
+bindkey  "^[[1;5C"  forward-word       # Ctrl + Right
+bindkey  "^[[1;5D"  backward-word      # Ctrl + Left
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
