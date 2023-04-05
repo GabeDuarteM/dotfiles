@@ -12,10 +12,16 @@ export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 
+# For tauri not to conflict with homebrew
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
+
 # Configure brew
 eval "$(brew shellenv)"
 
 source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
+
+# Configure rust
+. "$HOME/.cargo/env"
 
 # Configure ASDF
 . "$(brew --prefix asdf)/libexec/asdf.sh"
@@ -65,3 +71,19 @@ source ~/.aliases.sh
 
 # Configure fuck
 eval $(thefuck --alias)
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
