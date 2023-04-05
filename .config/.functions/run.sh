@@ -1,8 +1,16 @@
-#!/bin/sh
+#!/bin/zsh
 
 run () {
   # Store the arguments in a variable
   args=$@
+
+  script="start"
+
+  if [ -n "$(find . -maxdepth 1 -type f -name 'next.config.*')" ]; then
+    script="dev"
+  elif [ -n "$(find . -maxdepth 1 -type f -name 'astro.config.*')" ]; then
+    script="dev"
+  fi
 
   if [ -f "Cargo.toml" ]
   then
@@ -10,15 +18,15 @@ run () {
     return
   elif [ -f "pnpm-lock.yaml" ]
   then
-    pnpm start $args
+    pnpm $script $args
     return
   elif [ -f "yarn.lock" ]
   then
-    yarn start $args
+    yarn $script $args
     return
   elif [ -f "package.json" ]
   then
-    npm run start $args
+    npm run $script $args
     return
   elif [ -f "go.mod" ]
   then

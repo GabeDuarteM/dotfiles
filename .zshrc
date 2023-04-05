@@ -12,10 +12,16 @@ export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 
+# For tauri not to conflict with homebrew
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
+
 # Configure brew
 eval "$(brew shellenv)"
 
 source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
+
+# Configure rust
+. "$HOME/.cargo/env"
 
 # Configure ASDF
 . "$(brew --prefix asdf)/libexec/asdf.sh"
@@ -33,6 +39,15 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt share_history          # share command history data
+
+# Fix keybindings
+bindkey  "^[[H"     beginning-of-line  # Home
+bindkey  "^[[F"     end-of-line        # End
+bindkey  "^[[3~"    delete-char        # Delete
+bindkey  "^[[3;5~"  kill-word          # Ctrl + Delete
+bindkey  "^H"       backward-kill-word # Ctrl + Backspace
+bindkey  "^[[1;5C"  forward-word       # Ctrl + Right
+bindkey  "^[[1;5D"  backward-word      # Ctrl + Left
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -56,3 +71,19 @@ source ~/.aliases.sh
 
 # Configure fuck
 eval $(thefuck --alias)
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

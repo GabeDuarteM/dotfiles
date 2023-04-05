@@ -1,9 +1,0 @@
-{
-  "config": {
-    "prefix": "config",
-    "body": [
-      "config = function() require 'plugins/configs/$1' end$0"
-    ],
-    "description": "requires the config for a packer plugin"
-  }
-}
