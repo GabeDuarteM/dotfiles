@@ -10,6 +10,8 @@ run () {
     script="dev"
   elif [ -n "$(find . -maxdepth 1 -type f -name 'astro.config.*')" ]; then
     script="dev"
+  elif [ -n "$(find . -maxdepth 1 -type f -name 'turbo.json')" ]; then
+    script="dev"
   fi
 
   if [ -f "Cargo.toml" ]
