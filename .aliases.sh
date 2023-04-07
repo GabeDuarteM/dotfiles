@@ -8,6 +8,7 @@ alias gl="git log"
 alias glo="git log --oneline"
 alias gp="git push"
 alias gco="git checkout"
+alias grm="gitRebaseMain"
 
 # yarn
 alias y=yarn
