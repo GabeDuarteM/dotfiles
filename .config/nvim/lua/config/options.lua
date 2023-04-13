@@ -25,3 +25,8 @@ if os.getenv("WSL_DISTRO_NAME") ~= nil then
   -- https://www.google.com
   vim.g.netrw_browsex_viewer = "wslview"
 end
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
