@@ -27,6 +27,14 @@ alias nl="npm run lint"
 alias nb="npm run build"
 alias nu="npx npm-check -u"
 
+# docker
+alias d=docker
+alias dc=docker compose
+alias dcl="docker-compose logs --follow --tail=100"
+alias dcu="docker-compose up --detach"
+alias dcs="docker-compose stop"
+alias dcr="docker-compose restart"
+
 # misc
 alias proj="cd ~/projects"
 alias cls="clear"
