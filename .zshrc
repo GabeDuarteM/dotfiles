@@ -11,6 +11,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
+export DOTFILES_GIT_DIR="$HOME/.config/.dotfiles/"
 
 # For tauri not to conflict with homebrew
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
