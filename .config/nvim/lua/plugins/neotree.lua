@@ -33,6 +33,8 @@ return {
             vim.fn.setreg("+", content)
           end,
           ["o"] = "open",
+          -- disable fuzzy search
+          ["/"] = "noop",
         },
       },
     },
