@@ -1,0 +1,52 @@
+# Blocklist files/folders in same directory as the .gitignore file
+/*
+
+# Includelist some files
+!.gitignore
+!README.md
+
+# Includelist folder/a/b1/ and folder/a/b2/
+# trailing "/" is optional for folders, may match file though.
+# "/" is NOT optional when followed by a *
+
+# Git requires this weird syntax for unignoring everything inside a folder
+# A handy site to build this is the following
+#
+# https://theapache64.github.io/git-do-not-ignore/
+#
+# Below are the paths that need to be unignored
+#
+# .config/.functions/*
+# .config/karabiner/*
+# .config/kitty/*
+# .config/nvim/*
+# .config/setup-dotfiles.sh
+# .config/setup-install-packages.sh
+
+.config/*
+!.config/
+!.config/setup-dotfiles.sh
+!.config/setup-install-packages.sh
+.config/nvim/*
+.config/kitty/*
+!.config/nvim/
+!.config/nvim/*
+!.config/kitty/
+!.config/kitty/*
+.config/karabiner/*
+.config/.functions/*
+!.config/karabiner/
+!.config/karabiner/*
+!.config/.functions/
+!.config/.functions/*
+
+.Brewfile
+.aliases.sh
+.asdfrc
+.gitconfig
+.zshrc
+README.md
+Useful commands.md
+
+# Reignore some files
+.config/nvim/lazy-lock.json
