@@ -30,3 +30,11 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+
+local git_dir = vim.fn.glob(".git")
+local superproject = vim.fn.systemlist("git rev-parse --show-superproject-working-tree")[1]
+
+if git_dir ~= "" or superproject ~= nil then
+  vim.env.GIT_DIR = os.getenv("DOTFILES_GIT_DIR")
+  vim.env.GIT_WORK_TREE = os.getenv("HOME")
+end
