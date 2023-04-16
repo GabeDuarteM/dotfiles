@@ -19,6 +19,7 @@
 # .config/.functions/*
 # .config/karabiner/*
 # .config/kitty/*
+# .config/lazygit/config.yml
 # .config/nvim/*
 # .config/setup-dotfiles.sh
 # .config/setup-install-packages.sh
@@ -33,6 +34,9 @@
 !.config/nvim/*
 !.config/kitty/
 !.config/kitty/*
+.config/lazygit/*
+!.config/lazygit/
+!.config/lazygit/config.yml
 .config/karabiner/*
 .config/.functions/*
 !.config/karabiner/
