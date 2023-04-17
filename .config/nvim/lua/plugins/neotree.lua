@@ -1,3 +1,9 @@
+local function replace(str, what, with)
+  what = string.gsub(what, "[%(%)%.%+%-%*%?%[%]%^%$%%]", "%%%1") -- escape pattern
+  with = string.gsub(with, "[%%]", "%%%%") -- escape replacement
+  return string.gsub(str, what, with)
+end
+
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -25,12 +31,13 @@ return {
         mappings = {
           ["Y"] = function(state)
             local node = state.tree:get_node()
-            -- local content = node.path
-            -- relative
-            local content = node.path:gsub(state.path, ""):sub(2)
-            vim.fn.setreg('"', content)
-            vim.fn.setreg("1", content)
-            vim.fn.setreg("+", content)
+            local absolute_path = node.path
+            -- need the replace funtion to handle paths with '-', as this is a special character in lua's gsub
+            local relative_path = replace(absolute_path, state.path, ""):sub(2)
+
+            vim.fn.setreg('"', relative_path)
+            vim.fn.setreg("1", relative_path)
+            vim.fn.setreg("+", relative_path)
           end,
           ["o"] = "open",
           -- disable fuzzy search
