@@ -44,13 +44,13 @@
 !.config/.functions/
 !.config/.functions/*
 
-.Brewfile
-.aliases.sh
-.asdfrc
-.gitconfig
-.zshrc
-README.md
-Useful commands.md
+!.Brewfile
+!.aliases.sh
+!.asdfrc
+!.gitconfig
+!.zshrc
+!README.md
+!Useful commands.md
 
 # Reignore some files
 .config/nvim/lazy-lock.json
