@@ -70,6 +70,9 @@ fi
 
 source ~/.aliases.sh
 
+# Make zsh completions case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # Configure fuck
 eval $(thefuck --alias)
 
