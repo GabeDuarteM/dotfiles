@@ -50,19 +50,33 @@ fi
 log "Install brew bundle"
 brew bundle --global
 
+# install fnm
+if [[ "$(hasCommand 'fnm')" == "false" ]]; then
+	log "Install fnm bundle"
+
+	curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+
+	export PATH="/root/.local/share/fnm:$PATH"
+	eval "$(fnm env --use-on-cd)"
+
+	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
+		log "There was an error detecting fnm, check if it is installed and inside path."
+		exit
+	fi
+
+fi
+
 # Add the latest version of node if its not there
 
 if [[ "$(hasCommand 'node')" == "false" ]]; then
 	log "Node not detected on the path, trying to install its latest version..."
 
-	if [[ "$(hasCommand 'asdf')" == "false" ]]; then
-		log "There was an error detecting asdf, check if it is installed and inside path."
+	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
+		log "There was an error detecting fnm, check if it is installed and inside path."
 		exit
 	fi
 
-	asdf plugin add nodejs
-	asdf install nodejs latest
-	asdf global nodejs latest
+	fnm install --latest
 
 	if [[ "$(hasCommand 'node')" == "false" ]]; then
 		log "There was an error detecting node after install, tried to add it to the path, but was not successful."
@@ -70,31 +84,44 @@ if [[ "$(hasCommand 'node')" == "false" ]]; then
 	fi
 fi
 
-if [[ "$(hasCommand 'yarn')" == "false" ]]; then
-	log "Install yarn"
+if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
+	log "Install pnpm"
 
-	curl -o- -L https://yarnpkg.com/install.sh | bash
+	curl -fsSL https://get.pnpm.io/install.sh | bash -
+
+	export PNPM_HOME="/root/.local/share/pnpm"
+
+	case ":$PATH:" in
+	*":$PNPM_HOME:"*) ;;
+	*) export PATH="$PNPM_HOME:$PATH" ;;
+	esac
 fi
 
-if [[ "$(hasCommand 'yarn')" == "false" ]]; then
-	log "There was an error detecting yarn, tried to add it to the path, but was not successful."
+if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
+	log "There was an error detecting pnpm, tried to add it to the path, but was not successful."
 	exit
 fi
 
-log "Install yarn packages"
-yarn global add tldr neovim @fsouza/prettierd eslint_d typescript typescript-language-server @tailwindcss/language-server
+log "Install pnpm packages"
+pnpm i -g tldr neovim @githubnext/github-copilot-cli
 
 if [[ "$(hasCommand 'tldr')" == "false" ]]; then
-	log "There was an error detecting packages installed through yarn, tried to add it to the path, but was not successful."
+	log "There was an error detecting packages installed through pnpm, tried to add it to the path, but was not successful."
 	exit
 fi
 
 # Install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
 if [[ "$(hasCommand 'cargo')" == "false" ]]; then
-	log "There was an error detecting rust, tried to add it to the path, but was not successful."
-	exit
+	log "Install rust"
+
+	curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+	source "$HOME/.cargo/env"
+
+	if [[ "$(hasCommand 'cargo')" == "false" ]]; then
+		log "There was an error detecting rust, tried to add it to the path, but was not successful."
+		exit
+	fi
 fi
 
 log "Executing fzf install script"

@@ -24,11 +24,9 @@ source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
 # Configure rust
 . "$HOME/.cargo/env"
 
-# Configure ASDF
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-
-# Add yarn after ASDF, so that it takes priority on the path (for global node binaries)
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Configure fnm
+export PATH="/root/.local/share/fnm:$PATH"
+eval "$(fnm env --use-on-cd)"
 
 # Config history
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
@@ -69,9 +67,6 @@ if [[ -s ~/.zshrc.local.zsh ]]; then
 fi
 
 source ~/.aliases.sh
-
-# Configure fuck
-eval $(thefuck --alias)
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
