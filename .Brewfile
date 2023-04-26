@@ -1,3 +1,7 @@
+tap "romkatv/powerlevel10k"
+tap "jesseduffield/lazygit"
+tap "homebrew/cask-fonts"
+
 brew "cmake"
 brew "docker"
 brew "tree"
@@ -19,3 +23,5 @@ brew "go"
 brew "fd"
 brew "git"
 brew "git-delta"
+
+cask "font-hack-nerd-font"
