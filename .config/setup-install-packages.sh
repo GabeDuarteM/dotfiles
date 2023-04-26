@@ -56,7 +56,7 @@ if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 
 	curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-	export PATH="/root/.local/share/fnm:$PATH"
+	export PATH="$PATH/.local/share/fnm:$PATH"
 	eval "$(fnm env --use-on-cd)"
 
 	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
@@ -89,7 +89,7 @@ if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
 
 	curl -fsSL https://get.pnpm.io/install.sh | bash -
 
-	export PNPM_HOME="/root/.local/share/pnpm"
+	export PNPM_HOME="$HOME/.local/share/pnpm"
 
 	case ":$PATH:" in
 	*":$PNPM_HOME:"*) ;;
