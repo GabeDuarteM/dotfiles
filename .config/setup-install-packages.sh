@@ -138,7 +138,7 @@ if [[ "$(hasCommand 'cargo')" == "false" ]]; then
 	fi
 fi
 
-if ! grep "zsh" /etc/shells; then
+if ! grep -q "zsh" /etc/shells; then
 	log "Add zsh to the shell list"
 
 	command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
