@@ -31,21 +31,20 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
-INSTALL_FZF_COMPLETION=false
+INSTALLED_BREW=false
 
-if [[ "$(hasCommand 'fzf')" == "false" ]]; then
-	INSTALL_FZF_COMPLETION=true
-fi
-
-# Install brew if necessary. May fail when macOS don't have the requirements,
-# I still need to check how to install them.
-# https://docs.brew.sh/Installation#macos-requirements
 if [[ "$(hasCommand 'brew')" == "false" ]]; then
 	log "Install brew"
 
+	INSTALLED_BREW=true
+
 	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	# export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+	if [[ "$(uname)" == "Linux" ]]; then
+		eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	else
+		eval "$(/opt/homebrew/bin/brew shellenv)"
+	fi
 
 	if [[ "$(hasCommand 'brew')" == "false" ]]; then
 		log "There was an error detecting brew, tried to add it to the path, but was not successful."
@@ -56,12 +55,14 @@ fi
 log "Install brew bundle"
 brew bundle --global
 
-if [[ "$INSTALL_FZF_COMPLETION" == "true" ]]; then
+if [[ "$INSTALLED_BREW" == "true" ]]; then
 	log "Executing fzf install script"
 	brew info fzf | grep fzf/install | xargs bash
+
+	log "Installing mac apps through mas"
+	mas install 1470584107 # Dato
 fi
 
-# install fnm
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 	log "Install fnm bundle"
 
@@ -99,7 +100,11 @@ if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
 
 	curl -fsSL https://get.pnpm.io/install.sh | bash -
 
-	export PNPM_HOME="$HOME/.local/share/pnpm"
+	if [[ "$(uname)" == "Linux" ]]; then
+		export PNPM_HOME="$HOME/.local/share/pnpm"
+	else
+		export PNPM_HOME="$HOME/Library/pnpm"
+	fi
 
 	case ":$PATH:" in
 	*":$PNPM_HOME:"*) ;;
@@ -120,7 +125,6 @@ if [[ "$(hasCommand 'tldr')" == "false" ]]; then
 	exit
 fi
 
-# Install rust
 if [[ "$(hasCommand 'cargo')" == "false" ]]; then
 	log "Install rust"
 
