@@ -1,6 +1,7 @@
 #!/bin/bash
 
 git clone --bare git@github.com:GabrielDuarteM/dotfiles.git $HOME/.config/.dotfiles
+shopt -s expand_aliases
 
 alias config='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
 
