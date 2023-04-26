@@ -144,7 +144,10 @@ if ! grep -q "zsh" /etc/shells; then
 	command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
 fi
 
-log "Set zsh as the default shell"
-sudo chsh -s "$(command -v zsh)" "${USER}"
+# if $SHELL is not zsh, without printing to console
+if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
+	log "Set zsh as the default shell"
+	sudo chsh -s "$(command -v zsh)" "${USER}"
+fi
 
 log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
