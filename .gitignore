@@ -23,6 +23,7 @@
 # .config/nvim/*
 # .config/setup-dotfiles.sh
 # .config/setup-install-packages.sh
+# .config/alacritty/alacritty.yml
 
 .config/*
 !.config/
@@ -38,9 +39,12 @@
 !.config/lazygit/
 !.config/lazygit/config.yml
 .config/karabiner/*
+.config/alacritty/*
 .config/.functions/*
 !.config/karabiner/
 !.config/karabiner/*
+!.config/alacritty/
+!.config/alacritty/alacritty.yml
 !.config/.functions/
 !.config/.functions/*
 
