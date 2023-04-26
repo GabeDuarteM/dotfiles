@@ -68,6 +68,9 @@ fi
 
 source ~/.aliases.sh
 
+# Make zsh completions case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 

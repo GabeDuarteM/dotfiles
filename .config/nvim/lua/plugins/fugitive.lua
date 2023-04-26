@@ -1,11 +1,16 @@
 return {
   "tpope/vim-fugitive",
-  keys = {
-    { "gj", "<cmd>diffget //3<cr>", desc = "Git merge take right" },
-    {
-      "gf",
-      "<cmd>diffget //2<cr>",
-      desc = "Git merge take left",
-    },
-  },
+  "tpope/vim-rhubarb",
+  init = function()
+    vim.api.nvim_create_autocmd("BufReadPost", {
+      pattern = "fugitive:///*/.git/*",
+      callback = function()
+        vim.api.nvim_buf_set_keymap(0, "n", "<TAB>", "=", { noremap = false })
+        -- vim.api.nvim_buf_set_keymap(0, "n", "<space>", "-", { nowait = true, noremap = false })
+      end,
+      group = vim.api.nvim_create_augroup("FugitiveStatus", { clear = true }),
+    })
+  end,
+  -- enabled = false,
+  lazy = false,
 }
