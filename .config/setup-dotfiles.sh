@@ -4,22 +4,30 @@ shopt -s expand_aliases
 
 alias config='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
 
-# We setup with the https url so that we don't need to have ssh keys setup beforehand.
-# Later we change the remote url to ssh, so that we can push/pull changes without auth.
-git clone --bare https://github.com/GabeDuarteM/dotfiles.git $HOME/.config/.dotfiles
+DOTFILES_PATH=$HOME/.config/.dotfiles
 
 cd $HOME
 
-# Check if the .zshrc file exists, and back it up if it does
-if test -f "$HOME/.zshrc"; then
-	# If it exists, move it to .zshrc.bak
-	mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+if [ -d "$DOTFILES_PATH" ]; then
+	echo "Dotfiles already exist at $DOTFILES_PATH, pulling instead"
 
-	echo "Backed up $HOME/.zshrc to $HOME/.zshrc.bak"
+	config pull
+else
+	# We setup with the https url so that we don't need to have ssh keys setup beforehand.
+	# Later we change the remote url to ssh, so that we can push/pull changes without auth.
+	git clone --bare https://github.com/GabeDuarteM/dotfiles.git $DOTFILES_PATH
+
+	# Check if the .zshrc file exists, and back it up if it does
+	if test -f "$HOME/.zshrc"; then
+		# If it exists, move it to .zshrc.bak
+		mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+
+		echo "Backed up $HOME/.zshrc to $HOME/.zshrc.bak"
+	fi
+
+	config checkout
+
+	config remote set-url origin git@github.com:GabeDuarteM/dotfiles.git
 fi
-
-config checkout
-
-config remote set-url origin git@github.com:GabeDuarteM/dotfiles.git
 
 bash $HOME/.config/setup-install-packages.sh
