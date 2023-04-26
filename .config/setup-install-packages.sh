@@ -31,6 +31,12 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
+INSTALL_FZF_COMPLETION=false
+
+if [[ "$(hasCommand 'fzf')" == "false" ]]; then
+	INSTALL_FZF_COMPLETION=true
+fi
+
 # Install brew if necessary. May fail when macOS don't have the requirements,
 # I still need to check how to install them.
 # https://docs.brew.sh/Installation#macos-requirements
@@ -50,6 +56,11 @@ fi
 log "Install brew bundle"
 brew bundle --global
 
+if [[ "$INSTALL_FZF_COMPLETION" == "true" ]]; then
+	log "Executing fzf install script"
+	brew info fzf | grep fzf/install | xargs bash
+fi
+
 # install fnm
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 	log "Install fnm bundle"
@@ -67,7 +78,6 @@ if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 fi
 
 # Add the latest version of node if its not there
-
 if [[ "$(hasCommand 'node')" == "false" ]]; then
 	log "Node not detected on the path, trying to install its latest version..."
 
@@ -124,9 +134,6 @@ if [[ "$(hasCommand 'cargo')" == "false" ]]; then
 	fi
 fi
 
-log "Executing fzf install script"
-brew info fzf | grep fzf/install | xargs bash
-
 if ! grep "zsh" /etc/shells; then
 	log "Add zsh to the shell list"
 
@@ -136,4 +143,4 @@ fi
 log "Set zsh as the default shell"
 sudo chsh -s "$(command -v zsh)" "${USER}"
 
-log "Setup complete\n## Don't forget to run :PackerSync\n## and :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
+log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
