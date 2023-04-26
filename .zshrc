@@ -25,7 +25,7 @@ source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
 . "$HOME/.cargo/env"
 
 # Configure fnm
-export PATH="/root/.local/share/fnm:$PATH"
+export PATH="$HOME/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
 
 # Config history
