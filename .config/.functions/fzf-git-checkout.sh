@@ -10,7 +10,7 @@ git-checkout() {
 		git checkout -
 		return
   elif [[ "$1" = '-b' ]]; then
-    git checkout -b $2
+    git checkout $@
     return
   elif
 
