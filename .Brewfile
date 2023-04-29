@@ -23,6 +23,7 @@ brew "go"
 brew "fd"
 brew "git"
 brew "git-delta"
+brew "tmux"
 brew "mas"
 
 cask "font-hack-nerd-font"

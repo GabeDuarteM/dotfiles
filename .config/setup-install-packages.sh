@@ -56,8 +56,8 @@ log "Install brew bundle"
 brew bundle --global
 
 if [[ "$INSTALLED_BREW" == "true" ]]; then
-	log "Executing fzf install script"
-	brew info fzf | grep fzf/install | xargs bash
+	log "Installing tmux TPM"
+	git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
 	log "Installing mac apps through mas"
 	mas install 1470584107 # Dato
@@ -68,7 +68,7 @@ if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 
 	curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-	export PATH="$PATH/.local/share/fnm:$PATH"
+	export PATH="$HOME/.local/share/fnm:$PATH"
 	eval "$(fnm env --use-on-cd)"
 
 	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
