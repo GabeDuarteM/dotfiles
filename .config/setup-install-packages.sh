@@ -59,8 +59,10 @@ if [[ "$INSTALLED_BREW" == "true" ]]; then
 	log "Installing tmux TPM"
 	git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 
-	log "Installing mac apps through mas"
-	mas install 1470584107 # Dato
+	if [[ "$(uname)" != "Linux" ]]; then
+		log "Installing mac apps through mas"
+		mas install 1470584107 # Dato
+	fi
 fi
 
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
