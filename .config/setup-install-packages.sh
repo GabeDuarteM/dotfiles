@@ -68,7 +68,7 @@ if [[ "$(hasCommand 'fnm')" == "false" ]]; then
 
 	curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-	export PATH="$PATH/.local/share/fnm:$PATH"
+	export PATH="$HOME/.local/share/fnm:$PATH"
 	eval "$(fnm env --use-on-cd)"
 
 	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
