@@ -16,6 +16,17 @@ if ! command -v sudo &>/dev/null; then
 	}
 fi
 
+# Installing prerequisites
+if [[ "$(uname)" == "Linux" ]]; then
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt install -y \
+		curl \
+		git \
+		build-essential \
+		unzip
+fi
+
 if [ -d "$DOTFILES_PATH" ]; then
 	echo "Dotfiles already exist at $DOTFILES_PATH, pulling instead"
 

@@ -38,6 +38,18 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
+if [[ "$(uname)" == "Linux" ]]; then
+	log "Linux detected, running pre-requisites"
+
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt install -y \
+		curl \
+		git \
+		build-essential \
+		unzip
+fi
+
 INSTALLED_BREW=false
 
 if [[ "$(hasCommand 'brew')" == "false" ]]; then
