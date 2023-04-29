@@ -18,9 +18,16 @@ function hasCommand() {
 	fi
 }
 
-log "Starting install, asking for sudo password"
-# Asking for sudo now, so it isn't asked later
-sudo -v
+# if it doesnt have sudo, just execute the command
+if ! command -v sudo &>/dev/null; then
+	log "Sudo was not found, all commands will be executed without it"
+	sudo() {
+		"$@"
+	}
+else
+	log "Starting install, asking for sudo password now, so we don't need to specify it later"
+	sudo -v
+fi
 
 # Source .profile, so the checks for installed executables works when in bash
 source ~/.profile >/dev/null 2>&1
