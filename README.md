@@ -25,6 +25,8 @@ WORKDIR /home/gabe
 COPY . .
 ```
 
+And then run it with `docker build -t dotfiles . && docker run --rm -it dotfiles`
+
 ## See also
 
 - [Useful commands](Useful%20commands.md)
