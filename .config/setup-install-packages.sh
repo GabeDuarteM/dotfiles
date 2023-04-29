@@ -172,3 +172,7 @@ if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
 fi
 
 log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
+
+log "Opening ZSH"
+
+zsh
