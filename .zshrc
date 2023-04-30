@@ -16,6 +16,9 @@ export DOTFILES_GIT_DIR="$HOME/.config/.dotfiles/"
 # For tauri not to conflict with homebrew
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
 
+# set the default path for the brewfile
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
+
 # Configure brew
 eval "$(brew shellenv)"
 

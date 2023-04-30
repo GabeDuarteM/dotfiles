@@ -24,12 +24,14 @@
 # .config/setup-dotfiles.sh
 # .config/setup-install-packages.sh
 # .config/alacritty
+# .config/brew
 
 .config/*
 !.config/
 !.config/setup-dotfiles.sh
 !.config/setup-install-packages.sh
 !.config/alacritty
+!.config/brew
 .config/nvim/*
 .config/kitty/*
 !.config/nvim/

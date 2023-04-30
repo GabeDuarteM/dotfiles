@@ -72,7 +72,8 @@ if [[ "$(hasCommand 'brew')" == "false" ]]; then
 fi
 
 log "Install brew bundle"
-brew bundle --global
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
+brew bundle
 
 if [[ "$INSTALLED_BREW" == "true" ]]; then
 	log "Installing tmux TPM"
