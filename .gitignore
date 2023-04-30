@@ -25,6 +25,7 @@
 # .config/setup-install-packages.sh
 # .config/alacritty
 # .config/brew
+# .config/tmux
 
 .config/*
 !.config/
@@ -32,6 +33,7 @@
 !.config/setup-install-packages.sh
 !.config/alacritty
 !.config/brew
+!.config/tmux
 .config/nvim/*
 .config/kitty/*
 !.config/nvim/
