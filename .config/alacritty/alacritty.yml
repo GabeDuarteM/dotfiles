@@ -1,7 +1,16 @@
-font:
-  normal:
-    family: Hack Nerd Font Mono
-  size: 16
+# Local configuration
+# For macos
+# font:
+#   normal:
+#     family: Hack Nerd Font Mono
+#   size: 16
+#
+# For linux:
+# font:
+#   normal:
+#     family: Hack Nerd Font
+#   size: 12
 
 import:
+  - ~/.config/alacritty/alacritty.local.yml
   - ~/.config/alacritty/themes/tokyonight_night.yml
