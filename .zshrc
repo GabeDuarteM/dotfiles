@@ -13,6 +13,10 @@ export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 export DOTFILES_GIT_DIR="$HOME/.config/.dotfiles/"
 
+# I know, I know, this shouldn't be set manually, but by default its getting alacritty as the value, 
+# which breaks when inside tmux, and I can't find a quick fix for it other than this.
+export TERM="xterm-256color"
+
 # For tauri not to conflict with homebrew
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
 
