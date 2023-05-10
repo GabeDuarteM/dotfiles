@@ -23,6 +23,7 @@
 # .config/nvim/*
 # .config/setup-dotfiles.sh
 # .config/setup-install-packages.sh
+# .config/.gitignore
 # .config/alacritty
 # .config/brew
 # .config/tmux
@@ -31,6 +32,7 @@
 !.config/
 !.config/setup-dotfiles.sh
 !.config/setup-install-packages.sh
+!.config/.gitignore
 !.config/alacritty
 !.config/brew
 !.config/tmux
