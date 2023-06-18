@@ -9,7 +9,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
       {
-        "<leader>fe",
+        "<leader>fE",
         function()
           -- Added the reveal = true
           require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root(), reveal = true })
@@ -17,7 +17,7 @@ return {
         desc = "Explorer NeoTree (root dir)",
       },
       {
-        "<leader>fE",
+        "<leader>fe",
         function()
           -- Added the reveal = true
           require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd(), reveal = true })
@@ -26,6 +26,12 @@ return {
       },
     },
     opts = {
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_hidden = false,
+        },
+      },
       window = {
         position = "float",
         mappings = {
