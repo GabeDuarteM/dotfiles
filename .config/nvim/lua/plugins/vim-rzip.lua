@@ -2,4 +2,5 @@
 -- Useful for yarn pnp
 return {
   "lbrayner/vim-rzip",
+  enabled = false,
 }
