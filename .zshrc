@@ -26,7 +26,7 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
 # Configure brew
 eval "$(brew shellenv)"
 
-source "$(brew --prefix powerlevel10k)/powerlevel10k.zsh-theme"
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure rust
 . "$HOME/.cargo/env"
