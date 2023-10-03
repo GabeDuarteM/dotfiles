@@ -41,13 +41,28 @@ mkdir -p ~/.local/share/nvim/swap
 if [[ "$(uname)" == "Linux" ]]; then
 	log "Linux detected, running pre-requisites"
 
-	sudo apt update -y
-	sudo apt upgrade -y
-	sudo apt install -y \
-		curl \
-		git \
-		build-essential \
-		unzip
+	# Check if we need to use apt or dnf
+	if [[ "$(hasCommand 'apt')" == "true" ]]; then
+		sudo apt update -y
+		sudo apt upgrade -y
+		sudo apt install -y \
+			curl \
+			git \
+			build-essential \
+			unzip \
+			tmux
+	elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
+		sudo dnf update -y
+		sudo dnf upgrade -y
+		sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
+		sudo dnf install -y \
+			curl \
+			git \
+			unzip \
+			tmux
+	else
+		log "Could not find apt or dnf, please install the following packages manually: curl, git, unzip, tmux and build-essential (or similar C compilers)"
+	fi
 fi
 
 INSTALLED_BREW=false
