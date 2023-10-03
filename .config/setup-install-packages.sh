@@ -50,6 +50,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			git \
 			build-essential \
 			unzip \
+			thefuck \
 			tmux
 	elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
 		sudo dnf update -y
@@ -59,9 +60,10 @@ if [[ "$(uname)" == "Linux" ]]; then
 			curl \
 			git \
 			unzip \
+			thefuck \
 			tmux
 	else
-		log "Could not find apt or dnf, please install the following packages manually: curl, git, unzip, tmux and build-essential (or similar C compilers)"
+		log "Could not find apt or dnf, please install the packages manually"
 	fi
 fi
 
