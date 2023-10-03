@@ -31,6 +31,9 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.opt.undofile = true
 
+-- Makes ESC instant, preventing a really fast `ESC + j/k` to move the line up/down instead of escaping
+vim.opt.ttimeoutlen = 0
+
 local git_dir = vim.fn.glob(".git")
 local superproject = vim.fn.systemlist("git rev-parse --show-superproject-working-tree")[1]
 
