@@ -1,0 +1,7 @@
+-- filename: nas
+user=your_user
+password=your_password
+domain=gabenas.local
+
+-- And then on fstab (keep the initial tab):
+    //gabenas.local/appdata  /mnt/nas/appdata cifs credentials=/home/gabe/.config/smb/nas,uid=gabe,gid=gabe 0 0
