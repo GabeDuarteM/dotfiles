@@ -53,3 +53,4 @@ alias lg='lazygit'
 alias lgc='lazygit --git-dir=$DOTFILES_GIT_DIR --work-tree=$HOME'
 alias r='run $@'
 alias clip="xclip -sel clip"
+alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Host}}') act"

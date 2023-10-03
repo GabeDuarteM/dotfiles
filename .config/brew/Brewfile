@@ -25,6 +25,7 @@ brew "fd"
 brew "git"
 brew "git-delta"
 brew "mas"
+brew "act"
 
 cask "font-hack-nerd-font"
 cask "alacritty"
