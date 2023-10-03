@@ -14,3 +14,11 @@
 import:
   - ~/.config/alacritty/alacritty.local.yml
   - ~/.config/alacritty/themes/tokyonight_night.yml
+
+shell:
+  program: /home/linuxbrew/.linuxbrew/bin/tmux
+  args:
+    - new-session
+    - -A
+    - -s
+    - main
