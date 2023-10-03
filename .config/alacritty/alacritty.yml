@@ -8,8 +8,7 @@
 # For linux:
 # font:
 #   normal:
-#     family: Hack Nerd Font
-#   size: 12
+#     family: Hack Nerd Font Mono
 
 import:
   - ~/.config/alacritty/alacritty.local.yml
