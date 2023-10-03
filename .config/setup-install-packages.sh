@@ -172,6 +172,15 @@ if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
 	sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
 
+log "Installing fonts"
+
+mkdir -p ~/.local/share/fonts
+
+cd ~/.local/share/fonts && {
+	curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf
+	cd -
+}
+
 log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
 
 log "Opening ZSH"
