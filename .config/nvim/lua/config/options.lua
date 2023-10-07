@@ -37,6 +37,7 @@ vim.opt.ttimeoutlen = 0
 local git_dir = vim.fn.glob(".git")
 local superproject = vim.fn.systemlist("git rev-parse --show-superproject-working-tree")[1]
 
+-- Set git dir and worktree for the dotfiles by default when not in a git repo
 if git_dir == "" and superproject ~= nil then
   vim.env.GIT_DIR = os.getenv("DOTFILES_GIT_DIR")
   vim.env.GIT_WORK_TREE = os.getenv("HOME")
