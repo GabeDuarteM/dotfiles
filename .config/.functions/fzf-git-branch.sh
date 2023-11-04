@@ -5,7 +5,7 @@ fzf-git-branch() {
 		grep -v HEAD |
 		fzf --height 50% --ansi --no-multi --preview-window right:65% \
 			--preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' \
-			--query "$1" \
+			--query "!remote $1" \
 			--select-1 |
 		sed "s/.* //"
 }
