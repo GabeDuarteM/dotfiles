@@ -54,3 +54,9 @@ alias lgc='lazygit --git-dir=$DOTFILES_GIT_DIR --work-tree=$HOME'
 alias r='run $@'
 alias clip="xclip -sel clip"
 alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Host}}') act"
+
+## ArcoLinux aliases
+#iso and version used to install ArcoLinux
+alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+alias isoo="cat /etc/dev-rel"
+alias probe="sudo -E hw-probe -all -upload"
