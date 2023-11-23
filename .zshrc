@@ -1,3 +1,5 @@
+neofetch
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,9 +22,11 @@ export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-l
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
 
 # Configure brew
-eval "$(brew shellenv)"
+# eval "$(brew shellenv)"
 
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+if [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+   source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
 
 # Configure rust
 . "$HOME/.cargo/env"
@@ -55,7 +59,10 @@ bindkey  "^[[1;5D"  backward-word      # Ctrl + Left
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Configure fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+fi
 
 # Source all functions
 if [[ -s ~/.config/.functions ]]; then
@@ -96,3 +103,4 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 eval $(thefuck --alias)
+
