@@ -8,23 +8,47 @@ DOTFILES_PATH=$HOME/.config/.dotfiles
 
 cd $HOME
 
+function log() {
+	GREEN_COLOR='\033[0;32m'
+	END_COLOR='\033[m'
+	echo
+	echo -e "${GREEN_COLOR}###########################################################################"
+	echo -e "${GREEN_COLOR}## $1"
+	echo -e "${GREEN_COLOR}###########################################################################${END_COLOR}"
+	echo
+}
+
+function hasCommand() {
+	if command -v $1 >/dev/null 2>&1; then
+		echo true
+	else
+		echo false
+	fi
+}
+
 # if it doesnt have sudo, just execute the command
 if ! command -v sudo &>/dev/null; then
-	echo "####### Sudo was not found, all commands will be executed without it"
+	log "Sudo was not found, all commands will be executed without it"
 	sudo() {
 		"$@"
 	}
+else
+	log "Starting install, asking for sudo password now, so we don't need to specify it later"
+	sudo -v
 fi
 
-# Installing prerequisites
 if [[ "$(uname)" == "Linux" ]]; then
-	sudo apt update -y
-	sudo apt upgrade -y
-	sudo apt install -y \
-		curl \
-		git \
-		build-essential \
-		unzip
+	if [[ "$(hasCommand 'apt')" == "true" ]]; then
+		sudo apt update -y
+		sudo apt upgrade -y
+
+	elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
+		sudo dnf update -y
+		sudo dnf upgrade -y
+
+	elif [[ "$(hasCommand 'pacman')" == "true" ]]; then
+		sudo pacman -Syyu paru curl git base-devel unzip
+	fi
 fi
 
 if [ -d "$DOTFILES_PATH" ]; then

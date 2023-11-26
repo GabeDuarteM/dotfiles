@@ -39,10 +39,9 @@ mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
 if [[ "$(uname)" == "Linux" ]]; then
-	log "Linux detected, running pre-requisites"
-
 	# Check if we need to use apt or dnf
 	if [[ "$(hasCommand 'apt')" == "true" ]]; then
+		log "Ubuntu detected, running pre-requisites"
 		sudo apt update -y
 		sudo apt upgrade -y
 		sudo apt install -y \
@@ -53,6 +52,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			thefuck \
 			tmux
 	elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
+		log "Fedora detected, running pre-requisites"
 		sudo dnf update -y
 		sudo dnf upgrade -y
 		sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
@@ -62,44 +62,108 @@ if [[ "$(uname)" == "Linux" ]]; then
 			unzip \
 			thefuck \
 			tmux
+	elif [[ "$(hasCommand 'pacman')" == "true" ]]; then
+		log "Arch detected, running pre-requisites"
+
+		if [[ "$(hasCommand 'paru')" == "false" ]]; then
+			sudo pacman -S paru
+		fi
+
+		paru -Syyu --noconfirm --needed \
+			act \
+			alacritty \
+			atuin \
+			authy \
+			arandr \
+			base-devel \
+			bat \
+			brave-bin \
+			btop \
+			chatterino2-appimage \
+			cmake \
+			curl \
+			docker \
+			downgrade \
+			eza \
+			fd \
+			flameshot \
+			fzf \
+			gcc \
+			gimp \
+			git \
+			git-delta \
+			github-cli \
+			gnome-terminal \
+			go \
+			google-chrome \
+			hw-probe \
+			lazygit \
+			lxrandr \
+			neovim \
+			obs-studio \
+			opentabletdriver \
+			parsec \
+			picom \
+			piper \
+			progress \
+			python3 \
+			retroarch \
+			ripgrep \
+			ryujinx-bin \
+			sed \
+			slack \
+			steam \
+			thefuck \
+			tldr \
+			tmux \
+			torguard \
+			tree \
+			ttf-hack-nerd \
+			unzip \
+			vencord-desktop-git \
+			wireguard \
+			xcolor \
+			xsel \
+			zsh-theme-powerlevel10k-git
+
 	else
-		log "Could not find apt or dnf, please install the packages manually"
+		log "Linux was detected, but couldn't find which package manager to use, please install them manually"
 	fi
 fi
 
-INSTALLED_BREW=false
+# INSTALLED_BREW=false
+#
+# if [[ "$(hasCommand 'brew')" == "false" ]]; then
+# 	log "Install brew"
+#
+# 	INSTALLED_BREW=true
+#
+# 	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#
+# 	if [[ "$(uname)" == "Linux" ]]; then
+# 		eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# 	else
+# 		eval "$(/opt/homebrew/bin/brew shellenv)"
+# 	fi
+#
+# 	if [[ "$(hasCommand 'brew')" == "false" ]]; then
+# 		log "There was an error detecting brew, tried to add it to the path, but was not successful."
+# 		exit
+# 	fi
+# fi
 
-if [[ "$(hasCommand 'brew')" == "false" ]]; then
-	log "Install brew"
+# log "Install brew bundle"
+# export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
+# brew bundle
 
-	INSTALLED_BREW=true
-
-	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-	if [[ "$(uname)" == "Linux" ]]; then
-		eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	else
-		eval "$(/opt/homebrew/bin/brew shellenv)"
-	fi
-
-	if [[ "$(hasCommand 'brew')" == "false" ]]; then
-		log "There was an error detecting brew, tried to add it to the path, but was not successful."
-		exit
-	fi
-fi
-
-log "Install brew bundle"
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
-brew bundle
-
-if [[ "$INSTALLED_BREW" == "true" ]]; then
+if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
 	log "Installing tmux TPM"
 	git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+fi
 
-	if [[ "$(uname)" != "Linux" ]]; then
-		log "Installing mac apps through mas"
-		mas install 1470584107 # Dato
-	fi
+if [[ "$(uname)" != "Linux" ]]; then
+	log "Installing mac apps through mas"
+	mas install 1470584107 # Dato
 fi
 
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
@@ -157,11 +221,10 @@ if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
 fi
 
 log "Install pnpm packages"
-pnpm i -g tldr neovim @githubnext/github-copilot-cli
+pnpm i -g neovim @githubnext/github-copilot-cli
 
-if [[ "$(hasCommand 'tldr')" == "false" ]]; then
+if [[ "$(hasCommand '??')" == "false" ]]; then
 	log "There was an error detecting packages installed through pnpm, tried to add it to the path, but was not successful."
-	exit
 fi
 
 if [[ "$(hasCommand 'cargo')" == "false" ]]; then
@@ -189,16 +252,16 @@ if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
 	sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
 
-log "Installing fonts"
+# log "Installing fonts"
+#
+# mkdir -p ~/.local/share/fonts
+#
+# cd ~/.local/share/fonts && {
+# 	curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf
+# 	cd -
+# }
 
-mkdir -p ~/.local/share/fonts
-
-cd ~/.local/share/fonts && {
-	curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf
-	cd -
-}
-
-log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed"
+log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed. \n## Also, run Ctrl+a I on tmux to install plugins"
 
 log "Opening ZSH"
 
