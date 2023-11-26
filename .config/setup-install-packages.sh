@@ -124,6 +124,9 @@ if [[ "$(uname)" == "Linux" ]]; then
 			wireguard \
 			xcolor \
 			xsel \
+			notepadqq \
+			wireguard-tools \
+			protonup-qt-bin \
 			zsh-theme-powerlevel10k-git
 
 	else
