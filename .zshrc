@@ -103,4 +103,5 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 eval $(thefuck --alias)
+eval "$(atuin init zsh)"
 
