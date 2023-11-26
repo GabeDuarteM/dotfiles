@@ -111,7 +111,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			ripgrep \
 			ryujinx-bin \
 			sed \
-			slack \
+			slack-desktop \
 			steam \
 			thefuck \
 			tldr \
