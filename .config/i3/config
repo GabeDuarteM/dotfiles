@@ -27,6 +27,7 @@ font pango: Noto Sans Regular 10
 
 # set the mod key to the winkey:
 set $mod Mod4
+set $alt Mod1
 
 #####################
 # workspace layout: #
@@ -71,76 +72,50 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # switch to workspace
-bindsym $mod+1    workspace  $ws1
-bindsym $mod+2    workspace  $ws2
-bindsym $mod+3    workspace  $ws3
-bindsym $mod+4    workspace  $ws4
-bindsym $mod+5    workspace  $ws5
-bindsym $mod+6    workspace  $ws6
-bindsym $mod+7    workspace  $ws7
-bindsym $mod+8    workspace  $ws8
-bindsym $mod+9    workspace  $ws9
-bindsym $mod+0    workspace  $ws10
+bindsym $mod+1    workspace  $ws1a
+bindsym $mod+2    workspace  $ws2a
+bindsym $mod+3    workspace  $ws3a
+bindsym $mod+4    workspace  $ws4a
+bindsym $mod+5    workspace  $ws5a
+bindsym $mod+6    workspace  $ws6a
+bindsym $mod+7    workspace  $ws7a
+bindsym $mod+8    workspace  $ws8a
+bindsym $mod+9    workspace  $ws9a
+bindsym $mod+0    workspace  $ws10a
 
-# switch to workspace with numpad keys
-bindcode $mod+87 workspace 1
-bindcode $mod+88 workspace 2
-bindcode $mod+89 workspace 3
-bindcode $mod+83 workspace 4
-bindcode $mod+84 workspace 5
-bindcode $mod+85 workspace 6
-bindcode $mod+79 workspace 7
-bindcode $mod+80 workspace 8
-bindcode $mod+81 workspace 9
-bindcode $mod+90 workspace 10
-
-# switch to workspace with numlock numpad keys
-bindcode $mod+Mod2+87 workspace $ws1
-bindcode $mod+Mod2+88 workspace $ws2
-bindcode $mod+Mod2+89 workspace $ws3
-bindcode $mod+Mod2+83 workspace $ws4
-bindcode $mod+Mod2+84 workspace $ws5
-bindcode $mod+Mod2+85 workspace $ws6
-bindcode $mod+Mod2+79 workspace $ws7
-bindcode $mod+Mod2+80 workspace $ws8
-bindcode $mod+Mod2+81 workspace $ws9
-bindcode $mod+Mod2+90 workspace $ws10
+bindsym $alt+1    workspace  $ws1b
+bindsym $alt+2    workspace  $ws2b
+bindsym $alt+3    workspace  $ws3b
+bindsym $alt+4    workspace  $ws4b
+bindsym $alt+5    workspace  $ws5b
+bindsym $alt+6    workspace  $ws6b
+bindsym $alt+7    workspace  $ws7b
+bindsym $alt+8    workspace  $ws8b
+bindsym $alt+9    workspace  $ws9b
+bindsym $alt+0    workspace  $ws10b
 
 # move focused container to workspace
-bindsym $mod+Shift+1    move container to workspace  $ws1
-bindsym $mod+Shift+2    move container to workspace  $ws2
-bindsym $mod+Shift+3    move container to workspace  $ws3
-bindsym $mod+Shift+4    move container to workspace  $ws4
-bindsym $mod+Shift+5    move container to workspace  $ws5
-bindsym $mod+Shift+6    move container to workspace  $ws6
-bindsym $mod+Shift+7    move container to workspace  $ws7
-bindsym $mod+Shift+8    move container to workspace  $ws8
-bindsym $mod+Shift+9    move container to workspace  $ws9
-bindsym $mod+Shift+0    move container to workspace  $ws10
+bindsym $mod+Shift+1    move container to workspace  $ws1a
+bindsym $mod+Shift+2    move container to workspace  $ws2a
+bindsym $mod+Shift+3    move container to workspace  $ws3a
+bindsym $mod+Shift+4    move container to workspace  $ws4a
+bindsym $mod+Shift+5    move container to workspace  $ws5a
+bindsym $mod+Shift+6    move container to workspace  $ws6a
+bindsym $mod+Shift+7    move container to workspace  $ws7a
+bindsym $mod+Shift+8    move container to workspace  $ws8a
+bindsym $mod+Shift+9    move container to workspace  $ws9a
+bindsym $mod+Shift+0    move container to workspace  $ws10a
 
-# move focused container to workspace with numpad keys
-bindcode $mod+Shift+Mod2+87 	move container to workspace  $ws1
-bindcode $mod+Shift+Mod2+88 	move container to workspace  $ws2
-bindcode $mod+Shift+Mod2+89 	move container to workspace  $ws3
-bindcode $mod+Shift+Mod2+83 	move container to workspace  $ws4
-bindcode $mod+Shift+Mod2+84 	move container to workspace  $ws5
-bindcode $mod+Shift+Mod2+85 	move container to workspace  $ws6
-bindcode $mod+Shift+Mod2+79 	move container to workspace  $ws7
-bindcode $mod+Shift+Mod2+80 	move container to workspace  $ws8
-bindcode $mod+Shift+Mod2+81 	move container to workspace  $ws9
-bindcode $mod+Shift+Mod2+90 	move container to workspace  $ws10
-
-# move focused container to workspace with numpad keys
-bindcode $mod+Shift+87 	 move container to workspace  $ws1
-bindcode $mod+Shift+88 	 move container to workspace  $ws2
-bindcode $mod+Shift+89 	 move container to workspace  $ws3
-bindcode $mod+Shift+83 	 move container to workspace  $ws4
-bindcode $mod+Shift+84 	 move container to workspace  $ws5
-bindcode $mod+Shift+85 	 move container to workspace  $ws6
-bindcode $mod+Shift+79 	 move container to workspace  $ws7
-bindcode $mod+Shift+80 	 move container to workspace  $ws8
-bindcode $mod+Shift+81 	 move container to workspace  $ws9
-bindcode $mod+Shift+90 	 move container to workspace  $ws10
+bindsym $alt+Shift+1    move container to workspace  $ws1b
+bindsym $alt+Shift+2    move container to workspace  $ws2b
+bindsym $alt+Shift+3    move container to workspace  $ws3b
+bindsym $alt+Shift+4    move container to workspace  $ws4b
+bindsym $alt+Shift+5    move container to workspace  $ws5b
+bindsym $alt+Shift+6    move container to workspace  $ws6b
+bindsym $alt+Shift+7    move container to workspace  $ws7b
+bindsym $alt+Shift+8    move container to workspace  $ws8b
+bindsym $alt+Shift+9    move container to workspace  $ws9b
+bindsym $alt+Shift+0    move container to workspace  $ws10b
 
 # resize window (you can also use the mouse for that):
 #mode "resize" {
@@ -300,25 +275,56 @@ bindsym Ctrl+Print exec --no-startup-id /usr/bin/flameshot gui
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1a "1:1"
+set $ws2a "2:2"
+set $ws3a "3:3"
+set $ws4a "4:4"
+set $ws5a "5:5"
+set $ws6a "6:6"
+set $ws7a "7:7"
+set $ws8a "8:8"
+set $ws9a "9:9"
+set $ws10a "10:10"
+
+set $ws1b "11:1"
+set $ws2b "12:2"
+set $ws3b "13:3"
+set $ws4b "14:4"
+set $ws5b "15:5"
+set $ws6b "16:6"
+set $ws7b "17:7"
+set $ws8b "18:8"
+set $ws9b "19:9"
+set $ws10b "20:10"
+
+set $mainMonitor "DP-2"
+set $secondMonitor "DP-0"
+set $tvMonitor "HDMI-0"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+workspace $ws1a output $mainMonitor
+workspace $ws2a output $mainMonitor
+workspace $ws3a output $mainMonitor
+workspace $ws4a output $mainMonitor
+workspace $ws5a output $mainMonitor
+workspace $ws6a output $mainMonitor
+workspace $ws7a output $mainMonitor
+workspace $ws8a output $mainMonitor
+workspace $ws9a output $mainMonitor
+workspace $ws10a output $mainMonitor
+
+workspace $ws1b output $secondMonitor
+workspace $ws2b output $secondMonitor
+workspace $ws3b output $secondMonitor
+workspace $ws4b output $secondMonitor
+workspace $ws5b output $secondMonitor
+workspace $ws6b output $secondMonitor
+workspace $ws7b output $secondMonitor
+workspace $ws8b output $secondMonitor
+workspace $ws9b output $secondMonitor
+workspace $ws10b output $secondMonitor
 
 # bind program to workspace and focus to them on startup:
 # assign [class="Xfce4-terminal"] $ws1
@@ -326,13 +332,14 @@ set $ws10 "10"
 # assign [class="Thunar"] $ws3
 # assign [class="thunderbird"] $ws4
 # assign [class="TelegramDesktop"] $ws5
+assign [class="chatterino"] $ws9b
 
 # automatic set focus new window if it opens on another workspace than the current:
-for_window [class=alacritty] focus
-for_window [class=(?i)brave] focus
-for_window [class=Thunar] focus
-for_window [class=Thunderbird] focus
-for_window [class=TelegramDesktop] focus
+# for_window [class=alacritty] focus
+# for_window [class=(?i)brave] focus
+# for_window [class=Thunar] focus
+# for_window [class=Thunderbird] focus
+# for_window [class=TelegramDesktop] focus
 
 ##############
 # compositor #
@@ -513,7 +520,7 @@ bar {
 #	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
+		    # tray_output primary
 		    tray_padding 0
 
 # When strip_workspace_numbers is set to yes,
