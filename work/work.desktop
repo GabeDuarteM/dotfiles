@@ -5,4 +5,3 @@ Type=Application
 Categories=Office
 StartupNotify=false
 Comment=Start all apps for work
-Terminal=true

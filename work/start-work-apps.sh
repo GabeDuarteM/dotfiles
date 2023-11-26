@@ -10,7 +10,6 @@
 /usr/bin/brave '--profile-directory=Profile 1' &
 
 # MS Teams
-/usr/bin/teams &
 /usr/bin/brave "--profile-directory=Profile 1" --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo &
 
 # Alacritty
