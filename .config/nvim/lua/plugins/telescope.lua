@@ -267,10 +267,15 @@ end
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find git files" },
+      {
+        "<leader>fg",
+        function()
+          telescopePickers.prettyFilesPicker({ picker = "git_files" })
+        end,
+        desc = "Find git files",
+      },
       {
         "<leader>ff",
         function()
