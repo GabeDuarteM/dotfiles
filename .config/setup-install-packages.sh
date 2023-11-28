@@ -123,8 +123,10 @@ if [[ "$(uname)" == "Linux" ]]; then
 			vencord-desktop-git \
 			wireguard \
 			xcolor \
+			xone-dkms-git \
 			xsel \
 			notepadqq \
+			wine cabextract \
 			wireguard-tools \
 			protonup-qt-bin \
 			zsh-theme-powerlevel10k-git
