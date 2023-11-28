@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 TryExec=/usr/bin/alacritty
-Exec=/usr/bin/alacritty -e /usr/bin/tmux new-session -A -D -s code -c /home/gabe/work/urbyo/platform
+Exec=/usr/bin/alacritty --title Code -e /usr/bin/tmux new-session -A -D -s code -c /home/gabe/work/urbyo/platform
 Icon=Alacritty
 Terminal=false
 Categories=System;TerminalEmulator;
