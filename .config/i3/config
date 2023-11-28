@@ -298,9 +298,6 @@ bindsym $mod+a focus parent
 # open new empty workspace
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
 
-# Toggle picom
-bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
-
 # Multimedia Keys
 
 # volume
@@ -336,6 +333,7 @@ bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 bindsym $mod+w exec --no-startup-id /usr/bin/brave
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Ctrl+Print exec --no-startup-id /usr/bin/flameshot gui
+bindsym $mod+v exec --no-startup-id /usr/bin/pavucontrol
 
 # Power Profiles menu switcher (rofi)
 # bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -365,6 +363,10 @@ bindsym Ctrl+Print exec --no-startup-id /usr/bin/flameshot gui
 # install picom package (yay -S picom)
 # start using default config 
 exec_always --no-startup-id picom -b
+
+# Toggle picom
+bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+
 #
 # for custom config:
 #exec_always --no-startup-id picom --config  ~/.config/picom.conf
