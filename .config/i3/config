@@ -29,6 +29,80 @@ font pango: Noto Sans Regular 10
 set $mod Mod4
 set $alt Mod1
 
+
+##########################################
+# configuration for workspace behaviour: #
+##########################################
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1a "1:1"
+set $ws2a "2:2"
+set $ws3a "3:3"
+set $ws4a "4:4"
+set $ws5a "5:5"
+set $ws6a "6:6"
+set $ws7a "7:7"
+set $ws8a "8:8"
+set $ws9a "9:9"
+set $ws10a "10:10"
+
+set $ws1b "11:1"
+set $ws2b "12:2"
+set $ws3b "13:3"
+set $ws4b "14:4"
+set $ws5b "15:5"
+set $ws6b "16:6"
+set $ws7b "17:7"
+set $ws8b "18:8"
+set $ws9b "19:9"
+set $ws10b "20:10"
+
+set $mainMonitor "DP-2"
+set $secondMonitor "DP-0"
+set $tvMonitor "HDMI-0"
+
+# use workspaces on different displays:
+# where you have to replace VGA-0/HDMI-0 with the names for your displays
+# you can get from xrandr command
+workspace $ws1a output $mainMonitor
+workspace $ws2a output $mainMonitor
+workspace $ws3a output $mainMonitor
+workspace $ws4a output $mainMonitor
+workspace $ws5a output $mainMonitor
+workspace $ws6a output $mainMonitor
+workspace $ws7a output $mainMonitor
+workspace $ws8a output $mainMonitor
+workspace $ws9a output $mainMonitor
+workspace $ws10a output $mainMonitor
+
+workspace $ws1b output $secondMonitor
+workspace $ws2b output $secondMonitor
+workspace $ws3b output $secondMonitor
+workspace $ws4b output $secondMonitor
+workspace $ws5b output $secondMonitor
+workspace $ws6b output $secondMonitor
+workspace $ws7b output $secondMonitor
+workspace $ws8b output $secondMonitor
+workspace $ws9b output $secondMonitor
+workspace $ws10b output $secondMonitor
+
+# bind program to workspace and focus to them on startup:
+# assign [class="Xfce4-terminal"] $ws1
+# assign [class="(?i)brave"] $ws2
+# assign [class="Thunar"] $ws3
+# assign [class="thunderbird"] $ws4
+# assign [class="TelegramDesktop"] $ws5
+assign [class="chatterino"] $ws9b
+assign [title="Code"] $ws3a
+
+# automatic set focus new window if it opens on another workspace than the current:
+# for_window [class=alacritty] focus
+# for_window [class=(?i)brave] focus
+# for_window [class=Thunar] focus
+# for_window [class=Thunderbird] focus
+# for_window [class=TelegramDesktop] focus
+
 #####################
 # workspace layout: #
 #####################
@@ -265,78 +339,6 @@ bindsym Ctrl+Print exec --no-startup-id /usr/bin/flameshot gui
 
 # Power Profiles menu switcher (rofi)
 # bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
-
-##########################################
-# configuration for workspace behaviour: #
-##########################################
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1a "1:1"
-set $ws2a "2:2"
-set $ws3a "3:3"
-set $ws4a "4:4"
-set $ws5a "5:5"
-set $ws6a "6:6"
-set $ws7a "7:7"
-set $ws8a "8:8"
-set $ws9a "9:9"
-set $ws10a "10:10"
-
-set $ws1b "11:1"
-set $ws2b "12:2"
-set $ws3b "13:3"
-set $ws4b "14:4"
-set $ws5b "15:5"
-set $ws6b "16:6"
-set $ws7b "17:7"
-set $ws8b "18:8"
-set $ws9b "19:9"
-set $ws10b "20:10"
-
-set $mainMonitor "DP-2"
-set $secondMonitor "DP-0"
-set $tvMonitor "HDMI-0"
-
-# use workspaces on different displays:
-# where you have to replace VGA-0/HDMI-0 with the names for your displays
-# you can get from xrandr command
-workspace $ws1a output $mainMonitor
-workspace $ws2a output $mainMonitor
-workspace $ws3a output $mainMonitor
-workspace $ws4a output $mainMonitor
-workspace $ws5a output $mainMonitor
-workspace $ws6a output $mainMonitor
-workspace $ws7a output $mainMonitor
-workspace $ws8a output $mainMonitor
-workspace $ws9a output $mainMonitor
-workspace $ws10a output $mainMonitor
-
-workspace $ws1b output $secondMonitor
-workspace $ws2b output $secondMonitor
-workspace $ws3b output $secondMonitor
-workspace $ws4b output $secondMonitor
-workspace $ws5b output $secondMonitor
-workspace $ws6b output $secondMonitor
-workspace $ws7b output $secondMonitor
-workspace $ws8b output $secondMonitor
-workspace $ws9b output $secondMonitor
-workspace $ws10b output $secondMonitor
-
-# bind program to workspace and focus to them on startup:
-# assign [class="Xfce4-terminal"] $ws1
-# assign [class="(?i)brave"] $ws2
-# assign [class="Thunar"] $ws3
-# assign [class="thunderbird"] $ws4
-# assign [class="TelegramDesktop"] $ws5
-assign [class="chatterino"] $ws9b
-
-# automatic set focus new window if it opens on another workspace than the current:
-# for_window [class=alacritty] focus
-# for_window [class=(?i)brave] focus
-# for_window [class=Thunar] focus
-# for_window [class=Thunderbird] focus
-# for_window [class=TelegramDesktop] focus
 
 ##############
 # compositor #
