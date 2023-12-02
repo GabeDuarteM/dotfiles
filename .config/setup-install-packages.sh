@@ -247,6 +247,9 @@ if [[ "$(hasCommand 'cargo')" == "false" ]]; then
 	fi
 fi
 
+log "Installing additional fonts"
+~/.config/.downloaded-fonts/@install.sh && log "Fonts installed"
+
 if ! grep -q "zsh" /etc/shells; then
 	log "Add zsh to the shell list"
 
