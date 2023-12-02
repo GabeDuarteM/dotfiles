@@ -36,7 +36,7 @@ set $alt Mod1
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1a "1:1"
+set $ws1a "1"
 set $ws2a "2:2"
 set $ws3a "3:3"
 set $ws4a "4:4"
