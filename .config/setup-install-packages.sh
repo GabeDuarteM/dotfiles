@@ -126,6 +126,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			xone-dkms-git \
 			xsel \
 			notepadqq \
+			polybar \
 			wine cabextract \
 			wireguard-tools \
 			protonup-qt-bin \
