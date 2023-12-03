@@ -334,7 +334,7 @@ bindsym $mod+w exec --no-startup-id /usr/bin/brave
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 bindsym Ctrl+Print exec --no-startup-id /usr/bin/flameshot gui
 bindsym $mod+v exec --no-startup-id /usr/bin/pavucontrol
-bindsym $mod+x exec --no-startup-id eww -c ~/.config/eww/powermenu open --toggle powermenu
+bindsym $mod+x exec --no-startup-id eww open --toggle powermenu
 
 # Power Profiles menu switcher (rofi)
 # bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
