@@ -128,6 +128,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			notepadqq \
 			nextcloud-client \
 			polybar \
+			eww-git \
 			wine cabextract \
 			wireguard-tools \
 			protonup-qt-bin \
