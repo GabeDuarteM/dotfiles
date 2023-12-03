@@ -363,7 +363,7 @@ bindsym $mod+x exec --no-startup-id eww open --toggle powermenu
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
 # start using default config 
-exec_always --no-startup-id picom -b
+exec_always --no-startup-id picom -b &> /tmp/i3-picom.log
 
 # Toggle picom
 bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
@@ -377,7 +377,7 @@ bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 #############################################
 
 #get auth work with polkit-gnome
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &> /tmp/i3-polkit-gnome.log
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -385,7 +385,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # if enabled you should comment welcome app.
 # https://github.com/jceb/dex
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id dex --autostart --environment i3 &> /tmp/i3-dex.log
 
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
@@ -401,14 +401,14 @@ exec --no-startup-id dex --autostart --environment i3
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/monitor.sh &> /tmp/i3-monitor.log
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill ~/Pictures/Wallpapers/* --randomize
+exec --no-startup-id sleep 1 && feh --bg-fill ~/Pictures/Wallpapers/* --randomize &> /tmp/i3-feh.log
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id xset s 480 dpms 600 600 600 &> /tmp/i3-xset-powersavings.log
 
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
@@ -428,7 +428,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 #exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 # may yneed to run dbus-launch explicitly: 
 #exec --no-startup-id dbus-launch /usr/bin/dunst
-exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /usr/bin/dunst &> /tmp/i3-dunst.log
 exec --no-startup-id $HOME/.config/eww/eww.sh &> /tmp/i3-eww.log
 # alternative if you installed aside with XFCE4:
 # exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
@@ -575,7 +575,7 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 #	}
 #}
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh &> /tmp/i3-polybar-launch.log
 
 #####################################
 # Application menu handled by rofi: #
