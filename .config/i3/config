@@ -429,6 +429,7 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # may yneed to run dbus-launch explicitly: 
 #exec --no-startup-id dbus-launch /usr/bin/dunst
 exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id $HOME/.config/eww/eww.sh &> /tmp/i3-eww.log
 # alternative if you installed aside with XFCE4:
 # exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 

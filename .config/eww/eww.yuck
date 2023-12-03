@@ -1,6 +1,7 @@
-; (include "./vile/src/yuck/_env.yuck")
-; (include "./vile/src/yuck/_lib.yuck")
+(include "./utils/_env.yuck")
+(include "./utils/_lib.yuck")
 (include "./modules/powermenu/eww.yuck")
+(include "./modules/disclose/_init.yuck")
 
 ;; (include "./src/yuck/vertigo/_init.yuck")
 ;; (include "./src/yuck/disclose/_init.yuck")

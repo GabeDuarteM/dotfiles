@@ -1,0 +1,55 @@
+.disclose-layout-box {
+  background-color: $shade10;
+  font-family: Dosis, Phosphor, "Iosevka Nerd Font", sans-serif;
+  padding-bottom: 1em;
+}
+
+.disclose-headers {
+  padding: 1em 2em 0 2em;
+  margin-bottom: 1.5em;
+  color: $base05;
+}
+
+.disclose-headers-label {
+  font-size: 20;
+  font-family: "Caviar Dreams";
+  color: $base05;
+  opacity: 0.8;
+}
+
+.disclose-headers-clear {
+  font-size: 25;
+  color: $base09;
+}
+
+.disclose-headers-close {
+  font-size: 25;
+  color: $base11;
+}
+
+.disclose-headers-clear:hover {
+  color: $base14;
+}
+
+.disclose-headers-close:hover {
+  color: $base09;
+}
+
+.disclose-scroll {
+  margin: 0 1.5em 0 1.5em;
+}
+
+@import "empty";
+
+@import "cards/cardprog";
+@import "cards/cardscr";
+@import "cards/cardimage";
+@import "cards/cardradial";
+
+@import "urgency";
+@import "stats";
+@import "dnd";
+@import "modifiers";
+@import "override";
+
+// vim:ft=scss
