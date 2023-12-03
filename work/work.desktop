@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Work Gabriel
+Exec=/home/gabe/.local/bin/start-work-apps.sh
+Type=Application
+Categories=Office
+StartupNotify=false
+Comment=Start all apps for work

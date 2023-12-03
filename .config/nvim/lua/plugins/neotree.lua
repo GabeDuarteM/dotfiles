@@ -35,16 +35,29 @@ return {
       window = {
         position = "float",
         mappings = {
-          ["Y"] = function(state)
-            local node = state.tree:get_node()
-            local absolute_path = node.path
-            -- need the replace funtion to handle paths with '-', as this is a special character in lua's gsub
-            local relative_path = replace(absolute_path, state.path, ""):sub(2)
+          ["lgca"] = {
+            function(state)
+              local node = state.tree:get_node()
+              local command = "git --git-dir=/home/gabe/.config/.dotfiles --work-tree=/home/gabe add -f " .. node.path
 
-            vim.fn.setreg('"', relative_path)
-            vim.fn.setreg("1", relative_path)
-            vim.fn.setreg("+", relative_path)
-          end,
+              print(vim.fn.system(command))
+            end,
+
+            desc = "add to dotfiles config",
+          },
+          ["Y"] = {
+            function(state)
+              local node = state.tree:get_node()
+              local absolute_path = node.path
+              -- need the replace funtion to handle paths with '-', as this is a special character in lua's gsub
+              local relative_path = replace(absolute_path, state.path, ""):sub(2)
+
+              vim.fn.setreg('"', relative_path)
+              vim.fn.setreg("1", relative_path)
+              vim.fn.setreg("+", relative_path)
+            end,
+            desc = "copy absolute path",
+          },
           ["o"] = "open",
           -- disable fuzzy search
           ["/"] = "noop",
