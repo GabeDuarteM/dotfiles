@@ -1,10 +1,10 @@
 .disclose-cardimage-eventbox {
-  background: linear-gradient(45deg, $base02 20%, $base01 100%);
+  background: transparentize($base02, 0.6);
   border-radius: 0.5em;
 }
 
 .disclose-cardimage-eventbox:hover {
-  background: linear-gradient(170deg, $base01 20%, $shade01 100%);
+  background: transparentize($shade01, 0.6);
 }
 
 .disclose-cardimage-icon {
@@ -23,7 +23,7 @@
   background-repeat: no-repeat;
   box-shadow: -0.4px -0.3px 4px 4px $shade08;
   border-radius: 50%;
-  border: 0.25em solid $base09;
+  border: 0.25em solid transparentize($base09, 0.5);
 }
 
 .disclose-cardimage-separator {
@@ -40,9 +40,9 @@
 
 .disclose-cardimage-summary-box {
   padding: 0.5em 0 0.5em 0.9em;
-  background-color: darken($base09, 10%);
+  background-color: transparentize($base05, 0.8);
   border-radius: 0.3em 0.3em 0 0;
-  color: $base02;
+  color: $base05;
 }
 
 .disclose-cardimage-appname-label {

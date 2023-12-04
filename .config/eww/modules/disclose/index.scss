@@ -1,5 +1,5 @@
 .disclose-layout-box {
-  background-color: $shade10;
+  background-color: transparentize($shade10, .6);
   font-family: Dosis, Phosphor, "Iosevka Nerd Font", sans-serif;
   padding-bottom: 1em;
 }

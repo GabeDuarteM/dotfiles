@@ -14,7 +14,7 @@
 
 .disclose-separator {
   font-size: 0.5;
-  background-color: $shade06;
+  background-color: transparentize($shade06, 0.8);
   margin: 35em 25em 35em 25em;
 }
 
