@@ -10,6 +10,7 @@
 (include "./modules/disclose/_layout.yuck")
 
 (defwindow disclose :stacking "fg"
+  :monitor "DP-2"
   :windowtype "normal"
   :wm-ignore true
   :geometry (geometry :width "26%" :height "100%" :anchor "right center") 

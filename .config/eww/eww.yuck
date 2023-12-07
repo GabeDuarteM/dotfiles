@@ -1,18 +1,6 @@
 (include "./utils/_env.yuck")
 (include "./utils/_lib.yuck")
-(include "./modules/powermenu/eww.yuck")
-(include "./modules/disclose/_init.yuck")
-
-;; (include "./src/yuck/vertigo/_init.yuck")
-;; (include "./src/yuck/disclose/_init.yuck")
-;; (include "./src/yuck/avatar/_init.yuck")
-;; (include "./src/yuck/melody/_init.yuck")
-;; (include "./src/yuck/lumin/_init.yuck")
-;; (include "./src/yuck/origin/_init.yuck")
-;; (include "./src/yuck/ocular/_init.yuck")
-;; (include "./src/yuck/clime/_init.yuck")
-;; (include "./src/yuck/power/_init.yuck")
-;; (include "./src/yuck/chrono/_init.yuck")
-;; (include "./src/yuck/bolt/_init.yuck")
+(include "./modules/powermenu/index.yuck")
+(include "./modules/disclose/index.yuck")
 
 ; vim:filetype=yuck
