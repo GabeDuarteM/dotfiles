@@ -130,6 +130,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			polybar \
 			eww-git \
 			gnome-keyring libsecret libgnome-keyring seahorse \
+			lib32-nvidia-utils \
 			wine cabextract \
 			wireguard-tools \
 			protonup-qt-bin \
