@@ -1,9 +1,12 @@
 (defpoll disclose_stats :interval "5s" "./.venv/bin/python ./modules/disclose/scripts/logger.py stats")
 (deflisten disclose_sub "./modules/disclose/scripts/combine.zsh sub")
-(defpoll disclose_dnd_state :interval "1s" "dunstctl is-paused")
+(defpoll disclose_dnd_state :initial false :interval "1s" "dunstctl is-paused && eww update disclose_dnd_state=`dunstctl is-paused`")
 
 (defpoll dunst_displayed :interval "10s" "dunstctl count displayed")
 (defpoll dunst_history :interval "10s" "dunstctl count history")
 (defpoll dunst_waiting :interval "10s" "dunstctl count waiting")
+
+(defpoll volume_level :initial "100" :interval "30s" "pamixer --get-volume && eww update volume_level=`pamixer --get-volume`")
+(defpoll vpn_state :initial true :interval "30s" "piactl get vpnip | grep -q 'Unknown' && echo false || echo true && eww update vpn_state=`piactl get vpnip | grep -q 'Unknown' && echo false || echo true`")
 
 ;; vim:ft=yuck

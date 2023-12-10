@@ -7,13 +7,106 @@
 
 (include "./modules/disclose/_stats.yuck")
 (include "./modules/disclose/_dnd.yuck")
-(include "./modules/disclose/_layout.yuck")
+; (include "./modules/disclose/lib/_init.yuck")
+(include "./modules/disclose/quick-settings.yuck")
 
 (defwindow disclose :stacking "fg"
   :monitor "DP-2"
   :windowtype "normal"
   :wm-ignore true
   :geometry (geometry :width "26%" :height "100%" :anchor "right center") 
-  (disclose_layout))
+  (disclose_layout)
+)
+
+(defwidget disclose_layout []
+  (box :orientation "vertical"
+       :space-evenly false
+       :class "disclose-layout-box"
+    (box :space-evenly false
+         :class "disclose-headers"
+         :spacing 6
+      (label :text "ACTION CENTER"
+             :class "disclose-headers-label"
+             :halign "start"
+             :hexpand true)
+      (button :onclick "./modules/disclose/scripts/combine.zsh cls" :class "disclose-headers-clear" "")
+      (button :onclick "eww close disclose" :class "disclose-headers-close" "署")
+    )
+    (scroll :hscroll false
+            :vscroll true
+            :vexpand true
+            :hexpand true
+            :class "disclose-scroll"
+      (literal :content disclose_sub)
+    )
+    (label :class "disclose-separator" :text "")
+    (disclose_quick_settings :change_volume "pamixer --set-volume $(printf %d {})" :aulvl volume_level)
+    ; (avatar_pctl :icon ""
+    ;              :separator "ﭲ"
+    ;              :album "${pctl_sub['xesam:album']}"
+    ;              :title "${pctl_sub['xesam:title']}"
+    ;              :artist "${pctl_sub['xesam:artist']}"
+    ;              :prev "playerctl previous"
+    ;              :prev_icon ""
+    ;              :next "playerctl next"
+    ;              :next_icon ""
+    ;              :player "${pctl_sub.player}"
+    ;              :minimal "playerctld shift"
+    ;              :minimal_icon ""
+    ;              :pause_icon ""
+    ;              :play_icon ""
+    ; )
+    ; (avatar_mpd :current mpd_current
+    ;             :duration mpd_duration
+    ;             :progress mpd_progress
+    ;             :command "mpc seek {}%"
+    ;             :icon ""
+    ;             :separator "ﭲ"
+    ;             :album "${mpd_sub.album}"
+    ;             :title "${mpd_sub.title}"
+    ;             :artist "${mpd_sub.artist}"
+    ;             :like "dunstify MPD Liked"
+    ;             :like_icon ""
+    ;             :prev "mpc prev"
+    ;             :prev_icon ""
+    ;             :next "mpc next"
+    ;             :next_icon ""
+    ;             :minimal "dunstify MPD minimal"
+    ;             :minimal_icon ""
+    ;             :pause_icon ""
+    ;             :play_icon ""
+    ; )
+    ; (_mpdx :repeatc {mpd_sub.x.repeat == "1" ? "ava-mpdx-repeat-on" : "ava-mpdx-repeat-off"}
+    ;         :randomc {mpd_sub.x.random == "1" ? "ava-mpdx-random-on" : "ava-mpdx-random-off"}
+    ;         :singlec {mpd_sub.x.single == "1" ? "ava-mpdx-single-on" : "ava-mpdx-single-off"}
+    ;         :consumec {mpd_sub.x.consume == "1" ? "ava-mpdx-consume-on" : "ava-mpdx-consume-off"}
+    ;         :xfadec {mpd_sub.x.xfade == "0" ? "ava-mpdx-xfade-off" : "ava-mpdx-xfade-on"}
+    ;         :repeatlbl ""
+    ;         :randomlbl ""
+    ;         :singlelbl ""
+    ;         :consumelbl ""
+    ;         :xfadelbl ""
+    ;         :shufflelbl ""
+    ;         :shufflecmd "mpc shuffle"
+    ;         :randomcmd "mpc random"
+    ;         :repeatcmd "mpc repeat"
+    ;         :singlecmd "mpc single"
+    ;         :consumecmd "mpc consume"
+    ;         :xfadecmd {mpd_sub.x.xfade == "0" ? "mpc crossfade 2" : "mpc crossfade 0"}
+    ; )
+    ; (box :space-evenly false :class "disclose-misc-box"
+    ;   (_dnd :total "${disclose_stats.total}"
+    ;         :footer "Dunst Bell"
+    ;         :total_label "Total"
+    ;         :action "dunstctl set-paused toggle"
+    ;         :state "${disclose_dnd_state == "true" ? "ON" : "OFF"}"
+    ;         :label "Don't Disturb."
+    ;         :waiting_icon_on ""
+    ;         :waiting_icon_off ""
+    ;         :waiting dunst_waiting
+    ;   )
+    ; )
+  )
+)
 
 ;; vim:ft=yuck

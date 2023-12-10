@@ -1,0 +1,31 @@
+(defwidget disclose_quick_settings []
+  (box :class "ava-quick-box" :space-evenly false :spacing 25 :halign "center" :orientation "vertical"
+    (box :class "ava-quick-scale-box" :orientation "vertical" :space-evenly false :spacing 25 :space-evenly false
+      (box :class "ava-quick-au-scale-box" :space-evenly false :spacing 20
+        (scale :hexpand true :width 480 :class "ava-quick-vol" :min 0.0 :max 101.0 :value volume_level :onchange "pamixer --set-volume $(printf %d {}) && eww update volume_level={}")
+        (label :text volume_level :width 90 :class "ava-au-scale-lbl")
+      )
+
+      (label :text "" :class "ava-sep")
+
+      (box :orientation "horizontal" :spacing 20
+        (button :width 100 :class "ava-quick-settings-btn ${!disclose_dnd_state ? "active" : ""}"
+                :onclick "dunstctl set-paused toggle && eww update disclose_dnd_state=`dunstctl is-paused`"
+                {!disclose_dnd_state ? "" : ""}
+        )
+        (button :width 100 :class "ava-quick-settings-btn ${vpn_state ? "active" : ""}"
+                :timeout "1s"
+                :onclick "eww update vpn_state=${!vpn_state}; ${vpn_state ? "piactl disconnect" : "piactl connect"}"
+                {vpn_state ? "" : ""}
+        )
+      )
+      (label :text "" :class "ava-sep")
+      (box :orientation "horizontal" :spacing 20
+        (button :class "ava-quick-settings-btn danger" :onclick "poweroff" "")
+        (button :class "ava-quick-settings-btn" :onclick "reboot" "")
+        (button :class "ava-quick-settings-btn" :onclick "loginctl kill-session self" "")
+      )
+    )
+
+  )
+)

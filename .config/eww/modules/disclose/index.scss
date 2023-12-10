@@ -45,11 +45,43 @@
 @import "cards/cardscr";
 @import "cards/cardimage";
 @import "cards/cardradial";
+@import "quick-settings";
 
 @import "urgency";
 @import "stats";
 @import "dnd";
 @import "modifiers";
 @import "override";
+
+// avatar
+
+.avatar-layout-box {
+  font-family: Phosphor, Dosis, "Iosevka Nerd Font", sans-serif;
+  background-color: $shade10;
+  padding: 0.5em;
+}
+
+.avatar-headers-label {
+  color: $base05;
+}
+
+.avatar-headers-close {
+  color: $base11;
+}
+
+.avatar-headers-close:hover {
+  color: $base09;
+}
+
+.avatar-headers {
+  padding: 1.2em 1.5em 0.8em 1.5em;
+  font-size: 25;
+  font-family: Phosphor, "Caviar Dreams";
+}
+
+.avatar-box-inner:last-child {
+  margin-bottom: 0.6em;
+}
+
 
 // vim:ft=scss

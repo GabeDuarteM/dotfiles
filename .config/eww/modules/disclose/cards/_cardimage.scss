@@ -23,7 +23,7 @@
   background-repeat: no-repeat;
   box-shadow: -0.4px -0.3px 4px 4px $shade08;
   border-radius: 50%;
-  border: 0.25em solid transparentize($base09, 0.5);
+  border: 0.25em solid $base09;
 }
 
 .disclose-cardimage-separator {
@@ -53,15 +53,15 @@
 .disclose-cardimage-close-button {
   margin: 0.6em 1em 0.6em 0;
   padding: 0.2em;
-  background-color: $base11;
+  background-color: rgba($base05, 0.8);
   color: $base01;
   border-radius: 50%;
   box-shadow: -0.4px -0.3px 4px -1.8px $shade09;
 }
 
 .disclose-cardimage-close-button:hover {
-  background-color: $base01;
-  color: $base11;
+  background-color: $base11;
+  color: $base01;
 }
 
 .disclose-cardimage-body-outer {
@@ -80,7 +80,7 @@
 }
 
 .disclose-cardimage-timestamp {
-  color: $base10;
+  color: $base05;
   font-weight: bold;
 }
 

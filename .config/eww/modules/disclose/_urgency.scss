@@ -1,9 +1,9 @@
 .disclose-cardimage-summary-box-CRITICAL {
-  background-color: darken($base11, 10%);
+  background-color: rgba($base11, 0.5);
 }
 
 .disclose-cardimage-summary-box-LOW {
-  background-color: darken($base15, 10%);
+  background-color: rgba($base15, 0.5);
 }
 
 // vim:ft=scss
