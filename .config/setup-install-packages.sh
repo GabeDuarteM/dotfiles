@@ -129,6 +129,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			nextcloud-client \
 			polybar \
 			eww-git \
+			gnome-keyring libsecret libgnome-keyring seahorse \
 			wine cabextract \
 			wireguard-tools \
 			protonup-qt-bin \
