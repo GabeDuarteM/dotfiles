@@ -156,8 +156,7 @@ class Eavesdropper:
                 details["iconpath"] = utils.get_gtk_icon_path(args_list[2])
         else:
             # if there are no icon hints then use fallback (generic bell)
-            details["iconpath"] = utils.get_gtk_icon_path(
-                "custom-notification")
+            details["iconpath"] = os.path.expandvars("$XDG_CONFIG_HOME/eww/modules/disclose/assets/bell.png")
 
         if "image-data" in args_list[6]:
             # capture the raw image bytes and save them to the cache_dir/x.png path
