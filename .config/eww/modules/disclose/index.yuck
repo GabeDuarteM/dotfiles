@@ -13,9 +13,8 @@
   :monitor "DP-2"
   :windowtype "normal"
   :wm-ignore true
-  :geometry (geometry :width "26%" :height "100%" :anchor "right center") 
-  (disclose_layout)
-)
+  :geometry (geometry :width "26%" :height "100%" :anchor "right center")
+  (disclose_layout))
 
 (defwidget disclose_layout []
   (box :orientation "vertical"
@@ -29,17 +28,17 @@
              :halign "start"
              :hexpand true)
       (button :onclick "./modules/disclose/scripts/combine.zsh cls" :class "disclose-headers-clear" "")
-      (button :onclick "eww close disclose disclose-closer" :class "disclose-headers-close" "署")
-    )
+      (button :onclick "eww close disclose disclose-closer" :class "disclose-headers-close" "署"))
+
     (scroll :hscroll false
             :vscroll true
             :vexpand true
             :hexpand true
             :class "disclose-scroll"
-      (literal :content disclose_sub)
-    )
+      (literal :content disclose_sub))
+
     (label :class "disclose-separator" :text "")
-    (disclose_quick_settings :change_volume "pamixer --set-volume $(printf %d {})" :aulvl volume_level)
+    (disclose_quick_settings :change_volume "pamixer --set-volume $(printf %d {})" :aulvl volume_level)))
     ; (avatar_pctl :icon ""
     ;              :separator "ﭲ"
     ;              :album "${pctl_sub['xesam:album']}"
@@ -105,11 +104,9 @@
     ;         :waiting dunst_waiting
     ;   )
     ; )
-  )
-)
 
 (defwindow disclose-closer
-  :monitor 0
+  :monitor "DP-2"
   :geometry (geometry :width "100%" :height "100%")
   :stacking "fg"
   :focusable false
