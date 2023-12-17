@@ -14,5 +14,5 @@ fi
 if [ "$count" -gt 0 ]; then
 	echo "$icon  $count"
 else
-	echo $icon
+	echo "$icon "
 fi
