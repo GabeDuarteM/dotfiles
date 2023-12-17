@@ -59,3 +59,4 @@ alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Ho
 alias probe="sudo -E hw-probe -all -upload"
 alias ls="eza --icons"
 alias edit-grub="sudo nvim /etc/default/grub"
+alias update-font-cache="fc-cache -frv"
