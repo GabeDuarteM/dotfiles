@@ -365,7 +365,7 @@ bindsym $mod+x exec --no-startup-id eww open --toggle powermenu
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
 # start using default config 
-exec_always --no-startup-id picom -b &> /tmp/i3-picom.log
+# exec_always --no-startup-id picom -b &> /tmp/i3-picom.log
 
 # Toggle picom
 bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
@@ -380,6 +380,9 @@ bindsym $mod+Shift+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &> /tmp/i3-polkit-gnome.log
+# exec --no-startup-id dbus-update-activation-environment --all &> /tmp/i3-dbus-update.log
+# exec --no-startup-id gnome-keyring-daemon --start --components=secrets &> /tmp/i3-gnome-keyring.log
+# exec --no-startup-id /usr/lib/pam_kwallet_init &> /tmp/i3-pam-kwallet-init.log
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -387,7 +390,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # if enabled you should comment welcome app.
 # https://github.com/jceb/dex
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
-exec --no-startup-id dex --autostart --environment i3 &> /tmp/i3-dex.log
 
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
@@ -595,6 +597,10 @@ bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 
 bindsym $mod+t exec --no-startup-id rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
+
+exec --no-startup-id dex --verbose --autostart --environment i3 &> /tmp/i3-dex.log
+
+bindsym $mod+c exec --no-startup-id eww open --toggle disclose
 
 # bindsym F10 exec --no-startup-id rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi
