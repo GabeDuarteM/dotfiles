@@ -48,6 +48,7 @@
 
 (defwindow calendar
   :monitor "DP-2"
+  :windowtype "normal"
   :geometry (geometry :x "-9px"
                       :y "57px"
                       :width "0px" ; automatically generated

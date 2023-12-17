@@ -31,7 +31,7 @@ $javacafeMagenta: #c296eb;
 $javacafeBlue: #86aaec;
 
 .date {
-  background-color: $base01;
+  background-color: rgba($base01, 0.4);
   color: $base04;
   border-radius: 4px;
 }

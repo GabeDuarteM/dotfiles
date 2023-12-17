@@ -40,7 +40,7 @@
 
 .disclose-cardimage-summary-box {
   padding: 0.5em 0 0.5em 0.9em;
-  background-color: transparentize($base05, 0.8);
+  background-color: rgba($base05, 0.2);
   border-radius: 0.3em 0.3em 0 0;
   color: $base05;
 }
