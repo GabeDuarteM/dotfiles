@@ -39,8 +39,8 @@ alias dcr="docker-compose restart"
 alias proj="cd ~/projects"
 alias cls="clear"
 alias clr="clear && printf '\e[3J'"
-alias l='exa -a --icons'
-alias ll='exa -1a --icons'
+alias l='eza -a --icons'
+alias ll='eza -1a --icons'
 alias :q="exit"
 alias vim="$EDITOR"
 alias vi="$EDITOR"
@@ -57,3 +57,5 @@ alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Ho
 # alias reboot-to-windows="systemctl reboot --boot-loader-entry=auto-windows"
 # alias restart-to-windows="reboot-to-windows"
 alias probe="sudo -E hw-probe -all -upload"
+alias ls="eza --icons"
+alias edit-grub="sudo nvim /etc/default/grub"
