@@ -1,5 +1,5 @@
-(include "./utils/_env.yuck")
-(include "./utils/_lib.yuck")
+(include "./utils/env.yuck")
+(include "./utils/lib.yuck")
 (include "./modules/powermenu/index.yuck")
 (include "./modules/disclose/index.yuck")
 

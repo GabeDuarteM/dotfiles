@@ -1,13 +1,12 @@
-(include "./modules/disclose/_env.yuck")
+(include "./modules/disclose/env.yuck")
 
-(include "./modules/disclose/cards/_cardimage.yuck")
-(include "./modules/disclose/cards/_cardprog.yuck")
-(include "./modules/disclose/cards/_cardscr.yuck")
-(include "./modules/disclose/cards/_cardradial.yuck")
+(include "./modules/disclose/cards/cardimage.yuck")
+(include "./modules/disclose/cards/cardprog.yuck")
+(include "./modules/disclose/cards/cardscr.yuck")
+(include "./modules/disclose/cards/cardradial.yuck")
 
-(include "./modules/disclose/_stats.yuck")
-(include "./modules/disclose/_dnd.yuck")
-; (include "./modules/disclose/lib/_init.yuck")
+(include "./modules/disclose/stats.yuck")
+(include "./modules/disclose/dnd.yuck")
 (include "./modules/disclose/quick-settings.yuck")
 
 (defwindow disclose :stacking "fg"
