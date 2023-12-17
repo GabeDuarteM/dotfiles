@@ -29,7 +29,7 @@
              :halign "start"
              :hexpand true)
       (button :onclick "./modules/disclose/scripts/combine.zsh cls" :class "disclose-headers-clear" "")
-      (button :onclick "eww close disclose" :class "disclose-headers-close" "署")
+      (button :onclick "eww close disclose disclose-closer" :class "disclose-headers-close" "署")
     )
     (scroll :hscroll false
             :vscroll true
@@ -107,5 +107,13 @@
     ; )
   )
 )
+
+
+(defwindow disclose-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  (_closer :window "disclose"))
 
 ;; vim:ft=yuck

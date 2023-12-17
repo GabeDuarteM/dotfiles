@@ -44,4 +44,7 @@
         strength < 51 ? okay :
           strength < 76 ? good : excellent})))
 
+(defwidget _closer [window]
+  (eventbox :onclick "eww close ${window} && eww close ${window}-closer"))
+
 ; vim:filetype=yuck
