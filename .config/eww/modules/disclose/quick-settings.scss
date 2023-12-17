@@ -1,6 +1,6 @@
 .ava-quick-box {
   font-family: Phosphor, monoMMM_5;
-  background-color: rgba($shade09, 0.3);
+  background-color: rgba($base04, 0.1);
   font-size: 15;
   border-radius: 1em;
   padding: 1.5em;
@@ -12,7 +12,7 @@
 
 .ava-quick-vol {
   trough {
-    background-color: $base02;
+    background-color: rgba($base03, 0.3);
     min-height: 0.3em;
     border-radius: 3em;
 
@@ -142,12 +142,20 @@
   background-color: rgba($base04, 0.3);
   font-size: 25;
 
+  &.deactivated {
+    background-color: rgba($base03, 0.3);
+
+    &:hover {
+      background-color: rgba($base03, 0.3);
+    }
+  }
+
   &.active {
-    background-color: rgba($base04, 0.5);
+    background-color: rgba($base08, 0.8);
   }
 
   &.active:hover {
-    background-color: rgba($base04, 1.0);
+    background-color: rgba($base08, 1.0);
   }
 
   &:hover {

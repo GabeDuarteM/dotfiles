@@ -16,8 +16,11 @@
         (button :width 100 :class "ava-quick-settings-btn ${vpn_state ? "active" : ""}"
                 :timeout "1s"
                 :onclick "eww update vpn_state=${!vpn_state}; ${vpn_state ? "piactl disconnect" : "piactl connect"}"
-                {vpn_state ? "" : ""}
+                ""
         )
+        (button :width 100 :class "ava-quick-settings-btn deactivated" "")
+        (button :width 100 :class "ava-quick-settings-btn deactivated" "")
+        (button :width 100 :class "ava-quick-settings-btn deactivated" "")
       )
       (label :text "" :class "ava-sep")
       (box :orientation "horizontal" :spacing 20

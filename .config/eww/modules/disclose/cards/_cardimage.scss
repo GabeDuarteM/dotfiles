@@ -1,10 +1,10 @@
 .disclose-cardimage-eventbox {
-  background: transparentize($base02, 0.6);
+  background: rgba($base04, 0.1);
   border-radius: 0.5em;
 }
 
 .disclose-cardimage-eventbox:hover {
-  background: transparentize($shade01, 0.6);
+  background: rgba($base04, 0.3);
 }
 
 .disclose-cardimage-icon {
