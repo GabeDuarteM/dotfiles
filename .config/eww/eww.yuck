@@ -2,5 +2,6 @@
 (include "./utils/lib.yuck")
 (include "./modules/powermenu/index.yuck")
 (include "./modules/disclose/index.yuck")
+(include "./modules/calendar/index.yuck")
 
 ; vim:filetype=yuck
