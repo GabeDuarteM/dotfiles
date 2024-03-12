@@ -28,12 +28,12 @@ alias nb="npm run build"
 alias nu="npx npm-check -u"
 
 # docker
-alias d=docker
-alias dc=docker compose
-alias dcl="docker-compose logs --follow --tail=100"
-alias dcu="docker-compose up --detach"
-alias dcs="docker-compose stop"
-alias dcr="docker-compose restart"
+alias d=sudo docker
+alias dc=sudo docker compose
+alias dcl="sudo docker-compose logs --follow --tail=100"
+alias dcu="sudo docker-compose up --detach"
+alias dcs="sudo docker-compose stop"
+alias dcr="sudo docker-compose restart"
 
 # misc
 alias proj="cd ~/projects"
