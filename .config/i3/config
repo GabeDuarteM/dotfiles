@@ -615,6 +615,10 @@ exec --no-startup-id dex --verbose --autostart --environment i3 &> /tmp/i3-dex.l
 
 bindsym $mod+c exec --no-startup-id eww open --toggle disclose
 
+# Executes the custom i3 session, which also starts the graphical session target.
+# https://github.com/i3/i3/issues/5186#issuecomment-1405779520
+exec --no-startup-id systemctl start --user i3-session.service
+
 # bindsym F10 exec --no-startup-id rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
