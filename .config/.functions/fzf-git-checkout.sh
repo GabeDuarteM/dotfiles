@@ -3,16 +3,17 @@ git-checkout() {
 
 	local branch
 
-	if [[ "$1" = "." ]]; then
-		git checkout .
+	# if argument is a valid file or folder, just execute the checkout with the argument
+	if [[ -e $1 ]]; then
+		git checkout $@
 		return
 	elif [[ "$1" = '-' ]]; then
 		git checkout -
 		return
-  elif [[ "$1" = '-b' ]]; then
-    git checkout $@
-    return
-  elif
+	elif [[ "$1" = '-b' ]]; then
+		git checkout $@
+		return
+	fi
 
 	branch=$(fzf-git-branch $1)
 	if [[ "$branch" = "" ]]; then
