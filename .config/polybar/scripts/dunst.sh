@@ -5,14 +5,14 @@ source ~/.zshenv
 count=$(~/.config/eww/.venv/bin/python ~/.config/eww/modules/disclose/scripts/logger.py stats | jq .total)
 is_dnd=$(dunstctl is-paused)
 
-icon=""
+icon="%{T2}%{T-}"
 
 if [ "$is_dnd" = "true" ]; then
-	icon="%{F#FF0000}%{F-}"
+	icon="%{T2}%{F#FF0000}%{F-}%{T-}"
 fi
 
 if [ "$count" -gt 0 ]; then
-	echo "$icon  $count"
+	echo "$icon $count"
 else
-	echo "$icon "
+	echo "$icon"
 fi
