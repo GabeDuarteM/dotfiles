@@ -97,6 +97,9 @@ exec --no-startup-id "i3-msg 'workspace 1:1'"
 # assign [class="TelegramDesktop"] $ws5
 assign [class="chatterino"] $ws9b
 assign [title="Code"] $ws3a
+assign [class="Slack"] $ws4a
+assign [class="Brave-browser" instance="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws5a # msteams
+assign [class="Brave-browser" instance="crx_ccbmlnglkjekhddofoanehlpeokpnmig"] $ws9a # Jellyfin
 
 # automatic set focus new window if it opens on another workspace than the current:
 # for_window [class=alacritty] focus
@@ -466,10 +469,18 @@ exec --no-startup-id $HOME/.config/eww/eww.sh &> /tmp/i3-eww.log
 # floating rules #
 ##################
 
+# Example: xprop to get the required information:
+#                    \/ - instance                           \/ - class
+# WM_CLASS(STRING) = "crx_nngceckbapebfimnlniiiahkandclblb", "Brave-browser"
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
 for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+# Steam webhelper as class and "notificationtoasts_29_desktop" as name
+for_window [title="notificationtoasts_.*"] floating enable
+for_window [class="Brave-browser" instance="crx_nngceckbapebfimnlniiiahkandclblb"] floating enable # needed for bitwarden on chrome
+# Variety Images
+for_window [title="Variety Images"] floating enable
 
 # set floating (nontiling) for special apps
 for_window [class="Xsane" instance="xsane"] floating enable
@@ -479,6 +490,8 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
+for_window [class="stalonetray"] floating enable
+for_window [class="battle.net.exe" title="Battle.net Updates"] floating enable
 
 # set border of floating window
 for_window [class="urxvt"] border pixel 1
