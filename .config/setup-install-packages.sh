@@ -72,9 +72,10 @@ if [[ "$(uname)" == "Linux" ]]; then
 		paru -Syyu --noconfirm --needed \
 			act \
 			alacritty \
-			atuin \
-			authy \
 			arandr \
+			atuin \
+			audacity \
+			authy \
 			base-devel \
 			bat \
 			brave-bin \
@@ -83,7 +84,9 @@ if [[ "$(uname)" == "Linux" ]]; then
 			cmake \
 			curl \
 			docker \
+			docker-compose \
 			downgrade \
+			eww-git \
 			eza \
 			fd \
 			flameshot \
@@ -93,48 +96,63 @@ if [[ "$(uname)" == "Linux" ]]; then
 			git \
 			git-delta \
 			github-cli \
+			gnome-keyring libsecret libgnome-keyring seahorse \
 			gnome-terminal \
 			go \
 			google-chrome \
+			gparted \
 			hw-probe \
+			inotify-tools \
+			kdirstat \
 			lazygit \
+			lib32-nvidia-utils \
+			localsend-bin \
+			lsdesktopf \
 			lxrandr \
 			neovim \
+			nextcloud-client \
+			noise-suppression-for-voice \
+			notepadqq \
 			obs-studio \
 			opentabletdriver \
+			pamixer \
 			parsec \
 			picom \
 			piper \
+			podman \
+			polybar \
 			progress \
+			protonup-qt-bin \
 			python3 \
+			redshift \
 			retroarch \
 			ripgrep \
 			ryujinx-bin \
+			samba gvfs gvfs-smb \
 			sed \
+			selectdefaultapplication \
 			slack-desktop \
 			steam \
 			thefuck \
 			tldr \
 			tmux \
-			torguard \
 			tree \
 			ttf-hack-nerd \
 			unzip \
 			vencord-desktop-git \
+			vlc \
+			wine-staging cabextract \
 			wireguard \
+			wireguard-tools \
+			wmctrl xorg-xwininfo \
+			xclip \
 			xcolor \
 			xone-dkms-git \
-			xsel \
-			notepadqq \
-			nextcloud-client \
-			polybar \
-			eww-git \
-			gnome-keyring libsecret libgnome-keyring seahorse \
-			lib32-nvidia-utils \
-			wine cabextract \
-			wireguard-tools \
-			protonup-qt-bin \
-			zsh-theme-powerlevel10k-git
+			yt-dlp \
+			zsh-theme-powerlevel10k-git \
+			piavpn-bin \
+			plasma \
+			teamviewer \ #
 
 	else
 		log "Linux was detected, but couldn't find which package manager to use, please install them manually"
