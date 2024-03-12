@@ -63,5 +63,5 @@
 
 # Reignore some files
 # .config/nvim/lazy-lock.json
-.config/alacritty/alacritty.local.yml
+.config/alacritty/alacritty.local.toml
 .config/brew/Brewfile.lock.json

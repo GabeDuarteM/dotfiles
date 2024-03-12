@@ -1,0 +1,11 @@
+import = [
+  "/home/gabe/.config/alacritty/alacritty.local.toml",
+  "/home/gabe/.config/alacritty/themes/tokyonight_night.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[shell]
+args = ["new-session", "-A", "-s", "main"]
+program = "/usr/bin/tmux"
