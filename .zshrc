@@ -105,3 +105,5 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 eval $(thefuck --alias)
 eval "$(atuin init zsh)"
 
+# Conda
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
