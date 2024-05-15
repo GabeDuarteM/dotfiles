@@ -1,4 +1,4 @@
-neofetch
+fastfetch
 
 function addToPath() {
   if [[ -d "$1" && ":$PATH:" != *":$1:"* ]]; then
