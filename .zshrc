@@ -1,5 +1,21 @@
 neofetch
 
+function addToPath() {
+  if [[ -d "$1" && ":$PATH:" != *":$1:"* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+# Configure fnm (may log stuff if the default path is one with nvmrc)
+addToPath "$HOME/.local/share/fnm"
+# if the path already contains fnm_multishells anywhere on it, don't add it again
+# /run/user/1000/fnm_multishells/1336803_1715787608849/bin
+if [[ ":$PATH:" != *"fnm_multishells"* ]]; then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+### THINGS THAT LOG TO THE CONSOLE NEEDS TO BE ABOVE THIS LINE ###
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,10 +23,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+addToPath "$HOME/.local/bin"
+addToPath "/home/linuxbrew/.linuxbrew/bin" 
+addToPath "/opt/homebrew/bin" 
+addToPath "$HOME/go/bin" 
 export EDITOR="nvim"
 export PROJECTS_FOLDER="$HOME/projects"
 export DOTFILES_GIT_DIR="$HOME/.config/.dotfiles/"
@@ -30,10 +46,6 @@ fi
 
 # Configure rust
 . "$HOME/.cargo/env"
-
-# Configure fnm
-export PATH="$HOME/.local/share/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
 
 # Config history
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
@@ -87,16 +99,19 @@ autoload -Uz compinit && compinit
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+addToPath "$BUN_INSTALL/bin"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # deno
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+addToPath "$DENO_INSTALL/bin"
 
 # tabtab source for packages
 # uninstall by removing these lines
