@@ -54,8 +54,9 @@ alias lgc='lazygit --git-dir=$DOTFILES_GIT_DIR --work-tree=$HOME'
 alias r='run $@'
 alias clip="xclip -sel clip"
 alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Host}}') act"
-# alias reboot-to-windows="systemctl reboot --boot-loader-entry=auto-windows"
-# alias restart-to-windows="reboot-to-windows"
+# All entries can be found by running "efibootmgr"
+alias reboot-to-windows="sudo efibootmgr -n 0002 && sudo systemctl reboot"
+alias restart-to-windows="reboot-to-windows"
 alias probe="sudo -E hw-probe -all -upload"
 alias ls="eza --icons"
 alias edit-grub="sudo nvim /etc/default/grub"
