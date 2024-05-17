@@ -5,5 +5,5 @@ git:
 # os:
 #   editCommand: "nvim"
 #   editCommandTemplate: "{{editor}} --server $NVIM --remote-tab {{filename}}"
-os:
-  editPreset: "nvim"
+# os:
+#   editPreset: "nvim"
