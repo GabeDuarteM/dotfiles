@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Docker desktop
-/opt/docker-desktop/bin/docker-desktop &
-
 # Slack
 /usr/bin/slack &
 
