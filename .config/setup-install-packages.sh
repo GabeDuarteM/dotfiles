@@ -148,6 +148,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			xclip \
 			xcolor \
 			xone-dkms-git \
+			x11vnc \
 			yt-dlp \
 			zsh-theme-powerlevel10k-git \
 			piavpn-bin \
