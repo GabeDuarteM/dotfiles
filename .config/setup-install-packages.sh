@@ -75,7 +75,6 @@ if [[ "$(uname)" == "Linux" ]]; then
 			arandr \
 			atuin \
 			audacity \
-			authy \
 			base-devel \
 			bat \
 			brave-bin \
@@ -83,11 +82,11 @@ if [[ "$(uname)" == "Linux" ]]; then
 			chatterino2-appimage \
 			cmake \
 			curl \
-			docker \
-			docker-compose \
+			docker docker-compose docker-buildx \
 			downgrade \
 			eww-git \
 			eza \
+			fastfetch \
 			fd \
 			flameshot \
 			fzf \
@@ -103,7 +102,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			gparted \
 			hw-probe \
 			inotify-tools \
-			kdirstat \
+			qdirstat \
 			lazygit \
 			lib32-nvidia-utils \
 			localsend-bin \
@@ -122,7 +121,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			podman \
 			polybar \
 			progress \
-			protonup-qt-bin \
+			protonup-qt \
 			python3 \
 			redshift \
 			retroarch \
@@ -130,7 +129,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			ryujinx-bin \
 			samba gvfs gvfs-smb \
 			sed \
-			selectdefaultapplication \
+			selectdefaultapplication-git \
 			slack-desktop \
 			steam \
 			sunshine \
@@ -140,7 +139,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			tree \
 			ttf-hack-nerd \
 			unzip \
-			vencord-desktop-git \
+			vesktop-bin \
 			vlc \
 			wine-staging cabextract \
 			wireguard \
@@ -148,12 +147,11 @@ if [[ "$(uname)" == "Linux" ]]; then
 			wmctrl xorg-xwininfo \
 			xclip \
 			xcolor \
-			xone-dkms-git \
+			xone-dkms \
 			yt-dlp \
-			zsh-theme-powerlevel10k-git \
 			piavpn-bin \
-			plasma \
-			teamviewer \ #
+			teamviewer \
+			zsh-theme-powerlevel10k-git
 
 	else
 		log "Linux was detected, but couldn't find which package manager to use, please install them manually"
