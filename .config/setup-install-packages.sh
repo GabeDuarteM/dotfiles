@@ -102,7 +102,6 @@ if [[ "$(uname)" == "Linux" ]]; then
 			gparted \
 			hw-probe \
 			inotify-tools \
-			qdirstat \
 			lazygit \
 			lib32-nvidia-utils \
 			localsend-bin \
@@ -116,6 +115,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			opentabletdriver \
 			pamixer \
 			parsec \
+			piavpn-bin \
 			picom \
 			piper \
 			podman \
@@ -123,6 +123,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			progress \
 			protonup-qt \
 			python3 \
+			qdirstat \
 			redshift \
 			retroarch \
 			ripgrep \
@@ -133,6 +134,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 			slack-desktop \
 			steam \
 			sunshine \
+			teamviewer \
 			thefuck \
 			tldr \
 			tmux \
@@ -149,8 +151,6 @@ if [[ "$(uname)" == "Linux" ]]; then
 			xcolor \
 			xone-dkms \
 			yt-dlp \
-			piavpn-bin \
-			teamviewer \
 			zsh-theme-powerlevel10k-git
 
 	else
