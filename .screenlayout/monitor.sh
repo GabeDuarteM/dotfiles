@@ -7,3 +7,5 @@ xrandr \
 	--output DP-3 --off \
 	--output DP-4 --off \
 	--output DP-5 --off
+
+variety --next && variety --previous
