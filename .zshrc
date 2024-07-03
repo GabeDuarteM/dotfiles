@@ -67,6 +67,10 @@ bindkey  "^H"       backward-kill-word # Ctrl + Backspace
 bindkey  "^[[1;5C"  forward-word       # Ctrl + Right
 bindkey  "^[[1;5D"  backward-word      # Ctrl + Left
 
+# Edit command line in place with the EDITOR when pressing ctrl + v
+zle -N edit-command-line-inplace
+bindkey -M vicmd "^v" edit-command-line-inplace
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
