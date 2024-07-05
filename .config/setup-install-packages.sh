@@ -1,32 +1,32 @@
 #!/bin/bash
 
 function log() {
-	GREEN_COLOR='\033[0;32m'
-	END_COLOR='\033[m'
-	echo
-	echo -e "${GREEN_COLOR}###########################################################################"
-	echo -e "${GREEN_COLOR}## $1"
-	echo -e "${GREEN_COLOR}###########################################################################${END_COLOR}"
-	echo
+  GREEN_COLOR='\033[0;32m'
+  END_COLOR='\033[m'
+  echo
+  echo -e "${GREEN_COLOR}###########################################################################"
+  echo -e "${GREEN_COLOR}## $1"
+  echo -e "${GREEN_COLOR}###########################################################################${END_COLOR}"
+  echo
 }
 
 function hasCommand() {
-	if command -v $1 >/dev/null 2>&1; then
-		echo true
-	else
-		echo false
-	fi
+  if command -v $1 >/dev/null 2>&1; then
+    echo true
+  else
+    echo false
+  fi
 }
 
 # if it doesnt have sudo, just execute the command
 if ! command -v sudo &>/dev/null; then
-	log "Sudo was not found, all commands will be executed without it"
-	sudo() {
-		"$@"
-	}
+  log "Sudo was not found, all commands will be executed without it"
+  sudo() {
+    "$@"
+  }
 else
-	log "Starting install, asking for sudo password now, so we don't need to specify it later"
-	sudo -v
+  log "Starting install, asking for sudo password now, so we don't need to specify it later"
+  sudo -v
 fi
 
 # Source .profile, so the checks for installed executables works when in bash
@@ -39,123 +39,125 @@ mkdir -p ~/.local/share/nvim/backup
 mkdir -p ~/.local/share/nvim/swap
 
 if [[ "$(uname)" == "Linux" ]]; then
-	# Check if we need to use apt or dnf
-	if [[ "$(hasCommand 'apt')" == "true" ]]; then
-		log "Ubuntu detected, running pre-requisites"
-		sudo apt update -y
-		sudo apt upgrade -y
-		sudo apt install -y \
-			curl \
-			git \
-			build-essential \
-			unzip \
-			thefuck \
-			tmux
-	elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
-		log "Fedora detected, running pre-requisites"
-		sudo dnf update -y
-		sudo dnf upgrade -y
-		sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
-		sudo dnf install -y \
-			curl \
-			git \
-			unzip \
-			thefuck \
-			tmux
-	elif [[ "$(hasCommand 'pacman')" == "true" ]]; then
-		log "Arch detected, running pre-requisites"
+  # Check if we need to use apt or dnf
+  if [[ "$(hasCommand 'apt')" == "true" ]]; then
+    log "Ubuntu detected, running pre-requisites"
+    sudo apt update -y
+    sudo apt upgrade -y
+    sudo apt install -y \
+      curl \
+      git \
+      build-essential \
+      unzip \
+      thefuck \
+      tmux
+  elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
+    log "Fedora detected, running pre-requisites"
+    sudo dnf update -y
+    sudo dnf upgrade -y
+    sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
+    sudo dnf install -y \
+      curl \
+      git \
+      unzip \
+      thefuck \
+      tmux
+  elif [[ "$(hasCommand 'pacman')" == "true" ]]; then
+    log "Arch detected, running pre-requisites"
 
-		if [[ "$(hasCommand 'paru')" == "false" ]]; then
-			sudo pacman -S paru
-		fi
+    if [[ "$(hasCommand 'paru')" == "false" ]]; then
+      sudo pacman -S paru
+    fi
 
-		paru -Syyu --noconfirm --needed \
-			act \
-			alacritty \
-			arandr \
-			atuin \
-			audacity \
-			base-devel \
-			bat \
-			brave-bin \
-			btop \
-			chatterino2-appimage \
-			cmake \
-			curl \
-			docker docker-compose docker-buildx \
-			downgrade \
-			eww-git \
-			eza \
-			fastfetch \
-			fd \
-			flameshot \
-			fzf \
-			gcc \
-			gimp \
-			git \
-			git-delta \
-			github-cli \
-			gnome-keyring libsecret libgnome-keyring seahorse \
-			gnome-terminal \
-			go \
-			google-chrome \
-			gparted \
-			hw-probe \
-			inotify-tools \
-			lazygit \
-			lib32-nvidia-utils \
-			localsend-bin \
-			lsdesktopf \
-			lxrandr \
-			neovim \
-			nextcloud-client \
-			noise-suppression-for-voice \
-			notepadqq \
-			obs-studio \
-			opentabletdriver \
-			pamixer \
-			parsec \
-			piavpn-bin \
-			picom \
-			piper \
-			podman \
-			polybar \
-			progress \
-			protonup-qt \
-			python3 \
-			qdirstat \
-			redshift \
-			retroarch \
-			ripgrep \
-			ryujinx-bin \
-			samba gvfs gvfs-smb \
-			sed \
-			selectdefaultapplication-git \
-			slack-desktop \
-			steam \
-			sunshine \
-			teamviewer \
-			thefuck \
-			tldr \
-			tmux \
-			tree \
-			ttf-hack-nerd \
-			unzip \
-			vesktop-bin \
-			vlc \
-			wine-staging cabextract \
-			wireguard \
-			wireguard-tools \
-			wmctrl xorg-xwininfo \
-			xclip \
-			xcolor \
-			xone-dkms \
-			yt-dlp \
-			zsh-theme-powerlevel10k-git
+    paru -Syyu --noconfirm --needed \
+      act \
+      alacritty \
+      arandr \
+      atuin \
+      audacity \
+      base-devel \
+      bat \
+      brave-bin \
+      btop \
+      chatterino2-appimage \
+      cmake \
+      curl \
+      docker docker-compose docker-buildx \
+      downgrade \
+      eww-git \
+      eza \
+      fastfetch \
+      fd \
+      flameshot \
+      fzf \
+      gcc \
+      gimp \
+      git \
+      git-delta \
+      github-cli \
+      gnome-keyring libsecret libgnome-keyring seahorse \
+      gnome-terminal \
+      go \
+      google-chrome \
+      gparted \
+      grimblast hyprpicker wl-clipboard slurp jq \
+      hw-probe \
+      inotify-tools \
+      lazygit \
+      lib32-nvidia-utils \
+      localsend-bin \
+      lsdesktopf \
+      lxrandr \
+      maim slop tesseract-data-por tesseract-data-deu tesseract-data-eng tesseract \
+      neovim \
+      nextcloud-client \
+      noise-suppression-for-voice \
+      notepadqq \
+      obs-studio \
+      opentabletdriver \
+      pamixer \
+      parsec \
+      piavpn-bin \
+      picom \
+      piper \
+      podman \
+      polybar \
+      progress \
+      protonup-qt \
+      python3 \
+      qdirstat \
+      redshift \
+      retroarch \
+      ripgrep \
+      ryujinx-bin \
+      samba gvfs gvfs-smb \
+      sed \
+      selectdefaultapplication-git \
+      slack-desktop \
+      steam \
+      sunshine \
+      teamviewer \
+      thefuck \
+      tldr \
+      tmux \
+      tree \
+      ttf-hack-nerd \
+      unzip \
+      vesktop-bin \
+      vlc \
+      wine-staging cabextract \
+      wireguard \
+      wireguard-tools \
+      wmctrl xorg-xwininfo \
+      xclip \
+      xcolor \
+      xone-dkms \
+      yt-dlp \
+      zsh-theme-powerlevel10k-git
 
-	else
-		log "Linux was detected, but couldn't find which package manager to use, please install them manually"
-	fi
+  else
+    log "Linux was detected, but couldn't find which package manager to use, please install them manually"
+  fi
 fi
 
 # INSTALLED_BREW=false
@@ -184,102 +186,102 @@ fi
 # brew bundle
 
 if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
-	log "Installing tmux TPM"
-	git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
+  log "Installing tmux TPM"
+  git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 fi
 
 if [[ "$(uname)" != "Linux" ]]; then
-	log "Installing mac apps through mas"
-	mas install 1470584107 # Dato
+  log "Installing mac apps through mas"
+  mas install 1470584107 # Dato
 fi
 
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
-	log "Install fnm bundle"
+  log "Install fnm bundle"
 
-	curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+  curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
-	export PATH="$HOME/.local/share/fnm:$PATH"
-	eval "$(fnm env --use-on-cd)"
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "$(fnm env --use-on-cd)"
 
-	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
-		log "There was an error detecting fnm, check if it is installed and inside path."
-		exit
-	fi
+  if [[ "$(hasCommand 'fnm')" == "false" ]]; then
+    log "There was an error detecting fnm, check if it is installed and inside path."
+    exit
+  fi
 
 fi
 
 # Add the latest version of node if its not there
 if [[ "$(hasCommand 'node')" == "false" ]]; then
-	log "Node not detected on the path, trying to install its latest version..."
+  log "Node not detected on the path, trying to install its latest version..."
 
-	if [[ "$(hasCommand 'fnm')" == "false" ]]; then
-		log "There was an error detecting fnm, check if it is installed and inside path."
-		exit
-	fi
+  if [[ "$(hasCommand 'fnm')" == "false" ]]; then
+    log "There was an error detecting fnm, check if it is installed and inside path."
+    exit
+  fi
 
-	fnm install --latest
+  fnm install --latest
 
-	if [[ "$(hasCommand 'node')" == "false" ]]; then
-		log "There was an error detecting node after install, tried to add it to the path, but was not successful."
-		exit
-	fi
+  if [[ "$(hasCommand 'node')" == "false" ]]; then
+    log "There was an error detecting node after install, tried to add it to the path, but was not successful."
+    exit
+  fi
 fi
 
 if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
-	log "Install pnpm"
+  log "Install pnpm"
 
-	curl -fsSL https://get.pnpm.io/install.sh | bash -
+  curl -fsSL https://get.pnpm.io/install.sh | bash -
 
-	if [[ "$(uname)" == "Linux" ]]; then
-		export PNPM_HOME="$HOME/.local/share/pnpm"
-	else
-		export PNPM_HOME="$HOME/Library/pnpm"
-	fi
+  if [[ "$(uname)" == "Linux" ]]; then
+    export PNPM_HOME="$HOME/.local/share/pnpm"
+  else
+    export PNPM_HOME="$HOME/Library/pnpm"
+  fi
 
-	case ":$PATH:" in
-	*":$PNPM_HOME:"*) ;;
-	*) export PATH="$PNPM_HOME:$PATH" ;;
-	esac
+  case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
 fi
 
 if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
-	log "There was an error detecting pnpm, tried to add it to the path, but was not successful."
-	exit
+  log "There was an error detecting pnpm, tried to add it to the path, but was not successful."
+  exit
 fi
 
 log "Install pnpm packages"
 pnpm i -g neovim @githubnext/github-copilot-cli
 
 if [[ "$(hasCommand '??')" == "false" ]]; then
-	log "There was an error detecting packages installed through pnpm, tried to add it to the path, but was not successful."
+  log "There was an error detecting packages installed through pnpm, tried to add it to the path, but was not successful."
 fi
 
 if [[ "$(hasCommand 'cargo')" == "false" ]]; then
-	log "Install rust"
+  log "Install rust"
 
-	curl https://sh.rustup.rs -sSf | sh -s -- -y
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-	source "$HOME/.cargo/env"
+  source "$HOME/.cargo/env"
 
-	if [[ "$(hasCommand 'cargo')" == "false" ]]; then
-		log "There was an error detecting rust, tried to add it to the path, but was not successful."
-		exit
-	fi
+  if [[ "$(hasCommand 'cargo')" == "false" ]]; then
+    log "There was an error detecting rust, tried to add it to the path, but was not successful."
+    exit
+  fi
 fi
 
 log "Installing additional fonts"
 ~/.config/.downloaded-fonts/@install.sh && log "Fonts installed"
 
 if ! grep -q "zsh" /etc/shells; then
-	log "Add zsh to the shell list"
+  log "Add zsh to the shell list"
 
-	command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
+  command -v zsh | sudo tee -a /etc/shells >/dev/null 2>&1
 fi
 
 # if $SHELL is not zsh, without printing to console
 if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
-	log "Set zsh as the default shell"
-	sudo chsh -s "$(command -v zsh)" "${USER}"
+  log "Set zsh as the default shell"
+  sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
 
 # log "Installing fonts"
