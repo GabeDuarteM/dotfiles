@@ -103,7 +103,8 @@ assign [class="chatterino"] $ws9b
 assign [title="Code"] $ws3a
 assign [class="Slack"] $ws4a
 assign [class="Brave-browser" instance="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws5a # msteams
-assign [class="Brave-browser" instance="crx_ccbmlnglkjekhddofoanehlpeokpnmig"] $ws9a # Jellyfin
+assign [class="Brave-browser" instance="crx_ccbmlnglkjekhddofoanehlpeokpnmig"] $ws9a # Jellyfin (web version)
+assign [class="Jellyfin Media Player"] $ws9a # Jellyfin (desktop version)
 assign [class="Cypress" instance="cypress"] $ws9a
 
 # automatic set focus new window if it opens on another workspace than the current:
