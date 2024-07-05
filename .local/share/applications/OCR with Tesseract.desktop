@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=OCR with Tesseract
+Exec=/home/gabe/.local/bin/ocr-with-tesseract.sh
+Type=Application
+Categories=Office
+StartupNotify=false
+Comment=Get OCR from a region of the screen
