@@ -16,8 +16,8 @@ vim.keymap.set("v", "p", '"+p', { desc = "Paste selection from the + register" }
 vim.keymap.set("v", "m", '"+d', { desc = "Cut selection from the + register" })
 
 -- " Find and replace
-vim.keymap.set("n", "<leader>h", ":%s///gc<left><left><left><left>", { desc = "Find and replace" })
-vim.keymap.set("v", "<leader>h", ":s///gc<left><left><left><left>", { desc = "Find and replace" })
+vim.keymap.set("n", "<leader>j", ":%s///gc<left><left><left><left>", { desc = "Find and replace" })
+vim.keymap.set("v", "<leader>j", ":s///gc<left><left><left><left>", { desc = "Find and replace" })
 
 -- " Move lines up and down while fixing indentation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
