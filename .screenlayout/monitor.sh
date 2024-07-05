@@ -8,4 +8,6 @@ xrandr \
 	--output DP-4 --off \
 	--output DP-5 --off
 
-variety --next && variety --previous
+if [ "$1" != "--ignore-wallpaper" ]; then
+	variety --next && variety --previous
+fi
