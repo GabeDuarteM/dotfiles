@@ -38,7 +38,9 @@ return {
           ["gca"] = {
             function(state)
               local node = state.tree:get_node()
-              local command = "git --git-dir=/home/gabe/.config/.dotfiles --work-tree=/home/gabe add -f " .. node.path
+              local command = "git --git-dir=/home/gabe/.config/.dotfiles --work-tree=/home/gabe add -f '"
+                .. node.path
+                .. "'"
 
               print(vim.fn.system(command))
             end,
