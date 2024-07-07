@@ -130,6 +130,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       retroarch \
       ripgrep \
       ryujinx-bin \
+      rofi-wayland \
       samba gvfs gvfs-smb \
       sed \
       selectdefaultapplication-git \
