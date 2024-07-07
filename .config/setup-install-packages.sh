@@ -113,6 +113,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       nextcloud-client \
       noise-suppression-for-voice \
       notepadqq \
+      nwg-look \
       obs-studio \
       opentabletdriver \
       pamixer \
@@ -129,8 +130,8 @@ if [[ "$(uname)" == "Linux" ]]; then
       redshift \
       retroarch \
       ripgrep \
-      ryujinx-bin \
       rofi-wayland \
+      ryujinx-bin \
       samba gvfs gvfs-smb \
       sed \
       selectdefaultapplication-git \
@@ -152,7 +153,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       wmctrl xorg-xwininfo \
       xclip \
       xcolor \
-      xdg-desktop-portal xdg-desktop-portal-hyprland \
+      xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
       xone-dkms \
       yt-dlp \
       zsh-theme-powerlevel10k-git
