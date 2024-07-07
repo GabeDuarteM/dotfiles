@@ -152,6 +152,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       wmctrl xorg-xwininfo \
       xclip \
       xcolor \
+      xdg-desktop-portal xdg-desktop-portal-hyprland \
       xone-dkms \
       yt-dlp \
       zsh-theme-powerlevel10k-git
