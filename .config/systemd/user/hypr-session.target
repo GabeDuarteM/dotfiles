@@ -1,0 +1,13 @@
+# this target is wanted by hyprland.service (started by hyprland config file)
+# https://github.com/i3/i3/issues/5186
+[Unit]
+Description=hyprland Session
+Requires=basic.target
+BindsTo=graphical-session.target
+Before=graphical-session.target
+
+DefaultDependencies=no
+RefuseManualStart=yes
+RefuseManualStop=yes
+Requires=basic.target
+StopWhenUnneeded=yes

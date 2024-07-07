@@ -1,0 +1,17 @@
+# To start it, run:
+# systemctl start --user hypr-session.service
+#
+# https://github.com/i3/i3/issues/5186
+[Unit]
+Description=hypr window manager session
+PartOf=hypr-session.target
+Wants=hypr-session.target
+
+# this service is started by hyprland in its config file
+# it's done like this so hyprland and its launched child processes
+# are not a service itself, but in the regular session scope.
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+Restart=on-failure
