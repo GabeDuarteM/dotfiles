@@ -1,7 +1,7 @@
 ; Adapted from https://dharmx.is-a.dev/eww-powermenu/#full-code
 
 (defwindow powermenu
-  :monitor "DP-2"
+  :monitor '["DP-2", 1]'
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
@@ -26,17 +26,17 @@
                 :logout_icon ""))))
 
 (defwidget _network [strength offline excellent
-                    good okay slow]
+                     good okay slow]
   (box :class "net-box"
        :space-evenly false
        :spacing 8
     (label :text {strength == "" ? offline :
-      strength < 26 ? slow :
-        strength < 51 ? okay :
-          strength < 76 ? good : excellent})))
+                  strength < 26 ? slow :
+                  strength < 51 ? okay :
+                  strength < 76 ? good : excellent})))
 
 (defwidget _buttons [shutdown shutdown_icon reboot
-                    reboot_icon logout logout_icon]
+                     reboot_icon logout logout_icon]
   (box :class "btns-box" :spacing 5
        :vexpand true :hexpand true
        :valign "end" :halign "end"
@@ -48,26 +48,26 @@
 (defwidget _sundial []
   (label :class "sundial-lbl" :halign "end" :hexpand true
          :text {time.hour >= 2 && time.hour <= 4 ? "Too late, go to sleep." :
-               time.hour <= 5 ? "Dawn" :
-               time.hour >= 6
+                time.hour <= 5 ? "Dawn" :
+                time.hour >= 6
                 && (time.hour <= 8 && time.min <= 59)
                   ? "Morning" :
-               time.hour >= 9
+                time.hour >= 9
                  && (time.hour <= 11 && time.min <= 59)
                    ? "Late Morning" :
-               time.hour == 12 && time.min <= 29
+                time.hour == 12 && time.min <= 29
                  ? "Midday" :
-               time.hour >= 12 && time.hour <= 16
+                time.hour >= 12 && time.hour <= 16
                  ? "Afternoon" :
-               time.hour > 16 && time.hour <= 17
+                time.hour > 16 && time.hour <= 17
                  ? "Late Afternoon" :
-               (time.hour >= 17 && time.min <= 1)
-                 || (time.hour <= 18 && time.min <= 20)
+                (time.hour >= 17 && time.min <= 1)
+                || (time.hour <= 18 && time.min <= 20)
                    ? "Early Evening" :
-               time.hour >= 18 && time.hour <= 19
+                time.hour >= 18 && time.hour <= 19
                  ? "Dusk" :
-               time.hour > 19 && time.hour <= 21
+                time.hour > 19 && time.hour <= 21
                  ? "Late Evening" :
-               time.hour > 21 ? "Night" : "Midnight"}))
+                time.hour > 21 ? "Night" : "Midnight"}))
 
 ;; vim:ft=yuck

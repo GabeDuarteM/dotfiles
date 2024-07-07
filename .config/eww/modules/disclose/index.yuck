@@ -10,7 +10,7 @@
 (include "./modules/disclose/quick-settings.yuck")
 
 (defwindow disclose :stacking "fg"
-  :monitor "DP-2"
+  :monitor '["DP-2", 1]'
   :windowtype "normal"
   :wm-ignore true
   :geometry (geometry :width "26%" :height "100%" :anchor "right center")
@@ -106,7 +106,7 @@
     ; )
 
 (defwindow disclose-closer
-  :monitor "DP-2"
+  :monitor '["DP-2", 1]'
   :geometry (geometry :width "100%" :height "100%")
   :stacking "fg"
   :focusable false
