@@ -1,3 +1,8 @@
+-- hyprland language ft
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
@@ -10,6 +15,7 @@ return {
       "go",
       "graphql",
       "html",
+      "hyprlang",
       "javascript",
       "json",
       "lua",

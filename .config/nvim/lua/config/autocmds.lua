@@ -13,3 +13,16 @@ vim.api.nvim_create_autocmd("FileType", {
     require("persisted").stop()
   end,
 })
+
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  group = augroup("start_hyprlang_lsp"),
+  pattern = { "*.hl", "hypr*.conf" },
+  callback = function(event)
+    vim.lsp.start({
+      name = "hyprlang",
+      cmd = { "hyprls" },
+      root_dir = vim.fn.getcwd(),
+    })
+  end,
+})
