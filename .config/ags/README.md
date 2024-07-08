@@ -1,15 +1,14 @@
-
 # Starter Config
 
-if suggestions don't work, first make sure
+If suggestions don't work, first make sure
 you have TypeScript LSP working in your editor
 
-if you do not want typechecking only suggestions
+If you do not want typechecking only suggestions
 
 ```json
 // tsconfig.json
 "checkJs": false
 ```
 
-types are symlinked to:
+Types are symlinked to:
 /usr/share/com.github.Aylur.ags/types

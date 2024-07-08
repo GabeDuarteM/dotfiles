@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ES2022",
-    "lib": [
-      "ES2022"
-    ],
+    "module": "NodeNext",
+    "lib": ["ES2022"],
     "allowJs": true,
     "checkJs": true,
     "strict": true,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "typeRoots": [
-      "./types"
-    ],
-    "skipLibCheck": true
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "skipLibCheck": true,
+
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true
   }
 }
