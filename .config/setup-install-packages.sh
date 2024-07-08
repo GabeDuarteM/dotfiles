@@ -71,6 +71,7 @@ if [[ "$(uname)" == "Linux" ]]; then
 
     paru -Syyu --noconfirm --needed \
       act \
+      ags \
       alacritty \
       arandr \
       atuin \
