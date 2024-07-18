@@ -144,6 +144,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       tldr \
       tmux \
       tree \
+      ttf-geist \
       ttf-hack-nerd \
       unzip \
       vesktop-bin \
