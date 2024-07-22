@@ -102,8 +102,9 @@ if [[ "$(uname)" == "Linux" ]]; then
       go \
       google-chrome \
       gparted \
-      grimblast hyprpicker wl-clipboard slurp jq \
+      grimblast wl-clipboard slurp jq \
       hw-probe \
+      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git \
       inotify-tools \
       kwallet kwalletmanager \
       lazygit \
@@ -157,7 +158,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       wmctrl xorg-xwininfo \
       xclip \
       xcolor \
-      xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+      xdg-desktop-portal xdg-desktop-portal-gtk \
       xone-dkms \
       yt-dlp \
       zsh-theme-powerlevel10k-git
