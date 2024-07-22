@@ -70,6 +70,7 @@ if [[ "$(uname)" == "Linux" ]]; then
     fi
 
     paru -Syyu --noconfirm --needed \
+      arch-gaming-meta \
       act \
       ags \
       alacritty \
@@ -139,7 +140,6 @@ if [[ "$(uname)" == "Linux" ]]; then
       sed \
       selectdefaultapplication-git \
       slack-desktop \
-      steam \
       sunshine \
       teamviewer \
       thefuck \

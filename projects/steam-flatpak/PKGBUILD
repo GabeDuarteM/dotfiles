@@ -1,0 +1,15 @@
+pkgname=steam-flatpak
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='The steam client using flatpak'
+arch=('x86_64')
+url="https://store.steampowered.com"
+license=('GPL3')
+provides=(
+  'steam'
+  'steam-native-runtime'
+)
+conflicts=(
+  'steam'
+  'steam-native-runtime'
+)
