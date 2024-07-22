@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if ! pgrep hyprpaper; then
+  echo "hyprpaper is not running yet, starting it"
+  hyprpaper &
+  sleep 1
+fi
+
 echo
 echo "Changing wallpaper"
 
