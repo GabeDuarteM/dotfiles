@@ -97,7 +97,6 @@ if [[ "$(uname)" == "Linux" ]]; then
       git \
       git-delta \
       github-cli \
-      gnome-keyring libsecret libgnome-keyring seahorse \
       gnome-terminal \
       go \
       google-chrome \
@@ -105,6 +104,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       grimblast hyprpicker wl-clipboard slurp jq \
       hw-probe \
       inotify-tools \
+      kwallet kwalletmanager \
       lazygit \
       lib32-nvidia-utils \
       localsend-bin \
