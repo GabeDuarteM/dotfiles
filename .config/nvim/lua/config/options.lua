@@ -42,3 +42,6 @@ if git_dir == "" and superproject ~= nil then
   vim.env.GIT_DIR = os.getenv("DOTFILES_GIT_DIR")
   vim.env.GIT_WORK_TREE = os.getenv("HOME")
 end
+
+-- Disable's root detection on lazyvim (so <leader>ff is the same as <leader>fF)
+vim.g.root_spec = { "cwd" }
