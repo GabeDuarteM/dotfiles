@@ -70,17 +70,19 @@ if [[ "$(uname)" == "Linux" ]]; then
     fi
 
     paru -Syyu --noconfirm --needed \
-      arch-gaming-meta \
       act \
+      adw-gtk3 \
       ags \
       alacritty \
       arandr \
+      arch-gaming-meta \
       atuin \
       audacity \
       base-devel \
       bat \
       brave-bin \
       btop \
+      bibata-cursor-theme \
       chatterino2-appimage \
       cmake \
       curl \
