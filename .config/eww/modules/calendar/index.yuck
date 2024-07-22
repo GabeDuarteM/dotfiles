@@ -40,16 +40,24 @@
 
 (defwindow calendar
   :monitor '["DP-2", 1]'
+  :stacking "overlay"
+  :exclusive true
   :windowtype "normal"
   :wm-ignore true
-  :geometry (geometry :x "-9px"
-                      :y "57px"
+  :geometry (geometry
+                      :x "19px"
+                      :y "19px"
+                      ; :x "-9px"
+                      ; :y "57px"
                       :width "0px" ; automatically generated
                       :height "0px" ; automatically generated
                       :anchor "right top")
   (custom_calendar))
 
 (defwindow calendar-closer
+  :exclusive true
+  :stacking "overlay"
+  :namespace "calendar-closer"
   :windowtype "normal"
   :monitor '["DP-2", 1]'
   :geometry (geometry :width "100%" :height "100%")

@@ -8,12 +8,11 @@ const colorizeError = (/** @type {string} */ msg) => {
 };
 
 try {
-  //  bunx sass --no-source-map main.scss /tmp/main.css
   await Utils.execAsync([
     "bunx",
     "sass",
     "--no-source-map",
-    "main.scss",
+    App.configDir + "/main.scss",
     "/tmp/ags/css/main.css",
   ]).then((/** @type {string} */ out) => print(out));
 
@@ -27,7 +26,8 @@ try {
     "resource://*",
     "--external",
     "gi://*",
-  ]).then((out) => print(out));
+  ]).then((/** @type {string} */ out) => print(out));
+
   await import(`file://${outdir}/main.js`);
 } catch (error) {
   print(

@@ -1,2 +1,144 @@
-@import "modules/bar/index.scss";
+@import "modules/Bar/Bar.scss";
 @import "modules/colors.scss";
+@import "modules/mixins.scss";
+
+* {
+  // all: unset;
+  font-size: 1.2rem;
+}
+
+menu {
+  all: unset;
+}
+
+menuitem {
+  all: unset;
+}
+
+button {
+  all: unset;
+}
+
+.popup,
+window.popup,
+window .popup,
+popup {
+  all: unset;
+  border: none;
+  border-width: 0;
+  border-color: red;
+}
+
+// ###
+
+* {
+  selection {
+    background-color: $secondary;
+    color: $onSecondary;
+  }
+
+  & {
+    caret-color: $onLayer2;
+  }
+
+  // caret-color: red;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+menu {
+  @include small-rounding;
+  border: 1px solid mix($surfaceContainer, $onBackground, 80%); // I hate this
+  padding: 0.681rem;
+  background: opacify($surfaceContainer, 1);
+  color: $onSurface;
+  -gtk-outline-radius: 1.159rem;
+
+  animation-name: appear;
+  animation-duration: 40ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+menubar>menuitem {
+  border-radius: 0.545rem;
+  -gtk-outline-radius: 0.545rem;
+  min-width: 13.636rem;
+  min-height: 2.727rem;
+}
+
+menu>menuitem {
+  padding: 0.4em 1.5rem;
+  background: transparent;
+  transition: 0.2s ease background-color;
+  border-radius: 0.545rem;
+  -gtk-outline-radius: 0.545rem;
+}
+
+menu>menuitem:hover,
+menu>menuitem:focus {
+  background-color: $layer2Hover;
+}
+
+menu>menuitem:active {
+  background-color: $layer2Active;
+}
+
+radio {
+  @include full-rounding;
+  margin: 0.273rem;
+  min-width: 15px;
+  min-height: 15px;
+  border: 0.068rem solid $outline;
+}
+
+// radio:first-child {
+//     background-color: red;
+// }
+
+radio:checked {
+  min-width: 8px;
+  min-height: 8px;
+  background-color: $onPrimary;
+  border: 0.477rem solid $primary;
+}
+
+tooltip {
+  animation-name: appear;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  @include normal-rounding;
+}
+
+/////////////////////////////////////////
+// Emoji Chooser structure
+// popover
+// ├── box.emoji-searchbar
+// │   ╰── entry.search
+// ╰── box.emoji-toolbar
+//     ├── button.image-button.emoji-section
+//     ├── ...
+//     ╰── button.image-button.emoji-section
+
+popover {
+  @include elevation-border-softer;
+  padding: 0.681rem;
+  background: $surfaceContainerHigh;
+  color: $onSurface;
+  border-radius: 1.159rem;
+  -gtk-outline-radius: 1.159rem;
+
+  animation-name: appear;
+  animation-duration: 40ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
