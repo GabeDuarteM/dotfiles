@@ -133,6 +133,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       retroarch \
       ripgrep \
       rofi-wayland \
+      rofimoji \
       ryujinx-bin \
       samba gvfs gvfs-smb \
       sed \
