@@ -90,6 +90,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       fastfetch \
       fd \
       flameshot \
+      foot \
       fzf \
       gcc \
       gimp \
