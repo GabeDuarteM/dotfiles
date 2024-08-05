@@ -1,8 +1,8 @@
-local function getJsFormatters()
+local function hasPrettierDependency()
   local package_json_path = vim.fn.getcwd() .. "/package.json"
   local has_prettier = false
 
-  print(vim.inspect(package_json_path))
+  -- print(vim.inspect(package_json_path))
 
   local file = io.open(package_json_path, "r")
 
@@ -11,51 +11,93 @@ local function getJsFormatters()
     file:close()
 
     local package_data = vim.json.decode(package_json_content)
+    -- print(vim.inspect(package_data))
     if package_data then
       if package_data.dependencies then
+        -- if has text
         if package_data.dependencies["prettier"] then
+          -- if package_data.dependencies["prettier"] == "3.3.2" then
           has_prettier = true
         end
-      elseif package_data.devDependencies then
+      end
+      if package_data.devDependencies then
         if package_data.devDependencies["prettier"] then
+          -- if package_data.devDependencies["prettier"] == "3.3.2" then
           has_prettier = true
         end
       end
     end
   end
 
-  local formatters = {}
-
+  return has_prettier
+  --
+  -- local formatters = {}
+  --
   -- if has_prettier then
-  table.insert(formatters, "prettierd")
-  table.insert(formatters, "prettier")
+  --   table.insert(formatters, "prettierd")
+  --   -- table.insert(formatters, "prettier")
   -- end
-
-  return formatters
+  --
+  -- return formatters
 end
+
+local supported = {
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact",
+  "vue",
+  "css",
+  "scss",
+  "less",
+  "html",
+  "json",
+  "jsonc",
+  "yaml",
+  "markdown",
+  "markdown.mdx",
+  "graphql",
+  "handlebars",
+}
 
 return {
   "stevearc/conform.nvim",
-  opts = {
-    formatters_by_ft = {
-      ["javascript"] = getJsFormatters,
-      ["javascriptreact"] = getJsFormatters,
-      ["typescript"] = getJsFormatters,
-      ["typescriptreact"] = getJsFormatters,
-      ["vue"] = getJsFormatters,
-      ["css"] = getJsFormatters,
-      ["scss"] = getJsFormatters,
-      ["less"] = getJsFormatters,
-      ["html"] = getJsFormatters,
-      ["json"] = getJsFormatters,
-      ["jsonc"] = getJsFormatters,
-      ["yaml"] = getJsFormatters,
-      ["markdown"] = getJsFormatters,
-      ["markdown.mdx"] = getJsFormatters,
-      ["graphql"] = getJsFormatters,
-      ["handlebars"] = getJsFormatters,
-    },
-  },
+  opts = function(_, opts)
+    opts.formatters_by_ft = opts.formatters_by_ft or {}
+
+    for _, ft in ipairs(supported) do
+      opts.formatters_by_ft[ft] = { "prettierd" }
+    end
+
+    opts.formatters = opts.formatters or {}
+    opts.formatters.prettierd = {
+      condition = function()
+        local has_prettier = hasPrettierDependency()
+
+        return has_prettier
+      end,
+    }
+  end,
+  -- opts = {
+  --   formatters_by_ft = {
+  --     ["javascript"] = getJsFormatters,
+  --     ["javascriptreact"] = getJsFormatters,
+  --     ["typescript"] = getJsFormatters,
+  --     ["typescriptreact"] = getJsFormatters,
+  --     ["vue"] = getJsFormatters,
+  --     ["css"] = getJsFormatters,
+  --     ["scss"] = getJsFormatters,
+  --     ["less"] = getJsFormatters,
+  --     ["html"] = getJsFormatters,
+  --     ["json"] = getJsFormatters,
+  --     ["jsonc"] = getJsFormatters,
+  --     ["yaml"] = getJsFormatters,
+  --     ["markdown"] = getJsFormatters,
+  --     ["markdown.mdx"] = getJsFormatters,
+  --     ["graphql"] = getJsFormatters,
+  --     ["handlebars"] = getJsFormatters,
+  --   },
+  -- },
 }
 --
 -- return {
