@@ -1,6 +1,11 @@
 const entry = App.configDir + "/main.ts";
 const outdir = "/tmp/ags/js";
 
+const getHomeDir = () => App.configDir.split('/').slice(0, 3).join('/');
+
+const bunx = `${getHomeDir()}/.bun/bin/bunx`
+const bun = `${getHomeDir()}/.bun/bin/bun`
+
 const colorizeError = (/** @type {string} */ msg) => {
   const RED = "\x1b[31m";
   const RESET = "\x1b[0m";
@@ -9,7 +14,7 @@ const colorizeError = (/** @type {string} */ msg) => {
 
 try {
   await Utils.execAsync([
-    "bunx",
+    bunx,
     "sass",
     "--no-source-map",
     App.configDir + "/main.scss",
@@ -17,7 +22,7 @@ try {
   ]).then((/** @type {string} */ out) => print(out));
 
   await Utils.execAsync([
-    "bun",
+    bun,
     "build",
     entry,
     "--outdir",

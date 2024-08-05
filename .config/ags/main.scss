@@ -1,4 +1,7 @@
 @import "modules/Bar/Bar.scss";
+@import "modules/Media/Media.scss";
+// @import "modules/Notification/Notification.scss";
+@import "modules/Notification/Notification2.scss";
 @import "modules/colors.scss";
 @import "modules/mixins.scss";
 
@@ -44,15 +47,15 @@ popup {
   // caret-color: red;
 }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
+// @keyframes appear {
+//   from {
+//     opacity: 0;
+//   }
+//
+//   to {
+//     opacity: 1;
+//   }
+// }
 
 menu {
   @include small-rounding;

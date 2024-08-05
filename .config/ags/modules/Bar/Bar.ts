@@ -5,6 +5,7 @@ const hyprland = await Service.import("hyprland");
 // const notifications = await Service.import("notifications");
 // const mpris = await Service.import("mpris");
 const systemtray = await Service.import("systemtray");
+import { Dnd } from "../Notification/Notification2.js";
 
 const date = Variable("", {
   poll: [1000, 'date "+%b %e/%m %H:%M"'],
@@ -56,20 +57,18 @@ function Workspaces(currentMonitor = DEFAULT_MONITOR) {
   );
 
   return Widget.Box({
-    className: "island",
     children: workspaces,
   });
 }
 
-function ClientTitle() {
+function ClientTitle(monitor) {
   const title = hyprland.active.client.bind("title").as((t) => {
-    const maxLength = 50;
+    const maxLength = 25;
 
-    return `${t.substring(0, maxLength)}${t.length > maxLength ? "[...]" : ""}`;
+    return `${t.substring(0, maxLength)}${t.length > maxLength ? "..." : ""}`;
   });
 
   return Widget.Label({
-    className: "island",
     visible: title.as((t) => t !== ""),
     label: title,
     setup: (self) =>
@@ -81,7 +80,6 @@ function ClientTitle() {
 
 function Clock(monitor = DEFAULT_MONITOR) {
   return Widget.Button({
-    className: "clock",
     label: date.bind(),
     on_clicked: () => CallEwwModule("calendar", monitor),
   });
@@ -105,7 +103,7 @@ function Clock(monitor = DEFAULT_MONITOR) {
 //   });
 // }
 
-// function Media() {
+// function Media(monitor = DEFAULT_MONITOR) {
 //   const label = Utils.watch("", mpris, "player-changed", () => {
 //     if (mpris.players[0]) {
 //       const { track_artists, track_title } = mpris.players[0];
@@ -115,44 +113,93 @@ function Clock(monitor = DEFAULT_MONITOR) {
 //     }
 //   });
 //
-//   return Widget.Button({
-//     className: "media",
-//     on_primary_click: () => mpris.getPlayer("")?.playPause(),
-//     on_scroll_up: () => mpris.getPlayer("")?.next(),
-//     on_scroll_down: () => mpris.getPlayer("")?.previous(),
-//     child: Widget.Label({ label }),
+//   return Widget.Box({
+//     className: "sys-tray",
+//
+//     children: [Widget.Button({
+//       className: "media",
+//
+//       // on_primary_click: () => Utils.exec(`ags -t media-${monitor}`),
+//       on_primary_click: () => App.toggleWindow(`media-${monitor}`),
+//
+//       // on_primary_click: () => mpris.getPlayer("")?.playPause(),
+//       // on_scroll_up: () => mpris.getPlayer("")?.next(),
+//       // on_scroll_down: () => mpris.getPlayer("")?.previous(),
+//       child: Widget.Icon({
+//         icon: "preferences-system-notifications-symbolic",
+//       }),
+//     }), Widget.Button({
+//       className: "media",
+//
+//       // on_primary_click: () => Utils.exec(`ags -t media-${monitor}`),
+//       on_primary_click: () => App.toggleWindow(`media-${monitor}`),
+//
+//       // on_primary_click: () => mpris.getPlayer("")?.playPause(),
+//       // on_scroll_up: () => mpris.getPlayer("")?.next(),
+//       // on_scroll_down: () => mpris.getPlayer("")?.previous(),
+//       child: Widget.Icon({
+//         icon: "audio-x-generic-symbolic",
+//       }),
+//     })]
 //   });
 // }
 
 function SysTray(monitor = DEFAULT_MONITOR) {
   const items = systemtray.bind("items").as((items) =>
-    items.map((item) =>
+    [
       Widget.Button({
         className: "sys-tray-item",
-        child: Widget.Icon({ icon: item.bind("icon") }),
-        on_primary_click: (_, event) => item.activate(event),
-        on_secondary_click: (_, event) => item.openMenu(event),
-        tooltip_markup: item.bind("tooltip_markup"),
+        // on_primary_click: () => {
+        //   const pid = Utils.exec(`pidof deadd-notification-center`);
+        //   Utils.exec(`kill -s USR1 ${pid}`);
+        // },
+        on_primary_click: () => Dnd.value = !Dnd.value,
+        child: Widget.Icon({
+          setup: self => self.hook(Dnd, () => {
+            self.css = `color: ${Dnd.value ? 'red' : 'white'}`;
+          }),
+          icon: "preferences-system-notifications-symbolic",
+        }),
+      }), Widget.Button({
+        className: "sys-tray-item",
+        // on_primary_click: () => Utils.exec(`ags -t media-${monitor}`),
+        on_primary_click: () => App.toggleWindow(`media-${monitor}`),
+
+        // on_primary_click: () => mpris.getPlayer("")?.playPause(),
+        // on_scroll_up: () => mpris.getPlayer("")?.next(),
+        // on_scroll_down: () => mpris.getPlayer("")?.previous(),
+        child: Widget.Icon({
+          icon: "audio-x-generic-symbolic",
+        }),
       }),
-    ),
+      ...items.map((item) =>
+        Widget.Button({
+          className: "sys-tray-item",
+          child: Widget.Icon({ icon: item.bind("icon") }),
+          on_primary_click: (_, event) => item.activate(event),
+          on_secondary_click: (_, event) => item.openMenu(event),
+          tooltip_markup: item.bind("tooltip_markup"),
+        }),
+      )
+    ],
   );
 
   return Widget.Box({
     children: items,
-    className: "sys-tray",
   });
 }
 
 function Left(monitor = DEFAULT_MONITOR) {
   return Widget.Box({
-    children: [Workspaces(monitor)],
+    hpack: "start",
+    className: "island",
+    children: [Workspaces(monitor), ClientTitle(monitor)],
   });
 }
 
 function Center(monitor = DEFAULT_MONITOR) {
   return Widget.Box({
-    spacing: 8,
-    children: [ClientTitle()],
+    children: [],
   });
 }
 
@@ -160,7 +207,6 @@ function Right(monitor = DEFAULT_MONITOR) {
   return Widget.Box({
     hpack: "end",
     className: "island",
-    spacing: 8,
     children: [SysTray(monitor), Clock(monitor)],
   });
 }
