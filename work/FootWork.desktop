@@ -1,15 +1,15 @@
 [Desktop Entry]
 Type=Application
-TryExec=/usr/bin/alacritty
-Exec=/usr/bin/alacritty --title Code -e /usr/bin/tmux new-session -A -D -s code -c /home/gabe/work/urbyo/platform
-Icon=Alacritty
+TryExec=/usr/bin/foot
+Exec=/usr/bin/foot --title "foot: Code" -e /usr/bin/tmux new-session -A -D -s code -c /home/gabe/work/urbyo/platform
+Icon=Foot
 Terminal=false
 Categories=System;TerminalEmulator;
 
-Name=Alacritty Work
+Name=Foot Work
 GenericName=Terminal
 Comment=A fast, cross-platform, OpenGL terminal emulator
-StartupWMClass=Alacritty
+StartupWMClass=foot
 Actions=New;
 
 X-Desktop-File-Install-Version=0.26
