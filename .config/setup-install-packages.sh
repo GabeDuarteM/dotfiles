@@ -72,29 +72,31 @@ if [[ "$(uname)" == "Linux" ]]; then
     paru -Syyu --noconfirm --needed \
       act \
       adw-gtk3 \
-      ags \
-      alacritty \
-      arandr \
-      arch-gaming-meta \
       atuin \
       audacity \
+      aylurs-gtk-shell-git \
       base-devel \
       bat \
+      bibata-cursor-theme \
       brave-bin \
       btop \
-      bibata-cursor-theme \
       chatterino2-appimage \
       cmake \
       curl \
       docker docker-compose docker-buildx \
       downgrade \
+      dtrx \
       eww-git \
       eza \
+      fabric \
       fastfetch \
       fd \
       flameshot \
+      flatseal \
+      font-manager \
       foot \
       fzf \
+      gamemode \
       gcc \
       gimp \
       git \
@@ -104,48 +106,51 @@ if [[ "$(uname)" == "Linux" ]]; then
       go \
       google-chrome \
       gparted \
-      grimblast wl-clipboard slurp jq \
+      grimblast-git wl-clipboard slurp jq \
       hw-probe \
-      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git \
+      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git egl-wayland \
       inotify-tools \
-      kwallet kwalletmanager \
+      kwallet kwalletmanager kwallet-pam polkit-kde-agent \
       lazygit \
-      lib32-nvidia-utils \
       localsend-bin \
       lsdesktopf \
-      lxrandr \
+      lxrandr wlr-randr arandr \
       maim slop tesseract-data-por tesseract-data-deu tesseract-data-eng tesseract \
+      ncdu \
       neovim \
-      nextcloud-client \
       noise-suppression-for-voice \
       notepadqq \
+      nvidia-utils lib32-nvidia-utils libva-nvidia-driver cuda \
       nwg-look \
-      obs-studio \
+      octopi \
       opentabletdriver \
+      osu-lazer-bin osu-handler \
       pamixer \
       parsec \
       piavpn-bin \
       picom \
-      piper \
       podman \
       polybar \
       progress \
       protonup-qt \
-      python3 \
+      python3 python310 \
       qdirstat \
+      qt5-wayland qt6-wayland \
       redshift \
       retroarch \
       ripgrep \
       rofi-wayland \
       rofimoji \
       ryujinx-bin \
-      samba gvfs gvfs-smb \
       sed \
       selectdefaultapplication-git \
       slack-desktop \
+      snapper grub-btrfs btrfs-assistant snap-pac snap-pac-grub \
       sunshine \
-      teamviewer \
+      syncthingtray \
       thefuck \
+      thunar gvfs gvfs-smb smbclient samba cifs-utils \
+      tigervnc \
       tldr \
       tmux \
       tree \
@@ -153,15 +158,18 @@ if [[ "$(uname)" == "Linux" ]]; then
       ttf-hack-nerd \
       unzip \
       vesktop-bin \
+      virt-manager libvirt virt-viewer qemu-common \
       vlc \
+      whisper.cpp-cublas blas-openblas \
       wine-staging cabextract \
       wireguard \
       wireguard-tools \
       wmctrl xorg-xwininfo \
+      wootility \
       xclip \
       xcolor \
       xdg-desktop-portal xdg-desktop-portal-gtk \
-      xone-dkms \
+      xone-dkms xone-dongle-firmware \
       yt-dlp \
       zsh-theme-powerlevel10k-git
 
@@ -241,7 +249,7 @@ if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
   log "Install pnpm"
 
   curl -fsSL https://get.pnpm.io/install.sh | bash -
-
+  f
   if [[ "$(uname)" == "Linux" ]]; then
     export PNPM_HOME="$HOME/.local/share/pnpm"
   else
