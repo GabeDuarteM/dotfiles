@@ -10,4 +10,4 @@ else
 fi
 
 tesseract $imagefile $text 2>/dev/null
-cat $text".txt" | xclip -selection c
+cat $text".txt" | wl-copy
