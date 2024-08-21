@@ -74,6 +74,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       adw-gtk3 \
       atuin \
       audacity \
+      autorestic-bin \
       aylurs-gtk-shell-git \
       base-devel \
       bat \

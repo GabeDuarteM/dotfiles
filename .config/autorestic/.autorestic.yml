@@ -1,0 +1,59 @@
+backends:
+  nas:
+    type: sftp
+    path: nas:/mnt/user/backups/restic/gabearch
+    env: {}
+    rest:
+      user: ""
+      password: ""
+    options: {}
+locations:
+  etc:
+    from:
+      - /etc
+    to:
+      - nas
+    cron: "0 20 * * *"
+    options:
+      forget:
+        keep-daily: 7
+        keep-weekly: 4
+        keep-monthly: 12
+  home:
+    from:
+      - ~/
+    type: ""
+    to:
+      - nas
+    hooks:
+      dir: ""
+      prevalidate: []
+      before: []
+      after: []
+      success: []
+      failure: []
+    cron: "0 20 * * *"
+    options:
+      backup:
+        exclude:
+          - "*.gguf"
+          - "*.safetensors"
+          - "*.ckpt"
+          - "**/node_modules"
+          - "**/site-packages"
+          - Games/Steam/steamapps
+          - Games/Epic Games
+          - Games/osu
+          - Downloads
+          - .cache/paru/clone
+          - .local/share/pnpm/store
+          - ai-models
+          - projects/**/target/release
+          - projects/**/.next
+          - work/**/.next
+          - .cache
+      forget:
+        keep-daily: 7
+        keep-weekly: 4
+        keep-monthly: 2
+version: 2
