@@ -79,12 +79,16 @@ if [[ "$(uname)" == "Linux" ]]; then
       base-devel \
       bat \
       bibata-cursor-theme \
+      blueman \
       brave-bin \
       btop \
-      chatterino2-appimage \
+      chatterino2-bin \
       cmake \
+      colloid-icon-theme-git \
+      cronie \
       curl \
-      docker docker-compose docker-buildx \
+      dex \
+      docker docker-compose docker-buildx nvidia-container-toolkit \
       downgrade \
       dtrx \
       eww-git \
@@ -108,24 +112,30 @@ if [[ "$(uname)" == "Linux" ]]; then
       google-chrome \
       gparted \
       grimblast-git wl-clipboard slurp jq \
+      handlr-regex \
       hw-probe \
-      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git egl-wayland \
+      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git egl-wayland-git \
       inotify-tools \
+      kate \
+      kvantum-qt5 \
       kwallet kwalletmanager kwallet-pam polkit-kde-agent \
       lazygit \
       localsend-bin \
       lsdesktopf \
       lxrandr wlr-randr arandr \
       maim slop tesseract-data-por tesseract-data-deu tesseract-data-eng tesseract \
+      mpv \
       ncdu \
       neovim \
       noise-suppression-for-voice \
       notepadqq \
       nvidia-utils lib32-nvidia-utils libva-nvidia-driver cuda \
+      nvtop \
       nwg-look \
+      obsidian \
       octopi \
       opentabletdriver \
-      osu-lazer-bin osu-handler \
+      osu-lazer-bin \
       pamixer \
       parsec \
       piavpn-bin \
@@ -134,20 +144,27 @@ if [[ "$(uname)" == "Linux" ]]; then
       polybar \
       progress \
       protonup-qt \
+      python-pywal colorz \
       python3 python310 \
       qdirstat \
       qt5-wayland qt6-wayland \
+      qt6ct \
+      rclone \
       redshift \
       retroarch \
       ripgrep \
       rofi-wayland \
-      rofimoji \
+      rofimoji wtype \
       ryujinx-bin \
+      sddm \
       sed \
-      selectdefaultapplication-git \
+      selectdefaultapplication-fork-git \
       slack-desktop \
       snapper grub-btrfs btrfs-assistant snap-pac snap-pac-grub \
+      socat \
       sunshine \
+      swaync \
+      swww \
       syncthingtray \
       thefuck \
       thunar gvfs gvfs-smb smbclient samba cifs-utils \
@@ -156,8 +173,10 @@ if [[ "$(uname)" == "Linux" ]]; then
       tmux \
       tree \
       ttf-geist \
+      ttf-geist-mono \
       ttf-hack-nerd \
       unzip \
+      update-grub \
       vesktop-bin \
       virt-manager libvirt virt-viewer qemu-common \
       vlc \
@@ -165,12 +184,14 @@ if [[ "$(uname)" == "Linux" ]]; then
       wine-staging cabextract \
       wireguard \
       wireguard-tools \
+      wlogout \
       wmctrl xorg-xwininfo \
       wootility \
       xclip \
       xcolor \
       xdg-desktop-portal xdg-desktop-portal-gtk \
       xone-dkms xone-dongle-firmware \
+      yazi \
       yt-dlp \
       zsh-theme-powerlevel10k-git
 
