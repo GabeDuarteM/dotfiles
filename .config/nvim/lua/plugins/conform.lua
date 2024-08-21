@@ -72,7 +72,9 @@ return {
     opts.formatters = opts.formatters or {}
     opts.formatters.prettierd = {
       condition = function()
+        -- print("Checking if prettier should run")
         local has_prettier = hasPrettierDependency()
+        -- print("has_prettier: " .. tostring(has_prettier))
 
         return has_prettier
       end,
