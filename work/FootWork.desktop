@@ -10,6 +10,3 @@ Name=Foot Work
 GenericName=Terminal
 Comment=A fast, cross-platform, OpenGL terminal emulator
 StartupWMClass=foot
-Actions=New;
-
-X-Desktop-File-Install-Version=0.26

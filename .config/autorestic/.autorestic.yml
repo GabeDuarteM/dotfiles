@@ -13,9 +13,10 @@ locations:
       - /etc
     to:
       - nas
-    cron: "0 20 * * *"
+    cron: "0 * * * *"
     options:
       forget:
+        keep-hourly: 24
         keep-daily: 7
         keep-weekly: 4
         keep-monthly: 12
@@ -32,7 +33,7 @@ locations:
       after: []
       success: []
       failure: []
-    cron: "0 20 * * *"
+    cron: "0 * * * *"
     options:
       backup:
         exclude:
@@ -53,6 +54,7 @@ locations:
           - work/**/.next
           - .cache
       forget:
+        keep-hourly: 24
         keep-daily: 7
         keep-weekly: 4
         keep-monthly: 2

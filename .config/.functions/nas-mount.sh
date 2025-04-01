@@ -1,7 +1,7 @@
 function nas-mount() {
   if [[ -z "$1" ]]; then
     echo "Please provide a share name"
-    exit 1
+    return
   fi
 
   echo "Mounting $1 to /mnt/nas"
@@ -10,5 +10,5 @@ function nas-mount() {
 }
 
 function nas-umount() {
-  echo sudo umount /mnt/nas
+  sudo umount /mnt/nas
 }

@@ -7,6 +7,7 @@ return {
       "cssmodules-language-server",
       "prettierd",
       "stylelint",
+      "graphql-language-service-cli",
     },
   },
 }

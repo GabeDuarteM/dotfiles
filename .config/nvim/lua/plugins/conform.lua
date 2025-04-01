@@ -2,8 +2,6 @@ local function hasPrettierDependency()
   local package_json_path = vim.fn.getcwd() .. "/package.json"
   local has_prettier = false
 
-  -- print(vim.inspect(package_json_path))
-
   local file = io.open(package_json_path, "r")
 
   if file then
@@ -30,15 +28,6 @@ local function hasPrettierDependency()
   end
 
   return has_prettier
-  --
-  -- local formatters = {}
-  --
-  -- if has_prettier then
-  --   table.insert(formatters, "prettierd")
-  --   -- table.insert(formatters, "prettier")
-  -- end
-  --
-  -- return formatters
 end
 
 local supported = {

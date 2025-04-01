@@ -1,3 +1,19 @@
+if uwsm check may-start &>/dev/null && uwsm select; then
+  # check if the selected DE is hyprland
+  if (cat ~/.config/uwsm/default-id | grep -q hyprland); then
+    dbus-update-activation-environment --systemd PAM_KWALLET5_LOGIN
+  fi
+
+  exec systemd-cat -t uwsm_start uwsm start default
+fi
+
+# if uwsm check may-start &>/dev/null; then
+# 	dbus-update-activation-environment --systemd PAM_KWALLET5_LOGIN && exec uwsm start hyprland.desktop
+# fi
+
+# (cat ~/.cache/wal/sequences &)
+(cat ~/.cache/matugen/themes/sequences.sh &)
+
 fastfetch
 
 function addToPath() {
@@ -27,7 +43,9 @@ addToPath "$HOME/.local/bin"
 addToPath "/home/linuxbrew/.linuxbrew/bin" 
 addToPath "/opt/homebrew/bin" 
 addToPath "$HOME/go/bin" 
+addToPath "$HOME/.local/share/gem/ruby/3.3.0/bin"
 export EDITOR="nvim"
+export SYSTEMD_EDITOR="$EDITOR"
 export PROJECTS_FOLDER="$HOME/projects"
 export DOTFILES_GIT_DIR="$HOME/.config/.dotfiles/"
 
@@ -106,7 +124,7 @@ export BUN_INSTALL="$HOME/.bun"
 addToPath "$BUN_INSTALL/bin"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/gabe/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -128,3 +146,8 @@ eval "$(atuin init zsh)"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 if [ -f "/home/gabe/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/gabe/.config/fabric/fabric-bootstrap.inc"; fi
+
+export TMUX_FG='#15161e'
+export TMUX_BG='#a9b1d6'
+
+source ~/.cache/wal/colors.sh

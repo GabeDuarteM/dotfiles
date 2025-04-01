@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-if ! pgrep hyprpaper; then
-  echo "hyprpaper is not running yet, starting it"
-  hyprpaper &
-  sleep 1
+if ! pgrep swww-daemon; then
+  echo "daemon is not running yet, starting it"
+  nohup swww-daemon >/tmp/swww-daemon.log &
+  # sleep 1
 fi
+# if ! pgrep hyprpaper; then
+#   echo "hyprpaper is not running yet, starting it"
+#   hyprpaper &
+#   sleep 1
+# fi
 
 echo
 echo "Changing wallpaper"
@@ -39,9 +44,18 @@ done
 echo "$WALLPAPER" >>"$WALLPAPERS_FILE"
 
 FINAL="$DIRECTORY/$WALLPAPER"
-echo "Unloading all wallpapers: $(hyprctl hyprpaper unload all)"
-echo "Preloading wallpaper: $(hyprctl hyprpaper preload "$FINAL")"
-echo "Setting wallpaper on DP-1: $(hyprctl hyprpaper wallpaper "DP-1,$FINAL")"
-echo "Setting wallpaper on DP-2: $(hyprctl hyprpaper wallpaper "DP-2,$FINAL")"
+# echo "Unloading all wallpapers: $(hyprctl hyprpaper unload all)"
+# echo "Preloading wallpaper: $(hyprctl hyprpaper preload "$FINAL")"
+# echo "Setting wallpaper on DP-1: $(hyprctl hyprpaper wallpaper "DP-1,$FINAL")"
+# echo "Setting wallpaper on DP-2: $(hyprctl hyprpaper wallpaper "DP-2,$FINAL")"
+
+# swww img "$FINAL" --transition-type grow --transition-pos top-right
+hyprpanel setWallpaper "$FINAL"
+matugen image "$FINAL"
 
 echo "Wallpaper successfully changed to $FINAL"
+
+# Run pywal on the new wallpaper
+# wal -e -n -i "$FINAL" --backend colorz
+
+source $HOME/.config/hypr/reload-colors.sh

@@ -45,3 +45,6 @@ end
 
 -- Disable's root detection on lazyvim (so <leader>ff is the same as <leader>fF)
 vim.g.root_spec = { "cwd" }
+
+-- Disable Markdown preview closing automatically
+vim.g.mkdp_auto_close = 0

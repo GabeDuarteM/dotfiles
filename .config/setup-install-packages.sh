@@ -112,6 +112,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       google-chrome \
       gparted \
       grimblast-git wl-clipboard slurp jq \
+      gwenview qt5-imageformats qt6-imageformats \
       handlr-regex \
       hw-probe \
       hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git egl-wayland-git \

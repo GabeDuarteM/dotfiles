@@ -1,53 +1,58 @@
-const entry = App.configDir + "/main.ts";
-const outdir = "/tmp/ags/js";
+import GLib from 'gi://GLib';
 
-const getHomeDir = () => App.configDir.split('/').slice(0, 3).join('/');
+const main = '/tmp/ags/hyprpanel/main.js';
+const entry = `${App.configDir}/main.ts`;
+const bundler = GLib.getenv('AGS_BUNDLER') || 'bun';
 
-const bunx = `${getHomeDir()}/.bun/bin/bunx`
-const bun = `${getHomeDir()}/.bun/bin/bun`
-
-const colorizeError = (/** @type {string} */ msg) => {
-  const RED = "\x1b[31m";
-  const RESET = "\x1b[0m";
-  return `${RED}${msg}${RESET}`;
+const v = {
+    ags: pkg.version?.split('.').map(Number) || [],
+    expect: [1, 8, 1],
 };
 
 try {
-  await Utils.execAsync([
-    bunx,
-    "sass",
-    "--no-source-map",
-    App.configDir + "/main.scss",
-    "/tmp/ags/css/main.css",
-  ]).then((/** @type {string} */ out) => print(out));
+    switch (bundler) {
+        case 'bun':
+            await Utils.execAsync([
+                'bun',
+                'build',
+                entry,
+                '--outfile',
+                main,
+                '--external',
+                'resource://*',
+                '--external',
+                'gi://*',
+                '--external',
+                'file://*',
+            ]);
+            break;
 
-  await Utils.execAsync([
-    bun,
-    "build",
-    entry,
-    "--outdir",
-    outdir,
-    "--external",
-    "resource://*",
-    "--external",
-    "gi://*",
-  ]).then((/** @type {string} */ out) => print(out));
+        case 'esbuild':
+            await Utils.execAsync([
+                'esbuild',
+                '--bundle',
+                entry,
+                '--format=esm',
+                `--outfile=${main}`,
+                '--external:resource://*',
+                '--external:gi://*',
+                '--external:file://*',
+            ]);
+            break;
 
-  await import(`file://${outdir}/main.js`);
+        default:
+            throw `"${bundler}" is not a valid bundler`;
+    }
+
+    // if (v.ags[1] < v.expect[1] || v.ags[2] < v.expect[2]) {
+    //     print(`HyprPanel needs atleast v${v.expect.join('.')} of AGS, yours is v${v.ags.join('.')}`);
+    //     App.quit();
+    // }
+
+    await import(`file://${main}`);
 } catch (error) {
-  print(
-    colorizeError(
-      " >>>>>>>>>>                                    <<<<<<<<<<\n",
-    ),
-    colorizeError(">>>>>>>>>> There was an error while building. <<<<<<<<<<\n"),
-    colorizeError(">>>>>>>>>>                                    <<<<<<<<<<"),
-  );
-  console.error(error);
-  print(
-    colorizeError(
-      " >>>>>>>>>>                                    <<<<<<<<<<\n",
-    ),
-    colorizeError(">>>>>>>>>>                                    <<<<<<<<<<\n"),
-    colorizeError(">>>>>>>>>>                                    <<<<<<<<<<"),
-  );
+    console.error(error);
+    App.quit();
 }
+
+export {};
