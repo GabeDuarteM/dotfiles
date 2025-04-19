@@ -1,0 +1,63 @@
+{
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "theme.font.name": "Geist Mono",
+  "theme.font.label": "Geist Mono Medium",
+  "tear": true,
+  "scalingPriority": "gdk",
+  "bar.layouts": {
+    "*": {
+      "left": [
+        "dashboard",
+        "workspaces"
+      ],
+      "middle": [
+        "windowtitle"
+      ],
+      "right": [
+        "volume",
+        "bluetooth",
+        "clock",
+        "systray",
+        "notifications"
+      ]
+    }
+  },
+  "theme.bar.floating": true,
+  "bar.autoHide": "never",
+  "theme.bar.buttons.enableBorders": false,
+  "theme.bar.border.location": "vertical",
+  "bar.launcher.autoDetectIcon": false,
+  "theme.bar.buttons.dashboard.enableBorder": false,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": true,
+  "bar.workspaces.workspaceMask": false,
+  "bar.workspaces.showWsIcons": false,
+  "bar.workspaces.numbered_active_indicator": "highlight",
+  "bar.windowtitle.label": true,
+  "bar.windowtitle.class_name": true,
+  "theme.bar.buttons.bluetooth.enableBorder": false,
+  "bar.bluetooth.label": false,
+  "theme.bar.buttons.systray.enableBorder": false,
+  "bar.clock.format": "%A %d/%m  %H:%M",
+  "menus.media.hideAuthor": false,
+  "menus.volume.raiseMaximumVolume": true,
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": false,
+  "menus.clock.weather.location": "Hamburg",
+  "menus.clock.weather.key": "6f5d850e9e82481392162812240212",
+  "menus.clock.weather.unit": "metric",
+  "menus.dashboard.stats.enable_gpu": true,
+  "bar.workspaces.ignored": "-\\d+",
+  "bar.workspaces.workspaces": 0,
+  "theme.bar.buttons.modules.ram.enableBorder": false,
+  "theme.bar.buttons.modules.weather.enableBorder": false,
+  "bar.customModules.weather.unit": "metric",
+  "theme.matugen": true,
+  "wallpaper.image": "/home/gabe/Pictures/Wallpapers/wallhaven-jx5yq5.png",
+  "wallpaper.enable": true,
+  "notifications.monitor": 0,
+  "theme.bar.buttons.media.enableBorder": false,
+  "terminal": "$TERM",
+  "theme.notification.scaling": 70,
+  "notifications.displayedTotal": 10
+}
