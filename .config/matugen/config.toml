@@ -1,0 +1,25 @@
+[config]
+# version_check = true
+
+[config.wallpaper]
+command = "swww"
+# arguments = ["img", "--transition-type", "center"]
+set = false
+# pre_hook = ""
+
+[templates.tmux]
+input_path = "./templates/tmux.conf"
+output_path = "~/.cache/matugen/themes/tmux.conf"
+post_hook = 'tmux source-file ~/.cache/matugen/themes/tmux.conf'
+
+[templates.terminal_sequences]
+input_path = "templates/ansi_escape.conf"
+output_path = "~/.cache/matugen/themes/sequences.sh"
+post_hook = '''
+for tty in /dev/pts/[0-9]*; do
+  printf "%s" "$(cat ~/.cache/matugen/themes/sequences.sh)" > "$tty"
+done
+'''
+
+[config.custom_keywords]
+tmux_prefix_highlight = "#{{prefix_highlight}}"
