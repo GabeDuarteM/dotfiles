@@ -53,7 +53,7 @@
   "theme.bar.buttons.modules.weather.enableBorder": false,
   "bar.customModules.weather.unit": "metric",
   "theme.matugen": true,
-  "wallpaper.image": "/home/gabe/Pictures/Wallpapers/wallhaven-jx5yq5.png",
+  "wallpaper.image": "/home/gabe/.cache/wallpaper",
   "wallpaper.enable": true,
   "notifications.monitor": 0,
   "theme.bar.buttons.media.enableBorder": false,

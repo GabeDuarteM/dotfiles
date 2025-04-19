@@ -44,18 +44,22 @@ done
 echo "$WALLPAPER" >>"$WALLPAPERS_FILE"
 
 FINAL="$DIRECTORY/$WALLPAPER"
+
+# copy the used wallpaper to a cached file, so the wallpaper name doesn't change on hyprpanel's configs
+cp "$FINAL" "$HOME/.cache/wallpaper"
+
 # echo "Unloading all wallpapers: $(hyprctl hyprpaper unload all)"
 # echo "Preloading wallpaper: $(hyprctl hyprpaper preload "$FINAL")"
 # echo "Setting wallpaper on DP-1: $(hyprctl hyprpaper wallpaper "DP-1,$FINAL")"
 # echo "Setting wallpaper on DP-2: $(hyprctl hyprpaper wallpaper "DP-2,$FINAL")"
 
 # swww img "$FINAL" --transition-type grow --transition-pos top-right
-hyprpanel setWallpaper "$FINAL"
-matugen image "$FINAL"
+hyprpanel setWallpaper "$HOME/.cache/wallpaper"
+matugen image "$HOME/.cache/wallpaper"
 
 echo "Wallpaper successfully changed to $FINAL"
 
 # Run pywal on the new wallpaper
 # wal -e -n -i "$FINAL" --backend colorz
 
-source $HOME/.config/hypr/reload-colors.sh
+# source $HOME/.config/hypr/reload-colors.sh
