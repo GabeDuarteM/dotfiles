@@ -12,7 +12,7 @@ fi
 # fi
 
 # (cat ~/.cache/wal/sequences &)
-(cat ~/.cache/matugen/themes/sequences.sh &)
+(cat ~/.cache/matugen/themes/sequences.sh &) &>/dev/null
 
 fastfetch
 
@@ -29,6 +29,11 @@ addToPath "$HOME/.local/share/fnm"
 if [[ ":$PATH:" != *"fnm_multishells"* ]]; then
   eval "$(fnm env --use-on-cd)"
 fi
+
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ### THINGS THAT LOG TO THE CONSOLE NEEDS TO BE ABOVE THIS LINE ###
 
@@ -89,9 +94,6 @@ bindkey  "^[[1;5D"  backward-word      # Ctrl + Left
 zle -N edit-command-line-inplace
 bindkey -M vicmd "^v" edit-command-line-inplace
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Configure fzf
 if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
   source /usr/share/fzf/key-bindings.zsh
@@ -112,9 +114,9 @@ fi
 
 source ~/.aliases.sh
 
-# Make zsh completions case insensitive
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-autoload -Uz compinit && compinit
+# # Make zsh completions case insensitive
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# autoload -Uz compinit && compinit
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -150,4 +152,6 @@ if [ -f "/home/gabe/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/gabe/.
 export TMUX_FG='#15161e'
 export TMUX_BG='#a9b1d6'
 
-source ~/.cache/wal/colors.sh
+if [ -f ~/.cache/wal/colors.sh ]; then
+  source ~/.cache/wal/colors.sh
+fi
