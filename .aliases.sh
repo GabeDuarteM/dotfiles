@@ -51,9 +51,7 @@ alias config='git --git-dir=$DOTFILES_GIT_DIR --work-tree=$HOME'
 alias ce='config ls-files ~ | sed "s/ /\\\\ /" | xargs nvim -c "for i in argv() | bnext | endfor"' # sed to escape espaces in filenames, for loop to avoid the vim error E173: more files to edit
 alias lg='lazygit'
 alias lgc='lazygit --git-dir=$DOTFILES_GIT_DIR --work-tree=$HOME'
-alias r='run $@'
 alias clip="xclip -sel clip"
-alias act="DOCKER_HOST=$(docker context inspect --format '{{.Endpoints.docker.Host}}') act"
 alias rg="rg --hidden --smart-case"
 # All entries can be found by running "efibootmgr"
 alias reboot-to-windows="sudo efibootmgr -n 0004 && sudo systemctl reboot"
