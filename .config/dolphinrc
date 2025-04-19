@@ -1,0 +1,20 @@
+[ContentDisplay]
+DirectorySizeMode=ContentSize
+
+[ExtractDialog]
+2 screens: Window-Maximized=true
+DirHistory[$e]=$HOME/Downloads/
+
+[General]
+Version=202
+ViewPropsTimestamp=2024,8,7,1,58,18.05
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,textthumbnail,ffmpegthumbs
