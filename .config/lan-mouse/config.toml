@@ -1,0 +1,19 @@
+release_bind = ["KeyA", "KeyS", "KeyD", "KeyF"]
+
+port = 4242
+
+[authorized_fingerprints]
+"36:76:e2:5b:ae:85:b3:64:dc:78:09:38:aa:54:a1:45:24:ac:bb:5d:00:94:6e:ba:b0:48:6e:d4:a3:3b:70:64" = "thinkpad"
+"c4:97:d6:b5:56:d2:bf:1e:13:47:6f:2e:7c:07:9c:1f:a9:87:51:0a:62:ce:9e:32:e3:2e:be:91:1a:ae:b2:d6" = "gabe-arch"
+
+[[clients]]
+position = "bottom"
+hostname = "thinkpad"
+activate_on_startup = true
+port = 4242
+
+[[clients]]
+position = "top"
+hostname = "gabe-arch"
+activate_on_startup = true
+port = 4242
