@@ -179,6 +179,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       unzip \
       update-grub \
       vesktop-bin \
+      vicinae-git \
       virt-manager libvirt virt-viewer qemu-common \
       vlc \
       whisper.cpp-cublas blas-openblas \
