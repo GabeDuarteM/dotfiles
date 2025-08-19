@@ -1,4 +1,5 @@
 return {
   "dmmulroy/tsc.nvim",
-  config = function() end,
+  opts = {},
+  -- config = function() end,
 }

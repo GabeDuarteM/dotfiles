@@ -284,40 +284,40 @@ local function filenameFirst(_, path)
 end
 
 return {
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      pickers = {
-        find_files = {
-          path_display = filenameFirst,
-        },
-        git_files = {
-          path_display = filenameFirst,
-        },
-        grep_string = {
-          path_display = filenameFirst,
-        },
-        live_grep = {
-          path_display = filenameFirst,
-        },
-      },
-    },
-    -- keys = {
-    --   {
-    --     "<leader>fg",
-    --     function()
-    --       telescopePickers.prettyFilesPicker({ picker = "git_files" })
-    --     end,
-    --     desc = "Find git files",
-    --   },
-    --   {
-    --     "<leader>ff",
-    --     function()
-    --       telescopePickers.prettyFilesPicker({ picker = "find_files" })
-    --     end,
-    --     desc = "Find git files",
-    --   },
-    -- },
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   opts = {
+  --     pickers = {
+  --       find_files = {
+  --         path_display = filenameFirst,
+  --       },
+  --       git_files = {
+  --         path_display = filenameFirst,
+  --       },
+  --       grep_string = {
+  --         path_display = filenameFirst,
+  --       },
+  --       live_grep = {
+  --         path_display = filenameFirst,
+  --       },
+  --     },
+  --   },
+  --   -- keys = {
+  --   --   {
+  --   --     "<leader>fg",
+  --   --     function()
+  --   --       telescopePickers.prettyFilesPicker({ picker = "git_files" })
+  --   --     end,
+  --   --     desc = "Find git files",
+  --   --   },
+  --   --   {
+  --   --     "<leader>ff",
+  --   --     function()
+  --   --       telescopePickers.prettyFilesPicker({ picker = "find_files" })
+  --   --     end,
+  --   --     desc = "Find git files",
+  --   --   },
+  --   -- },
+  -- },
 }

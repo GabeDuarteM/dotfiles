@@ -2,14 +2,15 @@ return {
   "neovim/nvim-lspconfig",
   ---@class PluginLspOpts
   opts = {
-    inlay_hints = {
-      enabled = false,
-      exclude = {}, -- filetypes for which you don't want to enable inlay hints
-      autoformat = false,
-    },
+    -- inlay_hints = {
+    --   enabled = false,
+    --   exclude = {}, -- filetypes for which you don't want to enable inlay hints
+    --   autoformat = false,
+    -- },
     setup = {
       eslint = function()
         require("lazyvim.util").lsp.on_attach(function(client)
+          -- Disables autoformat for eslint and vtsls (leave it to conform to do it, which would probably use prettier)
           if client.name == "eslint" then
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
@@ -20,13 +21,6 @@ return {
           end
         end)
       end,
-    },
-    ---@type lspconfig.options
-    servers = {
-      tailwindcss = {},
-      astro = {},
-      gopls = {},
-      graphql = {},
     },
   },
 }

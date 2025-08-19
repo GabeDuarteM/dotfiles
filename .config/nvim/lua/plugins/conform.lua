@@ -14,13 +14,11 @@ local function hasPrettierDependency()
       if package_data.dependencies then
         -- if has text
         if package_data.dependencies["prettier"] then
-          -- if package_data.dependencies["prettier"] == "3.3.2" then
           has_prettier = true
         end
       end
       if package_data.devDependencies then
         if package_data.devDependencies["prettier"] then
-          -- if package_data.devDependencies["prettier"] == "3.3.2" then
           has_prettier = true
         end
       end
@@ -69,48 +67,4 @@ return {
       end,
     }
   end,
-  -- opts = {
-  --   formatters_by_ft = {
-  --     ["javascript"] = getJsFormatters,
-  --     ["javascriptreact"] = getJsFormatters,
-  --     ["typescript"] = getJsFormatters,
-  --     ["typescriptreact"] = getJsFormatters,
-  --     ["vue"] = getJsFormatters,
-  --     ["css"] = getJsFormatters,
-  --     ["scss"] = getJsFormatters,
-  --     ["less"] = getJsFormatters,
-  --     ["html"] = getJsFormatters,
-  --     ["json"] = getJsFormatters,
-  --     ["jsonc"] = getJsFormatters,
-  --     ["yaml"] = getJsFormatters,
-  --     ["markdown"] = getJsFormatters,
-  --     ["markdown.mdx"] = getJsFormatters,
-  --     ["graphql"] = getJsFormatters,
-  --     ["handlebars"] = getJsFormatters,
-  --   },
-  -- },
 }
---
--- return {
---   "stevearc/conform.nvim",
---   opts = {
---     formatters_by_ft = {
---       ["javascript"] = { { "prettierd", "prettier" } },
---       ["javascriptreact"] = { { "prettierd", "prettier" } },
---       ["typescript"] = { { "prettierd", "prettier" } },
---       ["typescriptreact"] = { { "prettierd", "prettier" } },
---       ["vue"] = { { "prettierd", "prettier" } },
---       ["css"] = { { "prettierd", "prettier" } },
---       ["scss"] = { { "prettierd", "prettier" } },
---       ["less"] = { { "prettierd", "prettier" } },
---       ["html"] = { { "prettierd", "prettier" } },
---       ["json"] = { { "prettierd", "prettier" } },
---       ["jsonc"] = { { "prettierd", "prettier" } },
---       ["yaml"] = { { "prettierd", "prettier" } },
---       ["markdown"] = { { "prettierd", "prettier" } },
---       ["markdown.mdx"] = { { "prettierd", "prettier" } },
---       ["graphql"] = { { "prettierd", "prettier" } },
---       ["handlebars"] = { { "prettierd", "prettier" } },
---     },
---   },
--- }

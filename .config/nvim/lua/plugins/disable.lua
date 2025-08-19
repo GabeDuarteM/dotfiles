@@ -1,3 +1,4 @@
 return {
-  { "ggandor/flit.nvim", enabled = false },
+  -- { "echasnovski/mini.animate", enabled = false },
+  -- { "folke/flash.nvim", enabled = false },
 }

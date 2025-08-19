@@ -1,5 +1,7 @@
 return {
   "nabekou29/js-i18n.nvim",
+  -- disabled because of slowness on the first file open on large codebases
+  enabled = false,
   dependencies = {
     "neovim/nvim-lspconfig",
     "nvim-treesitter/nvim-treesitter",
