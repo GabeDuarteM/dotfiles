@@ -48,3 +48,6 @@ vim.g.root_spec = { "cwd" }
 
 -- Disable Markdown preview closing automatically
 vim.g.mkdp_auto_close = 0
+
+-- Disable autoformatting on save for eslint
+vim.g.lazyvim_eslint_auto_format = false
