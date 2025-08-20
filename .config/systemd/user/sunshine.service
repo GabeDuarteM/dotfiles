@@ -2,13 +2,15 @@
 Description=Sunshine self-hosted game stream host for Moonlight.
 StartLimitIntervalSec=500
 StartLimitBurst=5
+After=graphical-session.target xdg-desktop-autostart.target
+Wants=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/sunshine
 Restart=on-failure
 RestartSec=5s
-#Flatpak Only
-#ExecStop=flatpak kill dev.lizardbyte.sunshine
+# Flatpak Only
+# ExecStop=flatpak kill dev.lizardbyte.sunshine
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
