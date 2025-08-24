@@ -4,11 +4,11 @@ function nas-mount() {
     return
   fi
 
-  echo "Mounting $1 to /mnt/nas"
+  echo "Mounting $1 to /mnt/nas/$1"
 
-  sudo mount -t cifs //gabenas.local/$1 /mnt/nas -o credentials=/home/gabe/.config/smb/nas,username=gabe,uid=$(id -u),gid=$(id -g)
+  sudo mount -t cifs "//gabenas.local/$1" "/mnt/nas/$1" -o credentials=/home/gabe/.config/smb/nas,username=gabe,uid=$(id -u),gid=$(id -g)
 }
 
 function nas-umount() {
-  sudo umount /mnt/nas
+  sudo umount /mnt/nas/$1
 }

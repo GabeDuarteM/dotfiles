@@ -147,6 +147,7 @@ eval "$(atuin init zsh)"
 # Conda
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
+# fabric
 if [ -f "/home/gabe/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/gabe/.config/fabric/fabric-bootstrap.inc"; fi
 
 export TMUX_FG='#15161e'
