@@ -1,7 +1,9 @@
 git:
+  ignoreWhitespaceInDiffView: true
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+promptToReturnFromSubprocess: false
 # os:
 #   editCommand: "nvim"
 #   editCommandTemplate: "{{editor}} --server $NVIM --remote-tab {{filename}}"
