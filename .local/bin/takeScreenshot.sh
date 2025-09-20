@@ -2,19 +2,26 @@
 
 getWindowClass() {
   # Get the position of the cursor
-  local cursor_pos=$(hyprctl cursorpos -j)
-  local x=$(echo $cursor_pos | jq '.x')
-  local y=$(echo $cursor_pos | jq '.y')
+  local cursor_pos
+  cursor_pos=$(hyprctl cursorpos -j)
+
+  local x
+  x=$(echo "$cursor_pos" | jq '.x')
+
+  local y
+  y=$(echo "$cursor_pos" | jq '.y')
 
   # Get current workspace ID
-  local current_workspace=$(hyprctl activewindow -j | jq '.workspace.id')
+  local current_workspace
+  current_workspace=$(hyprctl activewindow -j | jq '.workspace.id')
 
   # Get all windows and find the one under the cursor
   # Only consider windows that are:
   # 1. On the current workspace
   # 2. Actually visible (not minimized)
   # 3. Under the cursor position
-  local window_at_pos=$(hyprctl clients -j | jq -r ".[] | 
+  local window_at_pos
+  window_at_pos=$(hyprctl clients -j | jq -r ".[] |
         select(.workspace.id == $current_workspace and
                .hidden == false and
                .at[0] <= $x and 
