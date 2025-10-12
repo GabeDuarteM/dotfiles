@@ -11,6 +11,7 @@ return {
         "docker-compose-language-service",
         "dockerfile-language-server",
         -- "eslint-lsp",
+        "biome",
         "graphql-language-service-cli",
         "hyprls",
         "json-lsp",
