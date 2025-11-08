@@ -27,5 +27,8 @@ function update {
   paru -Su
 
   echo "\nUpdating flatpak packages..."
-  flatpak update
+  flatpak update -y
+
+  echo "\nRemoving unused flatpak packages..."
+  flatpak uninstall --unused -y
 }
