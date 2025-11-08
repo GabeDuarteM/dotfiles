@@ -18,3 +18,24 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     })
   end,
 })
+
+-- Biome LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup("biome_lsp_attach"),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client or client.name ~= "biome" then
+      return
+    end
+
+    vim.api.nvim_create_user_command("BiomeFixAll", function()
+      vim.lsp.buf.code_action({
+        context = {
+          only = { "source.fixAll.biome" },
+          diagnostics = {},
+        },
+        apply = true,
+      })
+    end, { desc = "Run Biome fixAll code action" })
+  end,
+})
