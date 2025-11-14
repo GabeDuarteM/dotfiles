@@ -6,6 +6,10 @@ function nas-mount() {
 
   echo "Mounting $1 to /mnt/nas/$1"
 
+  if [[ ! -d "/mnt/nas/$1" ]]; then
+    mkdir -p "/mnt/nas/$1"
+  fi
+
   sudo mount -t cifs "//gabenas.local/$1" "/mnt/nas/$1" -o credentials=/home/gabe/.config/smb/nas,username=gabe,uid=$(id -u),gid=$(id -g)
 }
 
