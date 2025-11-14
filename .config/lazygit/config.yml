@@ -1,8 +1,8 @@
 git:
   ignoreWhitespaceInDiffView: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 promptToReturnFromSubprocess: false
 # os:
 #   editCommand: "nvim"
