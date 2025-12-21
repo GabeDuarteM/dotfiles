@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+printf "\nGetting list of packages to update...\n"
+upgrades="$(paru -Quq)" || exit 1
+
+if [[ -z "${upgrades}" ]]; then
+  printf "\nNo pacman or AUR upgrades.\n"
+else
+  printf "\nThe full package list is below:\n"
+  printf "%s\n" "${upgrades}"
+  printf "\nThere are %s packages to update.\n" "$(printf "%s\n" "${upgrades}" | wc -l | tr -d ' ')"
+fi
+
+ignore=()
+
+# Skip rebuilding quickshell-git unless caelestia is also being upgraded
+if [[ -n "${upgrades}" ]]; then
+  if printf "%s\n" "${upgrades}" | rg -qx 'quickshell-git' && ! printf "%s\n" "${upgrades}" | rg -qx 'caelestia'; then
+    ignore+=(quickshell-git)
+    printf "\nAuto ignoring quickshell-git because caelestia is not upgrading.\n"
+  fi
+fi
+
+if [[ -n "${upgrades}" ]] && printf "%s\n" "${upgrades}" | rg -qx 'nvidia-utils'; then
+  printf "\nNVIDIA drivers are scheduled to be updated. Continue? [Y/n] "
+  read -r answer
+  if [[ "${answer}" =~ ^[Nn]$ ]]; then
+    printf "\nAborted.\n"
+    exit 1
+  fi
+fi
+
+printf "\nUpgrading packages...\n"
+if ((${#ignore[@]})); then
+  paru -Syu --ignore "${ignore[@]}"
+else
+  paru -Syu
+fi
+
+printf "\nUpdating flatpak packages...\n"
+flatpak update -y
+
+printf "\nRemoving unused flatpak packages...\n"
+flatpak uninstall --unused -y
+
+printf "\nDone.\n"

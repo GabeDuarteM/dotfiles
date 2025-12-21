@@ -112,6 +112,8 @@ if [[ -s ~/.zshrc.local.zsh ]]; then
   source ~/.zshrc.local.zsh
 fi
 
+unalias update 2>/dev/null || true
+
 source ~/.aliases.sh
 
 # # Make zsh completions case insensitive
