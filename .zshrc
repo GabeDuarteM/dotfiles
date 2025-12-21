@@ -45,8 +45,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 addToPath "$HOME/.local/bin"
-addToPath "/home/linuxbrew/.linuxbrew/bin" 
-addToPath "/opt/homebrew/bin" 
 addToPath "$HOME/go/bin" 
 addToPath "$HOME/.local/share/gem/ruby/3.3.0/bin"
 export EDITOR="nvim"
@@ -128,7 +126,7 @@ export BUN_INSTALL="$HOME/.bun"
 addToPath "$BUN_INSTALL/bin"
 
 # pnpm
-export PNPM_HOME="/home/gabe/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -143,7 +141,6 @@ addToPath "$DENO_INSTALL/bin"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-eval $(thefuck --alias)
 eval "$(atuin init zsh)"
 
 # Conda

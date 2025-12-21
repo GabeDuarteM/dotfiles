@@ -11,7 +11,7 @@ function log() {
 }
 
 function hasCommand() {
-  if command -v $1 >/dev/null 2>&1; then
+  if command -v "$1" >/dev/null 2>&1; then
     echo true
   else
     echo false
@@ -30,7 +30,7 @@ else
 fi
 
 # Source .profile, so the checks for installed executables works when in bash
-source ~/.profile >/dev/null 2>&1
+source "$HOME/.profile" >/dev/null 2>&1
 
 # Make directories
 mkdir -p ~/projects
@@ -49,7 +49,6 @@ if [[ "$(uname)" == "Linux" ]]; then
       git \
       build-essential \
       unzip \
-      thefuck \
       tmux
   elif [[ "$(hasCommand 'dnf')" == "true" ]]; then
     log "Fedora detected, running pre-requisites"
@@ -60,7 +59,6 @@ if [[ "$(uname)" == "Linux" ]]; then
       curl \
       git \
       unzip \
-      thefuck \
       tmux
   elif [[ "$(hasCommand 'pacman')" == "true" ]]; then
     log "Arch detected, running pre-requisites"
@@ -71,11 +69,10 @@ if [[ "$(uname)" == "Linux" ]]; then
 
     paru -Syyu --noconfirm --needed \
       act \
-      adw-gtk3 \
+      adw-gtk-theme \
       atuin \
       audacity \
       autorestic-bin \
-      aylurs-gtk-shell-git \
       base-devel \
       bat \
       bibata-cursor-theme \
@@ -91,12 +88,10 @@ if [[ "$(uname)" == "Linux" ]]; then
       docker docker-compose docker-buildx nvidia-container-toolkit \
       downgrade \
       dtrx \
-      eww-git \
       eza \
       fabric \
       fastfetch \
       fd \
-      flameshot \
       flatseal \
       font-manager \
       foot \
@@ -107,7 +102,6 @@ if [[ "$(uname)" == "Linux" ]]; then
       git \
       git-delta \
       github-cli \
-      gnome-terminal \
       go \
       google-chrome \
       gparted \
@@ -115,7 +109,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       gwenview qt5-imageformats qt6-imageformats \
       handlr-regex \
       hw-probe \
-      hyprland-git hyprpaper-git hyprcursor-git xdg-desktop-portal-hyprland-git hyprlang-git hyprpicker-git hyprutils-git hyprwayland-scanner-git egl-wayland-git \
+      hyprland hyprcursor xdg-desktop-portal-hyprland hyprlang hyprpicker hyprutils hyprwayland-scanner egl-wayland \
       inotify-tools \
       kate \
       kvantum-qt5 \
@@ -123,7 +117,7 @@ if [[ "$(uname)" == "Linux" ]]; then
       lazygit \
       localsend-bin \
       lsdesktopf \
-      lxrandr wlr-randr arandr \
+      wlr-randr \
       maim slop tesseract-data-por tesseract-data-deu tesseract-data-eng tesseract \
       mpv \
       ncdu \
@@ -140,22 +134,16 @@ if [[ "$(uname)" == "Linux" ]]; then
       pamixer \
       parsec \
       piavpn-bin \
-      picom \
       podman \
-      polybar \
       progress \
       protonup-qt \
-      python-pywal colorz \
       python3 python310 \
       qdirstat \
       qt5-wayland qt6-wayland \
       qt6ct \
       rclone \
-      redshift \
       retroarch \
       ripgrep \
-      rofi-wayland \
-      rofimoji wtype \
       ryujinx-bin \
       sddm \
       sed \
@@ -164,11 +152,8 @@ if [[ "$(uname)" == "Linux" ]]; then
       snapper grub-btrfs btrfs-assistant snap-pac snap-pac-grub \
       socat \
       sunshine \
-      swaync \
       swww \
       syncthingtray \
-      thefuck \
-      thunar gvfs gvfs-smb smbclient samba cifs-utils \
       tigervnc \
       tldr \
       tmux \
@@ -179,9 +164,8 @@ if [[ "$(uname)" == "Linux" ]]; then
       unzip \
       update-grub \
       vesktop-bin \
-      vicinae-git \
+      vicinae-bin \
       virt-manager libvirt virt-viewer qemu-common \
-      vlc \
       whisper.cpp-cublas blas-openblas \
       wine-staging cabextract \
       wireguard \
@@ -190,10 +174,8 @@ if [[ "$(uname)" == "Linux" ]]; then
       wmctrl xorg-xwininfo \
       wootility \
       xclip \
-      xcolor \
       xdg-desktop-portal xdg-desktop-portal-gtk \
       xone-dkms xone-dongle-firmware \
-      yazi \
       yt-dlp \
       zsh-theme-powerlevel10k-git
 
@@ -202,39 +184,9 @@ if [[ "$(uname)" == "Linux" ]]; then
   fi
 fi
 
-# INSTALLED_BREW=false
-#
-# if [[ "$(hasCommand 'brew')" == "false" ]]; then
-# 	log "Install brew"
-#
-# 	INSTALLED_BREW=true
-#
-# 	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#
-# 	if [[ "$(uname)" == "Linux" ]]; then
-# 		eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# 	else
-# 		eval "$(/opt/homebrew/bin/brew shellenv)"
-# 	fi
-#
-# 	if [[ "$(hasCommand 'brew')" == "false" ]]; then
-# 		log "There was an error detecting brew, tried to add it to the path, but was not successful."
-# 		exit
-# 	fi
-# fi
-
-# log "Install brew bundle"
-# export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
-# brew bundle
-
 if [ ! -d "$HOME/.local/share/tmux/plugins/tpm" ]; then
   log "Installing tmux TPM"
   git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
-fi
-
-if [[ "$(uname)" != "Linux" ]]; then
-  log "Installing mac apps through mas"
-  mas install 1470584107 # Dato
 fi
 
 if [[ "$(hasCommand 'fnm')" == "false" ]]; then
@@ -292,11 +244,7 @@ if [[ "$(hasCommand 'pnpm')" == "false" ]]; then
 fi
 
 log "Install pnpm packages"
-pnpm i -g neovim @githubnext/github-copilot-cli
-
-if [[ "$(hasCommand '??')" == "false" ]]; then
-  log "There was an error detecting packages installed through pnpm, tried to add it to the path, but was not successful."
-fi
+pnpm i -g neovim
 
 if [[ "$(hasCommand 'cargo')" == "false" ]]; then
   log "Install rust"
@@ -321,19 +269,10 @@ if ! grep -q "zsh" /etc/shells; then
 fi
 
 # if $SHELL is not zsh, without printing to console
-if [[ "$(echo $SHELL)" != "$(command -v zsh)" ]]; then
+if [[ "$(echo "$SHELL")" != "$(command -v zsh)" ]]; then
   log "Set zsh as the default shell"
   sudo chsh -s "$(command -v zsh)" "${USER}"
 fi
-
-# log "Installing fonts"
-#
-# mkdir -p ~/.local/share/fonts
-#
-# cd ~/.local/share/fonts && {
-# 	curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf
-# 	cd -
-# }
 
 log "Setup complete\n## Don't forget to run :checkhealth on vim to install plugins and check if \n## everything is correctly installed. \n## Also, run Ctrl+a I on tmux to install plugins"
 
