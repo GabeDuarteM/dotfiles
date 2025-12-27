@@ -9,7 +9,7 @@ return {
     -- },
     setup = {
       eslint = function()
-        require("lazyvim.util").lsp.on_attach(function(client)
+        Snacks.util.lsp.on(function(_, client)
           -- Disables autoformat for eslint and vtsls (leave it to conform to do it, which would probably use prettier)
           if client.name == "eslint" then
             client.server_capabilities.documentFormattingProvider = false
