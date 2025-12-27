@@ -47,6 +47,7 @@ fi
 addToPath "$HOME/.local/bin"
 addToPath "$HOME/go/bin" 
 addToPath "$HOME/.local/share/gem/ruby/3.3.0/bin"
+addToPath "$HOME/.opencode/bin"
 export EDITOR="nvim"
 export SYSTEMD_EDITOR="$EDITOR"
 export PROJECTS_FOLDER="$HOME/projects"
