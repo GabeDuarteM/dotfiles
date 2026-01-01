@@ -19,3 +19,14 @@ function p() {
     cd "$dir" || return
   fi
 }
+
+function pp() {
+  local base="$PROJECTS_FOLDER/worktrees"
+  local selected
+
+  selected=$(find "$base" -mindepth 2 -maxdepth 2 -type d | sed "s|$base/||" | fzf --no-preview --height=40% --header="Select worktree:" --reverse --query "$1" --select-1)
+
+  if [ -n "$selected" ]; then
+    cd "$base/$selected" || return
+  fi
+}
