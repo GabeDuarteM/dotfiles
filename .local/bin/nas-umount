@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+	echo "Usage: nas-umount <share-name>"
+	exit 1
+fi
+
+sudo umount "/mnt/nas/$1"

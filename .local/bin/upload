@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+	echo "Usage: upload <file>"
+	exit 1
+fi
+
+curl -F"file=@$1" -Fsecret=secret -i https://0x0.st

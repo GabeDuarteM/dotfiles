@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+	echo "Usage: nas-mount <share-name>"
+	exit 1
+fi
+
+echo "Mounting $1 to /mnt/nas/$1"
+
+if [[ ! -d "/mnt/nas/$1" ]]; then
+	mkdir -p "/mnt/nas/$1"
+fi
+
+sudo mount -t cifs "//gabenas.local/$1" "/mnt/nas/$1" -o credentials=/home/gabe/.config/smb/nas,username=gabe,uid=$(id -u),gid=$(id -g)

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+git rev-parse HEAD >/dev/null 2>&1 || exit 1
+
+# if argument is a valid file or folder, just execute the checkout with the argument
+if [[ -e $1 ]]; then
+	git checkout "$@"
+	exit
+elif [[ "$1" = '-' ]]; then
+	git checkout -
+	exit
+elif [[ "$1" = '-b' ]]; then
+	git checkout "$@"
+	exit
+fi
+
+branch=$(fzf-git-branch "$1")
+if [[ "$branch" = "" ]]; then
+	echo "No branch selected."
+	exit 1
+fi
+
+# If branch name starts with 'remotes/' then it is a remote branch. By
+# using --track and a remote branch name, it is the same as:
+# git checkout -b branchName --track origin/branchName
+if [[ "$branch" = 'remotes/'* ]]; then
+	git checkout --track "$branch"
+else
+	git checkout "$branch"
+fi

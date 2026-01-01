@@ -8,7 +8,8 @@ alias gl="git log"
 alias glo="git log --oneline"
 alias gp="git push"
 alias gco='git-checkout'
-alias gpm="gitPullMain"
+alias gpm="git-pull-main"
+alias gpc="git-push-create"
 
 # yarn
 alias y=yarn

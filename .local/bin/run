@@ -1,0 +1,27 @@
+#!/bin/bash
+
+args="$@"
+script="start"
+
+if ls next.config.* 1>/dev/null 2>&1; then
+	script="dev"
+elif ls astro.config.* 1>/dev/null 2>&1; then
+	script="dev"
+elif [[ -f "turbo.json" ]]; then
+	script="dev"
+fi
+
+if [[ -f "Cargo.toml" ]]; then
+	cargo run $args
+elif [[ -f "pnpm-lock.yaml" ]]; then
+	pnpm $script $args
+elif [[ -f "yarn.lock" ]]; then
+	yarn $script $args
+elif [[ -f "package.json" ]]; then
+	npm run $script $args
+elif [[ -f "go.mod" ]]; then
+	go run . $args
+else
+	echo "No build script found"
+	exit 1
+fi
