@@ -16,7 +16,7 @@ ignore=()
 
 # Skip rebuilding quickshell-git unless caelestia is also being upgraded
 if [[ -n "${upgrades}" ]]; then
-  if printf "%s\n" "${upgrades}" | rg -qx 'quickshell-git' && ! printf "%s\n" "${upgrades}" | rg -qx 'caelestia'; then
+  if printf "%s\n" "${upgrades}" | rg -qx 'quickshell-git' && ! printf "%s\n" "${upgrades}" | rg -q '^caelestia-'; then
     ignore+=(quickshell-git)
     printf "\nAuto ignoring quickshell-git because caelestia is not upgrading.\n"
   fi
