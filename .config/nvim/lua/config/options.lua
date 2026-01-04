@@ -31,6 +31,12 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.opt.undofile = true
 
+-- Per-directory shada file for scoped jumplist, marks, and registers
+local shada_dir = vim.fn.stdpath("state") .. "/shada/"
+vim.fn.mkdir(shada_dir, "p")
+local shada_name = vim.fn.getcwd():gsub("[/\\:]+", "%%") .. ".shada"
+vim.o.shadafile = shada_dir .. shada_name
+
 -- Makes ESC instant, preventing a really fast `ESC + j/k` to move the line up/down instead of escaping
 vim.opt.ttimeoutlen = 0
 
