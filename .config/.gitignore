@@ -87,3 +87,5 @@ AGENTS.local.md
 .github/copilot-instructions.md
 .claude
 CLAUDE.md
+
+.gabe-ignore/
