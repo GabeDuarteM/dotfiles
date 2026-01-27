@@ -156,3 +156,6 @@ export TMUX_BG='#a9b1d6'
 if [ -f ~/.cache/wal/colors.sh ]; then
   source ~/.cache/wal/colors.sh
 fi
+
+# Disable "correct 'x' to 'y'?" prompts
+unsetopt correctall
