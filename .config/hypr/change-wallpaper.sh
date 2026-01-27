@@ -21,7 +21,7 @@ while true; do
     break
   fi
 
-  if [ ${#USED_WALLPAPERS[@]} -eq $(ls "$DIRECTORY" | wc -l) ]; then
+  if [ ${#USED_WALLPAPERS[@]} -ge $(ls "$DIRECTORY" | wc -l) ]; then
     echo "All wallpapers have been used, clearing the list"
     rm "$WALLPAPERS_FILE"
   fi
