@@ -159,3 +159,5 @@ fi
 
 # Disable "correct 'x' to 'y'?" prompts
 unsetopt correctall
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
