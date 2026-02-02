@@ -7,6 +7,11 @@ command = "swww"
 set = false
 # pre_hook = ""
 
+[templates.ghostty]
+input_path = "./templates/ghostty.conf"
+output_path = "~/.cache/matugen/themes/ghostty.conf"
+post_hook = 'ghostty +reload-config 2>/dev/null || true'
+
 [templates.tmux]
 input_path = "./templates/tmux.conf"
 output_path = "~/.cache/matugen/themes/tmux.conf"
