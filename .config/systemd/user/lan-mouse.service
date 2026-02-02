@@ -6,7 +6,6 @@ After=graphical-session.target
 BindsTo=graphical-session.target
 
 [Service]
-ExecStartPre=/bin/sleep 30
 ExecStart=/usr/bin/lan-mouse daemon
 Restart=on-failure
 

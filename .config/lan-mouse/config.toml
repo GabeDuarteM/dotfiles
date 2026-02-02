@@ -8,12 +8,12 @@ port = 4242
 
 [[clients]]
 position = "bottom"
-hostname = "thinkpad"
+hostname = "10.55.1.175"
 activate_on_startup = true
 port = 4242
 
 [[clients]]
 position = "top"
-hostname = "gabe-arch"
+hostname = "10.55.1.195"
 activate_on_startup = true
 port = 4242
