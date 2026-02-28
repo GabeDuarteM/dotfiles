@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+printf "\nSyncing package databases...\n"
+paru -Sy
+
 printf "\nGetting list of packages to update...\n"
 upgrades="$(paru -Quq)" || exit 1
 
@@ -33,9 +36,9 @@ fi
 
 printf "\nUpgrading packages...\n"
 if ((${#ignore[@]})); then
-  paru -Syu --ignore "${ignore[@]}"
+  paru -Su --ignore "${ignore[@]}"
 else
-  paru -Syu
+  paru -Su
 fi
 
 printf "\nUpdating flatpak packages...\n"
