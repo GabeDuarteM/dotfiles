@@ -11,7 +11,7 @@ return {
         "docker-compose-language-service",
         "dockerfile-language-server",
         "biome",
-        "graphql-language-service-cli",
+
         "hyprls",
         "json-lsp",
         "lua-language-server",
