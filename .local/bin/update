@@ -1,6 +1,34 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+refresh_mirrors_if_needed() {
+  local state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/update"
+  local last_run_file="${state_dir}/cachyos-rate-mirrors-last-run"
+  local now
+  local last_run=0
+
+  mkdir -p "${state_dir}"
+  now="$(date +%s)"
+
+  if [[ -f "${last_run_file}" ]]; then
+    read -r last_run <"${last_run_file}"
+
+    if [[ ! "${last_run}" =~ ^[0-9]+$ ]]; then
+      last_run=0
+    fi
+  fi
+
+  if ((now - last_run < 86400)); then
+    return
+  fi
+
+  printf "\nRefreshing mirrors...\n"
+  sudo cachyos-rate-mirrors
+  printf "%s\n" "${now}" >"${last_run_file}"
+}
+
+refresh_mirrors_if_needed
+
 printf "\nSyncing package databases...\n"
 paru -Sy
 
