@@ -24,11 +24,7 @@ function addToPath() {
 
 # Configure fnm (may log stuff if the default path is one with nvmrc)
 addToPath "$HOME/.local/share/fnm"
-# if the path already contains fnm_multishells anywhere on it, don't add it again
-# /run/user/1000/fnm_multishells/1336803_1715787608849/bin
-if [[ ":$PATH:" != *"fnm_multishells"* ]]; then
-  eval "$(fnm env --use-on-cd)"
-fi
+eval "$(fnm env --use-on-cd)"
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
