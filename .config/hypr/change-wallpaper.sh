@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -u
 
 echo
 echo "Changing wallpaper"
@@ -7,29 +8,45 @@ SCRIPT_DIRECTORY="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 WALLPAPERS_FILE="$SCRIPT_DIRECTORY/used-wallpapers.txt"
 DIRECTORY="$HOME/Pictures/Wallpapers"
 
-while true; do
-  if [ ! -f "$WALLPAPERS_FILE" ]; then
-    touch "$WALLPAPERS_FILE"
-  fi
+shopt -s nullglob
+WALLPAPERS=()
+for path in "$DIRECTORY"/*; do
+  [[ -f "$path" ]] && WALLPAPERS+=("$path")
+done
 
-  WALLPAPER=$(ls "$DIRECTORY" | shuf -n 1)
+if ((${#WALLPAPERS[@]} == 0)); then
+  printf 'No wallpapers found in %s\n' "$DIRECTORY" >&2
+  exit 1
+fi
 
-  readarray -t USED_WALLPAPERS <"$WALLPAPERS_FILE"
+USED_WALLPAPERS=()
+if [[ -f "$WALLPAPERS_FILE" ]]; then
+  mapfile -t USED_WALLPAPERS <"$WALLPAPERS_FILE"
+fi
 
-  if [[ ! " ${USED_WALLPAPERS[*]} " =~ " ${WALLPAPER} " ]]; then
-    echo "Wallpaper $WALLPAPER is not in the list of used wallpapers, using it"
-    break
-  fi
+UNUSED_WALLPAPERS=()
+for wallpaper in "${WALLPAPERS[@]}"; do
+  used=false
+  for previous in "${USED_WALLPAPERS[@]}"; do
+    if [[ "$wallpaper" == "$previous" ]]; then
+      used=true
+      break
+    fi
+  done
 
-  if [ ${#USED_WALLPAPERS[@]} -ge $(ls "$DIRECTORY" | wc -l) ]; then
-    echo "All wallpapers have been used, clearing the list"
-    rm "$WALLPAPERS_FILE"
+  if [[ "$used" == false ]]; then
+    UNUSED_WALLPAPERS+=("$wallpaper")
   fi
 done
 
-echo "$WALLPAPER" >>"$WALLPAPERS_FILE"
+if ((${#UNUSED_WALLPAPERS[@]} == 0)); then
+  echo "All wallpapers have been used, clearing the history"
+  : >"$WALLPAPERS_FILE"
+  UNUSED_WALLPAPERS=("${WALLPAPERS[@]}")
+fi
 
-FINAL="$DIRECTORY/$WALLPAPER"
+FINAL=${UNUSED_WALLPAPERS[RANDOM % ${#UNUSED_WALLPAPERS[@]}]}
+printf '%s\n' "$FINAL" >>"$WALLPAPERS_FILE"
 
 caelestia wallpaper -f "$FINAL" --no-smart
 caelestia scheme set -m dark

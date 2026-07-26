@@ -1,5 +1,14 @@
 #!/bin/sh
+
+if [ "$#" -lt 2 ]; then
+  printf 'usage: %s INTERVAL COMMAND [ARG ...]\n' "$0" >&2
+  exit 2
+fi
+
+interval=$1
+shift
+
 while true; do
-  $2
-  sleep $1
+  "$@"
+  sleep "$interval"
 done
