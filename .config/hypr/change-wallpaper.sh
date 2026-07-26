@@ -49,6 +49,5 @@ FINAL=${UNUSED_WALLPAPERS[RANDOM % ${#UNUSED_WALLPAPERS[@]}]}
 printf '%s\n' "$FINAL" >>"$WALLPAPERS_FILE"
 
 caelestia wallpaper -f "$FINAL" --no-smart
-caelestia scheme set -m dark
 
 echo "Wallpaper successfully changed to $FINAL"
