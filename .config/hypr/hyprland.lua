@@ -64,10 +64,6 @@ hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "HyprBibataModernClassicSVG")
 hl.env("XDG_MENU_PREFIX", "arch-")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "qtengine")
-hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 
 optional_require(machine .. "environment")
 
@@ -83,6 +79,13 @@ hl.config({
         resize_on_border = false,
         allow_tearing = false,
         layout = "scrolling",
+    },
+    scrolling = {
+        follow_min_visible = 0.0,
+        explicit_column_widths = "0.35, 0.5, 0.65, 1.0",
+    },
+    binds = {
+        scroll_event_delay = 0,
     },
     decoration = {
         rounding = 10,
@@ -392,6 +395,16 @@ hl.layer_rule({ name = "layerrule-gtk-layer-shell", match = { namespace = "gtk-l
 hl.layer_rule({ name = "layerrule-waybar", match = { namespace = "waybar" }, blur = true })
 hl.layer_rule({ name = "swaync-notification-blur", match = { namespace = "swaync-notification-window" }, blur = true, ignore_alpha = 0.5 })
 hl.layer_rule({ name = "logout-dialog-blur", match = { namespace = "logout_dialog" }, blur = true })
+hl.layer_rule({
+    name = "caelestia-picker-no-anim",
+    match = { namespace = "^caelestia-(border-exclusion|area-picker)$" },
+    no_anim = true,
+})
+hl.layer_rule({
+    name = "caelestia-shell-fade",
+    match = { namespace = "^caelestia-(drawers|background)$" },
+    animation = "fade",
+})
 
 optional_require(machine .. "workspaces")
 optional_require(machine .. "windowrules")
