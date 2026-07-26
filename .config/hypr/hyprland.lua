@@ -46,7 +46,7 @@ hl.monitor({
     output = "",
     mode = "preferred",
     position = "auto",
-    scale = 1,
+    scale = "auto",
 })
 
 hl.on("hyprland.start", function()
@@ -142,12 +142,13 @@ hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36,
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
 
 local animations = {
     { leaf = "global", enabled = true, speed = 10, bezier = "default" },
     { leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" },
-    { leaf = "windows", enabled = true, speed = 4.79, bezier = "easeOutQuint" },
-    { leaf = "windowsIn", enabled = true, speed = 4.1, bezier = "easeOutQuint", style = "popin 87%" },
+    { leaf = "windows", enabled = true, speed = 4.79, spring = "easy" },
+    { leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" },
     { leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" },
     { leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" },
     { leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" },
@@ -160,6 +161,7 @@ local animations = {
     { leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" },
     { leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" },
     { leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" },
+    { leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" },
 }
 
 for _, animation in ipairs(animations) do
@@ -184,7 +186,6 @@ hl.bind(main_mod .. " + d", app_exec(programs.menu))
 hl.bind(main_mod .. " + Period", app_exec("vicinae vicinae://launch/core/search-emojis"))
 hl.bind(main_mod .. " + w", app_exec(programs.browser))
 hl.bind(main_mod .. " + P", hl.dsp.window.pin())
-hl.bind(main_mod .. " + o", hl.dsp.layout("togglesplit"))
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(main_mod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("Print", app_exec(programs.screenshot_save))
@@ -254,6 +255,12 @@ hl.window_rule({
     name = "transparent-apps",
     match = { class = "^(Code|Slack|WebCord|Spotify|Alacritty|foot|footclient|com.mitchellh.ghostty)$" },
     opacity = "0.9 0.6",
+})
+
+hl.window_rule({
+    name = "suppress-maximize-events",
+    match = { class = ".*" },
+    suppress_event = "maximize",
 })
 
 hl.window_rule({
