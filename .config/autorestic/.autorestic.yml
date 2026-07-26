@@ -8,24 +8,13 @@ backends:
       password: ""
     options: {}
 locations:
-  etc:
-    from:
-      - /etc
-    to:
-      - nas
-    cron: "0 * * * *"
-    options:
-      forget:
-        keep-hourly: 24
-        keep-daily: 7
-        keep-weekly: 4
-        keep-monthly: 12
   home:
     from:
       - ~/
     type: ""
     to:
       - nas
+    forget: "yes"
     hooks:
       dir: ""
       prevalidate: []
@@ -53,6 +42,10 @@ locations:
           - projects/**/.next
           - work/**/.next
           - .cache
+          - .chroot
+          - .local/share/containers/storage
+          - projects/odysseus/data/.app_key
+          - projects/odysseus/data/uploads/uploads.json
       forget:
         keep-hourly: 24
         keep-daily: 7
