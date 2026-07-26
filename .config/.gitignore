@@ -89,4 +89,6 @@ AGENTS.local.md
 CLAUDE.md
 
 .gabe-ignore/
+.worktrees/
+/.impeccable
 tmp/
