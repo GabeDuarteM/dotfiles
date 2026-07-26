@@ -65,3 +65,5 @@ alias echoPath="sed 's/:/\n/g' <<<\"\$PATH\""
 alias chromedbg="google-chrome-stable --remote-debugging-port=9222 --user-data-dir=\"\$HOME/.config/chrome-debug\""
 alias oc="opencode"
 alias cc="claude"
+alias ccusage-fleet='HERMES_HOME="$HOME/.hermes,/mnt/nas/appdata/hermes" bunx ccusage'
+alias ccuf='HERMES_HOME="$HOME/.hermes,/mnt/nas/appdata/hermes" bunx ccusage'
