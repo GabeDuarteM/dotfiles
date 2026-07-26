@@ -122,7 +122,8 @@ hl.config({
         middle_click_paste = false,
     },
     input = {
-        kb_layout = "custom",
+        kb_layout = "us",
+        kb_variant = "",
         kb_model = "",
         kb_options = "",
         kb_rules = "",
