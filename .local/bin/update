@@ -34,6 +34,7 @@ paru -Sy
 
 printf "\nGetting list of packages to update...\n"
 upgrades="$(paru -Quq)" || exit 1
+aur_upgrades="$(paru -Qua 2>/dev/null || true)"
 
 if [[ -z "${upgrades}" ]]; then
   printf "\nNo pacman or AUR upgrades.\n"
@@ -41,6 +42,11 @@ else
   printf "\nThe full package list is below:\n"
   printf "%s\n" "${upgrades}"
   printf "\nThere are %s packages to update.\n" "$(printf "%s\n" "${upgrades}" | wc -l | tr -d ' ')"
+fi
+
+if [[ -n "${aur_upgrades}" ]]; then
+  printf "\nAUR packages that will be scanned by the paru pre-build hook:\n"
+  printf "%s\n" "${aur_upgrades}"
 fi
 
 ignore=()
@@ -64,9 +70,9 @@ fi
 
 printf "\nUpgrading packages...\n"
 if ((${#ignore[@]})); then
-  paru -Su --ignore "${ignore[@]}"
+  paru -Su --review --ignore "${ignore[@]}"
 else
-  paru -Su
+  paru -Su --review
 fi
 
 printf "\nUpdating flatpak packages...\n"
