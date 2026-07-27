@@ -143,7 +143,22 @@ hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36,
 hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+-- Spring curves ignore the `speed` field entirely: hyprutils' advanceSpring() takes only
+-- stiffness, damping and mass, so duration emerges from the physics. Springs therefore
+-- need their own knob, and the leaves using "easy" (windows, windowsIn) are the most
+-- visible animations in this config.
+--
+-- Scaling stiffness by the square of the factor and dampening by the factor leaves the
+-- damping ratio unchanged, so the animation keeps exactly the same character (same slight
+-- overshoot) while finishing proportionally sooner. 1.0 restores the defaults.
+local spring_speed_scale = 2.0
+
+hl.curve("easy", {
+    type = "spring",
+    mass = 1,
+    stiffness = 71.2633 * spring_speed_scale ^ 2,
+    dampening = 15.8273644 * spring_speed_scale,
+})
 
 local animations = {
     { leaf = "global", enabled = true, speed = 10, bezier = "default" },
