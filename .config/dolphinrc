@@ -9,6 +9,9 @@ DirHistory[$e]=$HOME/Downloads/
 Version=202
 ViewPropsTimestamp=2024,8,7,1,58,18.05
 
+[Icons]
+Theme=Papirus-Dark
+
 [KFileDialog Settings]
 Places Icons Auto-resize=false
 Places Icons Static Size=22
