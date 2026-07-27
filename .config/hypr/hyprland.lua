@@ -1,3 +1,6 @@
+local home = os.getenv("HOME")
+package.path = package.path .. ";" .. home .. "/.config/hypr/?.lua"
+
 local machine = "hyprland.machine-specific."
 
 local programs = {
@@ -24,6 +27,8 @@ local function optional_require(name)
 
     error(loaded, 0)
 end
+
+local scheme = optional_require("scheme.current") or require("scheme.default")
 
 local function shell_quote(value)
     return "'" .. value:gsub("'", "'\\''") .. "'"
@@ -74,8 +79,8 @@ hl.config({
         gaps_out = 20,
         border_size = 2,
         col = {
-            active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border = "rgba(" .. scheme.primary .. "e6)",
+            inactive_border = "rgba(" .. scheme.onSurfaceVariant .. "11)",
         },
         resize_on_border = false,
         allow_tearing = false,
@@ -97,7 +102,7 @@ hl.config({
             enabled = true,
             range = 4,
             render_power = 3,
-            color = "rgba(1a1a1aee)",
+            color = "rgba(" .. scheme.inversePrimary .. "10)",
         },
         blur = {
             enabled = true,
@@ -121,6 +126,24 @@ hl.config({
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
         middle_click_paste = false,
+        background_color = "rgb(" .. scheme.surfaceContainer .. ")",
+    },
+    group = {
+        col = {
+            border_active = "rgba(" .. scheme.primary .. "e6)",
+            border_inactive = "rgba(" .. scheme.onSurfaceVariant .. "11)",
+            border_locked_active = "rgba(" .. scheme.primary .. "e6)",
+            border_locked_inactive = "rgba(" .. scheme.onSurfaceVariant .. "11)",
+        },
+        groupbar = {
+            text_color = "rgb(" .. scheme.onPrimary .. ")",
+            col = {
+                active = "rgba(" .. scheme.primary .. "d4)",
+                inactive = "rgba(" .. scheme.outline .. "d4)",
+                locked_active = "rgba(" .. scheme.primary .. "d4)",
+                locked_inactive = "rgba(" .. scheme.secondary .. "d4)",
+            },
+        },
     },
     input = {
         kb_layout = "us",
