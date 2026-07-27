@@ -31,3 +31,5 @@
   line-numbers = true
 [pull]
 	rebase = false
+[branch]
+	autoSetupMerge = simple
