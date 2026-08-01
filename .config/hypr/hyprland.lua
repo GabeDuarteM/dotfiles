@@ -263,8 +263,8 @@ end
 
 hl.bind(main_mod .. " + comma", hl.dsp.layout("move +col"))
 hl.bind(main_mod .. " + m", hl.dsp.layout("move -col"))
-hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move +col"))
-hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move -col"))
+hl.bind(main_mod .. " + mouse_up", hl.dsp.layout("move -col"))
+hl.bind(main_mod .. " + mouse_down", hl.dsp.layout("move +col"))
 hl.bind(main_mod .. " + SHIFT + comma", hl.dsp.layout("swapcol r"))
 hl.bind(main_mod .. " + SHIFT + m", hl.dsp.layout("swapcol l"))
 hl.bind(main_mod .. " + u", hl.dsp.layout("colresize +conf"))
