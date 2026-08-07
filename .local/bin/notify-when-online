@@ -2,30 +2,29 @@
 
 set -u
 
-readonly ping_target="1.1.1.1"
+readonly ping_target="google.com"
 readonly ntfy_url="https://ntfy.nas.gdm.dev/phone"
 readonly check_interval=2
 
 printf 'Waiting for Internet connectivity'
 until ping -n -c 1 -W 1 "$ping_target" >/dev/null 2>&1; do
-    printf '.'
-    sleep "$check_interval"
+  printf '.'
+  sleep "$check_interval"
 done
 
 printf '\nInternet restored. Sending ntfy notification...\n'
 until curl -fsS \
-    --retry 3 \
-    --retry-all-errors \
-    --connect-timeout 5 \
-    --max-time 15 \
-    -H 'Title: Internet restored' \
-    -H 'Priority: high' \
-    -H 'Tags: signal_strength,tada' \
-    -d 'Internet connectivity is available again.' \
-    "$ntfy_url" >/dev/null
-do
-    printf 'Notification failed. Retrying in %s seconds...\n' "$check_interval"
-    sleep "$check_interval"
+  --retry 3 \
+  --retry-all-errors \
+  --connect-timeout 5 \
+  --max-time 15 \
+  -H 'Title: Internet restored' \
+  -H 'Priority: high' \
+  -H 'Tags: signal_strength,tada' \
+  -d 'Internet connectivity is available again.' \
+  "$ntfy_url" >/dev/null; do
+  printf 'Notification failed. Retrying in %s seconds...\n' "$check_interval"
+  sleep "$check_interval"
 done
 
 printf 'ntfy notification sent.\n'
