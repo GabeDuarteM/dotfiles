@@ -62,7 +62,7 @@ hl.on("hyprland.start", function()
     if type(machine_autostart) == "function" then
         machine_autostart()
     end
-    hl.exec_cmd("caelestia shell notifs clear")
+    hl.exec_cmd("sleep 10 && caelestia shell notifs clear")
 end)
 
 hl.env("XCURSOR_SIZE", "24")
