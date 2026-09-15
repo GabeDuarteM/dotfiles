@@ -275,7 +275,8 @@ hl.bind(main_mod .. " + SHIFT + u", hl.dsp.layout("promote"))
 
 hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-hl.bind(main_mod .. " + space", hl.dsp.exec_cmd("pkill -USR2 -n handy"))
+hl.bind(main_mod .. " + space", hl.dsp.exec_cmd("handy --toggle-post-process"))
+hl.bind("SUPER + ALT + Escape", hl.dsp.exec_cmd("handy --cancel"))
 
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -529,16 +530,6 @@ hl.window_rule({
 })
 
 hl.window_rule({ name = "wine-systray-move", match = { title = "^(Wine System Tray)$" }, move = { 500, 500 } })
-
--- hl.window_rule({
---     name = "handy-recording-nofocus",
---     match = { class = "^([Hh]andy)$", title = "^([Rr]ecording)$" },
---     no_initial_focus = true,
---     border_size = 0,
---     no_shadow = true,
---     no_blur = true,
---     float = true,
--- })
 
 hl.layer_rule({ name = "hyprpicker-no-anim", match = { namespace = "hyprpicker" }, no_anim = true })
 hl.layer_rule({ name = "grimblast-selection-no-anim", match = { namespace = "selection" }, no_anim = true })
