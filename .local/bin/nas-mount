@@ -11,4 +11,11 @@ if [[ ! -d "/mnt/nas/$1" ]]; then
 	mkdir -p "/mnt/nas/$1"
 fi
 
+if [[ "$1" == "projects" ]]; then
+	# Use the same server-side identity as T3. uid/gid alone only change local display.
+	exec sshfs nas:/mnt/user/projects /mnt/nas/projects \
+		-o "reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,uid=$(id -u),gid=$(id -g)" \
+		-o "sftp_server=/usr/bin/setpriv --reuid=99 --regid=100 --clear-groups /usr/libexec/sftp-server"
+fi
+
 sudo mount -t cifs "//gabenas.local/$1" "/mnt/nas/$1" -o credentials=/home/gabe/.config/smb/nas,username=gabe,uid=$(id -u),gid=$(id -g)
