@@ -24,7 +24,7 @@ function addToPath() {
 
 # Configure fnm (may log stuff if the default path is one with nvmrc)
 addToPath "$HOME/.local/share/fnm"
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 
@@ -123,7 +123,7 @@ export BUN_INSTALL="$HOME/.bun"
 addToPath "$BUN_INSTALL/bin"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
