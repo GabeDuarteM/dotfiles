@@ -312,7 +312,7 @@ hl.bind("CTRL + SUPER + K", hl.dsp.global("caelestia:showall"))
 
 hl.window_rule({
 	name = "transparent-apps",
-	match = { class = "^(Code|Slack|WebCord|Spotify|Alacritty|foot|footclient|com.mitchellh.ghostty)$" },
+	match = { class = "^(Code|[Ss]lack|WebCord|Spotify|Alacritty|foot|footclient|com.mitchellh.ghostty)$" },
 	opacity = "0.9 0.6",
 })
 
@@ -365,7 +365,7 @@ hl.window_rule({
 	match = { class = "^(vesktop)$" },
 	workspace = "special:magic",
 })
-hl.window_rule({ name = "slack-scratchpad", match = { class = "^(Slack)$" }, workspace = "special:magic" })
+hl.window_rule({ name = "slack-scratchpad", match = { class = "^([Ss]lack)$" }, workspace = "special:magic" })
 
 local floating_classes = {
 	yad = "^(Yad)$",
