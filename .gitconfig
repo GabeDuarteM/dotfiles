@@ -7,6 +7,8 @@
   excludesfile = ~/.config/.gitignore
 [alias]
   ignore = "!gi() { touch .gitignore; echo \"$(curl -sL https://www.gitignore.io/api/$@)\" >> .gitignore; echo \"Added $1 to .gitignore\" ;}; gi"
+  default-branch = !git symbolic-ref --short refs/remotes/origin/HEAD
+  parent = "!git log --first-parent --simplify-by-decoration --decorate-refs=refs/heads/ --decorate-refs=refs/remotes/$(git default-branch) --format=%D HEAD~1 | grep -m1 . | cut -d, -f1"
 
 [merge]
   conflictStyle = diff3
@@ -30,3 +32,5 @@
 	rebase = false
 [branch]
 	autoSetupMerge = simple
+[diff]
+	colorMoved = default
