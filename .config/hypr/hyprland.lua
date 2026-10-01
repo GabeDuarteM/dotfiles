@@ -281,6 +281,31 @@ hl.bind("SUPER + ALT + Escape", hl.dsp.exec_cmd("handy --cancel"))
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+local pip_resize = hl.dsp.window.resize()
+local pip_resizing = false
+
+hl.bind("mouse:273", function()
+	-- Finish the same drag even if the pointer leaves PiP before release.
+	if pip_resizing then
+		pip_resizing = false
+		return hl.dispatch(pip_resize)
+	end
+
+	local window = hl.get_active_window()
+	if not window or window.class ~= "zen" or window.title ~= "Picture-in-Picture" or not window.floating then
+		return { ok = false, pass_event = true }
+	end
+
+	local cursor = hl.get_cursor_pos()
+	local at, size = window.at, window.size
+	if cursor.x < at.x or cursor.y < at.y or cursor.x >= at.x + size.x or cursor.y >= at.y + size.y then
+		return { ok = false, pass_event = true }
+	end
+
+	pip_resizing = true
+	return hl.dispatch(pip_resize)
+end, { auto_consuming = true, description = "Resize Zen PiP with right-drag" })
+
 hl.bind(
 	"XF86AudioRaiseVolume",
 	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
