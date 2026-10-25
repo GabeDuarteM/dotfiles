@@ -157,3 +157,8 @@ fi
 unsetopt correctall
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# bash-style globbing and word splitting for agents `zsh -c` commands
+if [[ -n $CLAUDECODE && -z $ZSH_SCRIPT ]]; then
+  setopt no_nomatch sh_word_split
+fi
