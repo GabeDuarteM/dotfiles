@@ -335,6 +335,8 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 hl.bind("CTRL + ALT + Delete", hl.dsp.global("caelestia:session"))
 hl.bind("CTRL + SUPER + K", hl.dsp.global("caelestia:showall"))
 
+optional_require(machine .. "binds")
+
 hl.window_rule({
 	name = "transparent-apps",
 	match = { class = "^(Code|[Ss]lack|WebCord|Spotify|Alacritty|foot|footclient|com.mitchellh.ghostty)$" },
