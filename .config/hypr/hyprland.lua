@@ -534,6 +534,10 @@ hl.window_rule({
 	match = { class = "^(brave-browser)$", initial_title = "^(Meet - .*)$" },
 	float = true,
 	pin = true,
+	no_initial_focus = true,
+	border_size = 0,
+	no_shadow = true,
+	move = "monitor_w-window_w-20 monitor_h-window_h-20",
 })
 
 hl.window_rule({
