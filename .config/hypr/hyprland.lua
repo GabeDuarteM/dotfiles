@@ -8,10 +8,10 @@ local programs = {
 	file_manager = "dolphin",
 	menu = "vicinae vicinae://toggle",
 	browser = "zen-browser",
-	screenshot_copy = "/home/gabe/.local/bin/takeScreenshot.sh",
-	screenshot_copy_quick = "grimblast --notify --freeze copy area",
-	screenshot_edit = "grimblast --notify --freeze edit area",
-	screenshot_save = [[grimblast --notify --freeze copysave area "$HOME/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"]],
+	screenshot_copy = "qs -c caelestia ipc call picker openFreeze",
+	screenshot_copy_quick = "qs -c caelestia ipc call picker openFreezeClip",
+	screenshot_edit = "qs -c caelestia ipc call picker openFreeze",
+	screenshot_save = "qs -c caelestia ipc call picker openFreeze",
 }
 
 local function optional_require(name)
